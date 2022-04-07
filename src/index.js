@@ -8,6 +8,6 @@ import './js/backToTop';
 import './js/filmModal';
 import './js/galleryFetch';
 import './js/headerBtn';
-import './js/localeStorageServices';
+import './js/localeStorageService';
 import './js/pagination';
 import './js/search';
