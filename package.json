@@ -1,7 +1,7 @@
 {
   "name": "parcel-project-template",
   "version": "1.1.0",
-  "description": "",
+  "description": "Включите отображение скрытых файлов и папок в проводнике своей операционной системы, иначе вы не\r сможете выбрать и скопировать себе файлы настроек проекта, имена которых начинаются с точки.",
   "main": "index.js",
   "homepage": "https://oxica.github.io/project-filmoteka",
   "scripts": {
@@ -24,5 +24,14 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "basiclightbox": "^5.0.4",
+    "firebase": "^9.6.10",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
+    "notiflix": "^3.2.5",
+    "tui-pagination": "^3.4.1"
   }
 }
