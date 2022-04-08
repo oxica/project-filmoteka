@@ -1,0 +1,27 @@
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 32px;
+  z-index: 200;
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+
+  background-color: #ff6b0895;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  //   display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s;
+}
+
+.back-to-top:hover {
+  background-color: #ff6b08;
+}
+
+// .back-to-top-show {
+//   display: flex;
+// }
