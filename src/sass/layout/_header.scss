@@ -1,0 +1,58 @@
+.header{
+}
+.header-container{
+    background-color: rgb(129, 71, 5);
+    width: 320px;
+    height: 230px;
+    background-image: url(/images/header/desk-background-home-1x.jpg);
+   
+}
+.header__title{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 35px;
+display: flex;
+color: #FFFFFF; 
+display: none;
+}
+.header__controls{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 44px;
+    padding-bottom: 60px;
+}
+
+.header__controls-item{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;  
+    margin-left: 41px;
+}
+.header__search-form{
+    padding-bottom: 92px; 
+}
+.header__serch-input{
+    width: 280px;
+}
+
+
+.library__controls-item {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    
+    color: #FFFFFF; 
+    display: none;
+}
