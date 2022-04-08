@@ -11,3 +11,4 @@ import './js/headerBtn';
 import './js/localeStorageService';
 import './js/pagination';
 import './js/search';
+import './js/localization.js';
