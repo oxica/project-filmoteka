@@ -3,11 +3,13 @@ const API_KEY = "7a92417a5af1e8667d171d8c5ef3af4e";
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
+language = localStorage.getItem('language');
 
 export class API_service{
     constructor() {
         this.searchQuery = '';
         this.page = 1;
+        this.language;
     }
  
   
@@ -31,7 +33,7 @@ export class API_service{
             params: {
             api_key: API_KEY,
             query: this.searchQuery,
-            language: "en - US",
+            language: this.language,
             page:this.page,
             }});
           this.page++;
@@ -48,7 +50,7 @@ export class API_service{
       const { data }  = await axios(`movie/${this.searchQuery}` , { //for this to work make sure this.searchQuery type is number!!! 
             params: {
             api_key: API_KEY,
-            language: "en - US",
+            language: this.language,
             }});
       console.log(data)
       return data
