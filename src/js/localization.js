@@ -1,1 +1,1 @@
-localStorage.setItem("language", "en");
+localStorage.setItem("language", "en-US");

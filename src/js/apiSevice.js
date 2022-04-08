@@ -3,9 +3,10 @@ const API_KEY = "7a92417a5af1e8667d171d8c5ef3af4e";
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-language = localStorage.getItem('language');
+
 
 export class API_service{
+  language = localStorage.getItem('language');
     constructor() {
         this.searchQuery = '';
         this.page = 1;
