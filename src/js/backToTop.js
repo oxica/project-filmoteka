@@ -3,10 +3,10 @@
 //   let coords = document.documentElement.clientHeight;
 
 //   if (scrolled > coords) {
-//     goTopBtn.classList.add('back-to-top-show');
+//     goTopBtn.classList.add('back-to-top__show');
 //   }
 //   if (scrolled < coords) {
-//     goTopBtn.classList.remove('back-to-top-show');
+//     goTopBtn.classList.remove('back-to-top__show');
 //   }
 // }
 
