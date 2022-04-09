@@ -1,30 +1,28 @@
 <header class="header">
-  <div class="header-container container">
-    <h1 class="header__title">Filmoteka
-    </h1>
+  <nav class="header-container container">
+
     <div class="header__tabs" id="tabs-1">
-      <div class="header__controls" data-controls>
-        <a href="#Home" class="header__controls-item">HOME</a>
-        <a href="#MyLibrary" class="header__controls-item">MY LIBRARY</a>
+      <div class="header__title-panel">
+        <i class="fa-solid fa-film"></i>
+        <h1 class="header__title">Filmoteka
+        </h1>
       </div>
-
-      <div class="header__panes" data-panes>
-        <div class="header__pane" id="Home">
-          <form action="" class="header__search-form">
-            <input type="tex " name="searchQuery" autocomplete="of" placeholder="Поиск фильмов"
-              class="header__serch-input">
-            <!--  <button type="submit" class="serch-button"></button> -->
-          </form>
-        </div>
-
-        <!-- <div class="header__pane" id="MyLibrary">
-          <div class="library__controls" data-controls>
-            <a href="#Watched" class="library__controls-item ">WATCHED</a>
-            <a href="#Queue" class="library__controls-item">QUEUE</a>
-          </div>
-        </div> -->
-      </div>
+      <ul class="header__controls" data-controls>
+        <li><a href="#home" class="header__controls-item current">HOME</a></li>
+        <li><a href="#myLibrary" class="header__controls-item">MY LIBRARY</a></li>
+      </ul>
     </div>
-  </div>
+    <div class="header__panes" data-panes id="Home">
+      <form action="" class="header__search-form">
+        <label for="search-form-label">
+          <input type="text " name="searchQuery" autocomplete="of" placeholder="Movie search" class="search-form-input">
+          <button type="submit" class="input-search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <p class="search-form__error is-hidden">Sorry Brother, there is no such movie!</p>
+        </label>
+      </form>
+    </div>
+  </nav>
   </div>
 </header>
