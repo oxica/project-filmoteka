@@ -1,0 +1,244 @@
+// .modal-close-btn {
+//     // display: none;
+  
+//     @media screen and (max-width: 767px) {
+//       position: absolute;
+//       top: -30px;
+//       left: 0;
+  
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+  
+//       width: 100%;
+//       height: 30px;
+  
+//     //   font-family: ;
+//       color: white;
+//     //   background-color: 
+//     }
+//   }
+  
+  @media screen and (max-width: 767px) {
+    .modal-card {
+      position: absolute;
+  
+      background-color: #ffffff;
+      width: 320px;
+      margin-top: 350px;
+    }
+  }
+  
+  .genres {
+    display: flex;
+  }
+  
+  .image {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 10px;
+    
+    // height: 404px;
+    min-height: 478px;
+    width: 375px;
+    border-radius: 5px;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      width: 280px;
+      height: 416px;
+    }
+  }
+  
+  .cardItem__wrapper {
+    padding: 32px 20px 36px;
+  }
+  
+  .cardItem__name {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 50;
+    color: rgb(0, 0, 0);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  
+  .cardItem__wrapper p {
+    font-size: 12px;
+    font-weight: 500;
+  
+    font-family: 'Roboto';
+    line-height: 1.333;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+  }
+  
+  .cardItem_text {
+    color: #8d8d8d;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cardItem__vote_average {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 3px;
+    background-color: rgb(255, 107, 8);
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.5;
+    padding: 1px 9px 1px 10px;
+  }
+  
+  .cardItem__vote_count {
+    display: inline-block;
+    margin-left: 3px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 1px 4px 1px 4px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .cardItem___data {
+    margin-left: 63px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+  }
+  
+  .cardItem__title_data {
+    margin-left: 46px;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+  }
+  
+  .cardItem__genre {
+    display: inline-block;
+    margin-right: 90px;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      margin-right: 90px;
+    }
+  }
+  
+  .cardItem__genre_data {
+    color: rgb(0, 0, 0);
+    margin-right: 5px;
+  }
+  
+  .cardItem__genreList {
+    list-style: disc;
+    display: block;
+    flex-wrap: wrap;
+    list-style: disc;
+  }
+  
+  .cardItem__about {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+  }
+  
+  .cardItem__description {
+    font-size: 11px;
+    color: rgb(0, 0, 0);
+  }
+  
+  
+  .cardItem__button {
+    padding: 0 15px;
+    font-size: 12px;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    line-height: 1.333;
+    text-align: center;
+    height: 44px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 134px;
+  }
+  
+  // .cardItem__button:hover {
+  //   background-color: rgb(255, 107, 8);
+  //   color: rgb(255, 255, 255);
+  //   border: 0;
+  // }
+  
+  .cardItem__list {
+    list-style: none;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .modal-card {
+      background-color: #ffffff;
+      width: 720px;
+      margin-top: 0px;
+      display: flex;
+    }
+  
+    .image {
+      display: block;
+      width: auto;
+      height: auto;
+      padding-top: 10px;
+      border-radius: 5px;
+    }
+  
+    .cardItem {
+      display: flex;
+    }
+  
+    .cardItem__list {
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+    }
+  
+    .cardItem__wrapper {
+      width: 370px;
+      padding: 10px;
+      margin-left: 30px;
+    }
+  
+    .cardItem__image {
+      width: 295px;
+      padding-left: 50px;
+      padding-bottom: 10px;
+    }
+  
+    .cardItem__name {
+      font-size: 30px;
+      line-height: 35px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .modal-card {
+      background-color: #ffffff;
+      width: 810px;
+      margin-top: 0px;
+      display: flex;
+    }
+    .image {
+      display: block;
+      width: auto;
+      height: auto;
+      padding-top: 10px;
+      border-radius: 5px;
+    }
+  
+    .cardItem__wrapper {
+      width: 423px;
+    }
+  
+    .cardItem__genreList {
+      width: 290px;
+    }
+  }
