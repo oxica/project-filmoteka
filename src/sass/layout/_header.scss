@@ -1,14 +1,10 @@
-
+.header{
+  background-color: #000000;
+}
 .header-container {
     background-color: rgb(129, 71, 5);
     min-width: 320px;
     height: 230px;
-    @media screen and (min-width: 768px) {
-        height: 215px;
-      }
-      @media screen and (min-width: 1024px){
-          height: 216px;
-      }
     
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/header/mob-background-home-1x.jpg);
@@ -95,6 +91,10 @@ display: none;
     line-height: 14px;
     color: #FFFFFF;  
     margin-left: 41px;
+    &:focus,
+    &:hover{
+      color: #FF6B08;
+    }
 }
 .current {
     position: relative;
@@ -148,7 +148,7 @@ display: none;
     outline: none;
     &:focus,
     &:hover {
-      border-bottom: 1px solid #cf0808;
+      border-bottom: 1px solid #FF6B08;
     }
     @media screen and (min-width: 768px) {
     width: 336px;
@@ -164,6 +164,7 @@ display: none;
     background: transparent;
     border: none;
     outline: none;
+    cursor: pointer;
     @media screen and (min-width: 768px) {
         right: 170px;
       }
