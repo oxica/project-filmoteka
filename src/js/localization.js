@@ -13,7 +13,7 @@ const allLang = ['en', 'ua']
 //     },
 //     "headerLibrary": {
 //         "en": "MY LIBRARY",
-//         "ua": "Моя бібліотека"
+//         "ua": "Моя БІБЛІОТЕКА"
 //     },
 //     "placaholder": {
 //         "en": "Movie search",
