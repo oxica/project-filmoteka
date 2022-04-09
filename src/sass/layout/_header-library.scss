@@ -1,0 +1,160 @@
+//Фон Хеддера
+.header-library {
+    background-image: linear-gradient(to bottom,
+        #100001 50%,
+        #610315);
+}
+
+//Контейнер для Хеддера
+.header-library__container {
+    padding-top: 40px;
+    height: 230px;
+
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/header/mob-background-library-1x.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header/mob-background-library-2x.jpg);
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 220px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header/tab-background-library-1x.jpg);
+    
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url(../images/header/tab-background-library-2x.jpg);
+        }
+    }
+
+    @media screen and (min-width: 1024px) { 
+        height: 215px;
+        padding-left: 71px;
+        padding-right: 71px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/header/desk-background-library-1x.jpg);
+    
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url(../images/header/desk-background-library-2x.jpg);
+        }
+    }
+}
+
+// Навігація
+.header-library-nav {
+    margin-bottom: 60px;
+}
+
+.header-library-nav__list {
+    display: flex;
+    align-items: center;
+}
+
+.header-library-nav__item:last-child {
+    margin-left: 40px;
+}
+
+.header-library-nav__item:first-child {
+margin-right: auto;
+}
+
+.header-library-nav__button--logo {
+    @include flexcenter;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.header-library-nav__logotext {
+    display: none;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;    
+    color: #FFF;
+    @media screen and (min-width: 768px) {
+        display: block;
+        margin-left: 10px;
+    }
+}
+
+.header-library-nav__button {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    text-transform: uppercase;   
+    background-color: inherit;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.header-library-nav__button--active {
+    position: relative;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+    
+        display: block;
+        width: 69px;
+        height: 3px;
+    
+        background-color: #FF6B08;
+    }
+}
+
+//Кнопки "фільтру"
+.header-library-buttons {
+    @include flexcenter;
+}
+
+.header-library-buttons__item:first-child {
+    margin-right: 20px;
+    @media screen and (min-width: 768px) {
+        margin-right: 32px;
+    }
+    @media screen and (min-width: 1024px) {
+        margin-right: 16px;
+    }
+}
+
+.header-library-buttons__button {
+    width: 129.5px;
+    height: 44px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    background-color: inherit;
+    color: #fff;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    @media screen and (min-width: 768px) {
+        width: 152px;
+    }
+    @media screen and (min-width: 1024px) {
+        width: 148px;
+    }
+}
+
+.header-library-buttons__button:hover,
+.header-library-buttons__button--active {
+    background-color: #FF6B08;
+    border: 1px solid #FF6B08;
+}
