@@ -18,6 +18,7 @@ export class API_service {
       const { data } = await axios('trending/all/day', {
         params: {
           api_key: API_KEY,
+          language: this.language
         },
       });
       this.page++;
