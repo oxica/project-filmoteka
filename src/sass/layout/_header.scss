@@ -171,5 +171,22 @@ display: none;
         right: 297px;
       }
   }
+  .header__select {
+    width: 40px;
+    height: 20px;
+    font-family: 'Roboto';
+    font-size: 12px;
+    margin-left: 41px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
   
+  }
+  
+  .header__container-select {
+    display: flex;
+    padding-bottom: 60px;
+    padding-top: 44px;
+  }
   
