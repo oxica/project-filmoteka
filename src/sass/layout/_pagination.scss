@@ -3,6 +3,12 @@
     @include flexcenter();
 
     height: 40px;
+    margin-top: 0;
+    margin-bottom: 40px;
+
+    @media screen and (min-width: 1024px) {
+      margin-bottom: 60px;
+    }
 
     .tui-page-btn {
       @include flexcenter();
@@ -23,14 +29,6 @@
         border-left-color: var(--accent-color);
         border-right-color: var(--accent-color);
       }
-
-      // &.tui-first-child {
-      //   border-right-color: var(--accent-color);
-      // }
-
-      // &.tui-last-child {
-      //   border-left-color: #ff6b08;
-      // }
 
       &.tui-prev,
       &.tui-next {
@@ -58,6 +56,11 @@
 
     strong {
       background: transparent;
+    }
+
+    .tui-last,
+    .tui-first {
+      display: none;
     }
   }
 }
