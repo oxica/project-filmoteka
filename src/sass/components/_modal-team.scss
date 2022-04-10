@@ -1,35 +1,29 @@
-// .team__modal {
-//     overflow: auto;
-//     padding: 10px;
-// }
+.team__modal {
+    overflow-y: auto;
+    padding: 10px;
+}
 
-// .close-btn {
-//     position: absolute;
-//     width: 30px;
-//     height: 30px;
-//     top: 8px;
-//     right: 8px;
+.fa-regular {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    right: 8px;
 
-//     display: inline-flex;
-//     align-self: flex-start;
-//     justify-content: center;
-//     align-items: center;
+    display: inline-flex;
+    align-self: flex-start;
+    justify-content: center;
+    align-items: center;
 
-//     cursor: pointer;
-//     transition: color var(--hover-animation);
+    cursor: pointer;
+    transition: color var(--hover-animation);
 
-//     color: #8c8c8c;
+    color: #8c8c8c;
 
-//     &:hover,
-//     &:focus {
-//         color: #ff6b08;
-//     }
-    
-// }
-
-.fa-duotone {
-    width: 18px;
-    height: 18px;
+    &:hover,
+    &:focus {
+        color: #ff6b08;
+    }
 }
 
 .team {
@@ -41,6 +35,7 @@
     font-weight: 500;
     font-size: 30px;
     line-height: 1.16;
+    letter-spacing: 0.03em;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 0 0 15px #8c8c8c;
@@ -52,91 +47,81 @@
     background-color: transparent;
 
     box-shadow: 0 30px 50px rgba(0, 0, 0, 0.8);
+
 }
 
-span {
-    &:nth-child(1),
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4) {
-        position: absolute;
-    }
-
-    &:nth-child(1) {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background-color: linear-gradient(90deg, #000000, #ff6b08, #000000);
-        animation: animateTop 2s linear infinite paused;
-    }
-
-    &:nth-child(2) {
-        top: 0;
-        right: 0;
-        width: 3px;
-        height: 100%;
-        background-color: linear-gradient(0, #000000, #ff6b08, #000000);
-        animation: animateRight 2s linear infinite paused;
-    }
-
-    &:nth-child(3) {
-        bottom: 0;
-        left: 0;
-        width: 3px;
-        height: 100%;
-        background-color: linear-gradient(90deg, #000000, #ff6b08, #000000);
-        animation: animateBottom 2s linear infinite paused;
-    }
-
-    &:nth-child(4) {
-        top: 0;
-        left: 0;
-        width: 3px;
-        height: 100%;
-        background-color: linear-gradient(0, #000000, #ff6b08, #000000);
-        animation: animateLeft 2s linear infinite paused;
-    }
+.team__container {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-
-
-@keyframes animateTop {
-    0% {
-        transform:translateX(-100%)
-    }
-
-    100% {
-        transform:translateX(100%)
-    }
+.team__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
 }
 
-@keyframes animateRight {
-    0% {
-        transform:translateY(-100%)
-    }
-
-    100% {
-        transform:translateY(100%)
-    }
+.team__item {
+    text-align: center;
 }
 
-@keyframes animateBottom {
-    0% {
-        transform:translateX(100%)
-    }
-
-    100% {
-        transform:translateX(-100%)
-    }
+.team__item:not(:last-child) {
+    margin-bottom: 10px;
 }
 
-@keyframes animateLeft {
-    0% {
-        transform:translateY(100%)
-    }
+.team__img-wrapper {
+    margin-bottom: 10px;
+}
 
-    100% {
-        transform:translateY(-100%)
+.team__img {
+    align-items: center;
+}
+
+.team__developer {
+    font-style: 500;
+    font-size: 16px;
+    line-height: 1.18;
+    letter-spacing: 0.03em;
+    text-align: center;
+
+    margin-bottom: 10px;
+
+    border: none;
+    border-radius: 6px;
+    border-bottom: 2px solid #ff6b08;
+
+    color: #000000;
+}
+
+.team__prof {
+    font-style: 400;
+    font-size: 16px;
+    line-height: 1.18;
+    letter-spacing: 0.03em;
+
+    margin-bottom: 10px;
+
+    color: #ff6b08;
+}
+
+.team__link {
+    @include flexcenter(flex, center, center);
+}
+
+.fa-brands {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+
+    color: #000000;
+
+    transition: color var(--hover-animation);
+
+    &:hover,
+    &:focus {
+        color: #ff6b08;
     }
 }
