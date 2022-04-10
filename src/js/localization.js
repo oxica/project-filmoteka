@@ -4,6 +4,7 @@ const input = document.querySelector(".search-form-input");
 const headerItem = document.querySelectorAll('.header__controls-item');
 const footerItem = document.querySelectorAll('.footer__item');
 import { renderFilmsMarkup } from './apiSevice';
+import { onFormSubmit} from './apiSevice';
 import { API_service } from './apiSevice';
 const filmsApi = new API_service();
 const langArr = {
@@ -39,7 +40,6 @@ function changeURLLanguage() {
     let lang = select.value;
     location.href = window.location.pathname + '#' + lang;
     localStorage.setItem("language", `${lang}`);
-    filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
     location.reload()
 }
 function changeLanguage() {
@@ -64,7 +64,7 @@ function changeLanguage() {
         input.setAttribute("placeholder", "Movie search")
        
     }
-   
+    filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
        
 }
 changeLanguage()
