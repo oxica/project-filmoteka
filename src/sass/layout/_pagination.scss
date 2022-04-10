@@ -1,0 +1,63 @@
+.tui-pagination {
+  &.custom-tui-pagination {
+    @include flexcenter();
+
+    height: 40px;
+
+    .tui-page-btn {
+      @include flexcenter();
+
+      height: 100%;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 500;
+      border-radius: 5px;
+      border: 0;
+      color: var(--main-text-color);
+      min-width: 40px;
+      margin-right: 0;
+      margin-left: 0;
+
+      &.tui-is-selected {
+        background: var(--accent-color);
+        border-left-color: var(--accent-color);
+        border-right-color: var(--accent-color);
+      }
+
+      // &.tui-first-child {
+      //   border-right-color: var(--accent-color);
+      // }
+
+      // &.tui-last-child {
+      //   border-left-color: #ff6b08;
+      // }
+
+      &.tui-prev,
+      &.tui-next {
+        background-color: var(--second-white-color);
+      }
+    }
+
+    .tui-is-disabled {
+      .tui-ico-prev,
+      .tui-ico-next {
+        background-position: 0 0;
+      }
+    }
+
+    .tui-ico-prev,
+    .tui-ico-next {
+      background: url(../images/svg/arrow.svg) no-repeat 0 0;
+      width: 16px;
+      height: 16px;
+    }
+
+    .tui-ico-prev {
+      transform: rotate(180deg);
+    }
+
+    strong {
+      background: transparent;
+    }
+  }
+}
