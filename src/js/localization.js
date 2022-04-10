@@ -58,13 +58,14 @@ function changeLanguage() {
     input.removeAttribute('placeholder')
     if (hash === 'uk') {
         input.setAttribute("placeholder", "Пошук фільмів")
+        filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
         
     }
     else {
         input.setAttribute("placeholder", "Movie search")
        
     }
-    filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
+    
        
 }
 changeLanguage()
