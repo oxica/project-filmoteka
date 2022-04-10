@@ -5,11 +5,11 @@ const filmsListRef = document.querySelector('.films');
 const searchFormRef = document.querySelector('.header__search-form');
 const filmsApi = new API_service();
 
-filmsApi.fetchTrending().then(filmsMarkup).catch(console.log);
+filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
 
 searchFormRef.addEventListener('submit', onFormSubmit);
 
-function filmsMarkup(films) {
+function renderFilmsMarkup(films) {
   const markup = films
     .map(({ poster_path, title, name, release_date, first_air_date, genre_ids }) => {
       const genres = genresData
@@ -38,7 +38,7 @@ function onFormSubmit(evt) {
   filmsApi.searchQuery = evt.currentTarget.elements.searchQuery.value.trim();
   if (filmsApi.searchQuery === '') return;
 
-  filmsApi.fetchMoviesByKeyword().then(filmsMarkup).catch(console.log);
+  filmsApi.fetchMoviesByKeyword().then(renderFilmsMarkup).catch(console.log);
 
   searchFormRef.reset();
 }
