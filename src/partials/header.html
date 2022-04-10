@@ -11,11 +11,17 @@
         <li><a href="#home" class="header__controls-item current">HOME</a></li>
         <li><a href="#myLibrary" class="header__controls-item">MY LIBRARY</a></li>
       </ul>
+      <div class="header__container-select">
+        <select class="header__select">
+          <option value="en">EN</option>
+          <option value="ua">UA</option>
+        </select>
+      </div>
     </div>
     <div class="header__panes" data-panes id="Home">
       <form action="" class="header__search-form">
         <label for="search-form-label">
-          <input type="text " name="searchQuery" autocomplete="of" placeholder="Movie search" class="search-form-input">
+          <input type="text " name="searchQuery" autocomplete="off" placeholder="Movie search" class="search-form-input">
           <button type="submit" class="input-search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
