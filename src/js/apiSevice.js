@@ -22,7 +22,7 @@ export class API_service {
       });
       this.page++;
       Loading.remove();
-      console.log(data.results);
+      // console.log(data.results);
       return data.results;
     } catch (error) {
       console.log(error);
@@ -42,7 +42,7 @@ export class API_service {
       });
       this.page++;
       Loading.remove();
-      console.log(data.results);
+      // console.log(data.results);
       return data.results; //returns an OBJECT. e.g.{page: 1, results: Array(20), total_pages: 8, total_results: 147}
     } catch (error) {
       console.log(error);
