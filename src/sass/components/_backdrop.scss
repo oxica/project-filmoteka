@@ -88,6 +88,18 @@
     
     transition: transform 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71), 
     opacity 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+       width: 628px; 
+       padding: 42px 28px 38px 28px;
+
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 800px;
+        padding: 42px 28px 38px 28px;
+      
+    }
 }
 
 .close-btn {
@@ -108,7 +120,7 @@
     box-sizing: border-box;
 
     cursor: pointer;
-    transition: color var(--hover-animation);
+    transition: color 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
 
     color: #8c8c8c;
     background-color: #ffffff;
