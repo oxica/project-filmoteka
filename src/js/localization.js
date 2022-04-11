@@ -1,12 +1,12 @@
 const allLang = ['en', 'uk']
 const html = document.querySelector("html");
-const input = document.querySelector(".search-form-input");
+const input = document.querySelector(".header__search-form-input");
 const headerItem = document.querySelectorAll('.header__controls-item');
 const footerItem = document.querySelectorAll('.footer__item');
-import { renderFilmsMarkup } from './apiSevice';
-import { onFormSubmit} from './apiSevice';
-import { API_service } from './apiSevice';
-const filmsApi = new API_service();
+// import { renderFilmsMarkup } from './apiSevice';
+// import { onFormSubmit} from './apiSevice';
+// import { API_service } from './apiSevice';
+// const filmsApi = new API_service();
 const langArr = {
     "headerTitle": {
         "en": "Filmoteka",
@@ -51,14 +51,15 @@ function changeLanguage() {
     }
     select.value = hash;
     html.setAttribute("lang", `${hash}`)
+    html.setAttribute("lang", `${hash}`)
     document.querySelector('.header__controls-item').textContent = langArr['headerLink'][hash]
-    document.querySelector('.header__title').textContent = langArr['headerTitle'][hash]
+    document.querySelector('.logo').textContent = langArr['headerTitle'][hash]
     headerItem[1].textContent = langArr['headerLibrary'][hash]
-    document.querySelector('.footer__item').textContent = langArr['footeritem'][hash]
+    footerItem[0].textContent = langArr['footeritem'][hash]
     input.removeAttribute('placeholder')
     if (hash === 'uk') {
         input.setAttribute("placeholder", "Пошук фільмів")
-        filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
+        // filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
         
     }
     else {
