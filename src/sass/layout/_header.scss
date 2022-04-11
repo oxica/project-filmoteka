@@ -1,48 +1,53 @@
-.header {
+.header{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/header/mob-background-home-1x.jpg);
+  url(../images/header/mob-background-home-1x.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/mob-background-home-2x.jpg);
   }
 
   @media screen and (min-width: 768px) {
-    height: 220px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header/tab-background-home-1x.jpg);
-
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      height: 220px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/header/tab-background-home-2x.jpg);
-    }
+      url(../images/header/tab-background-home-1x.jpg);
+  
+      @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+          url(../images/header/tab-background-home-2x.jpg);
+      }
   }
 
-  @media screen and (min-width: 1024px) {
-    height: 215px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header/desk-background-home-1x.jpg);
-
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media screen and (min-width: 1024px) { 
+      height: 215px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/header/desk-background-home-2x.jpg);
-    }
+      url(../images/header/desk-background-home-1x.jpg);
+  
+      @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+          url(../images/header/desk-background-home-2x.jpg);
+      }
   }
 }
 .header-container {
   min-width: 320px;
-  height: 230px;
+  height: 230px; 
 }
-.header__tabs {
-  display: flex;
+.header__tabs{
+    display:flex; 
 }
-.header__title-panel {
-  display: flex;
+.header__title-panel{
+display: flex;
 }
-
 .icon-animation {
     width: 20px;
     height: 20px;
@@ -64,16 +69,31 @@ display: none;
 @media screen and (min-width: 768px) {
     display:flex;
     margin-left: 12px;
+    
   }
 }
-.header__controls {
-  display: flex;
-  padding-bottom: 60px;
-  padding-top: 44px;
-  margin-left: auto;
-  cursor: pointer;
+.header__controls{
+    display: flex;
+    padding-bottom: 60px;
+    padding-top: 44px;
+    margin-left: auto;
+    cursor: pointer;
 }
-
+.header__controls-item{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+    color: #FFFFFF;  
+    margin-left: 41px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:focus,
+    &:hover{
+      color: #FF6B08;
+     
+    }
+}
 /* .header__controls-item--active{
 
 color: #0de71f;
@@ -134,8 +154,9 @@ color: #0de71f;
       border-bottom: 1px solid #FF6B08;
     }
     @media screen and (min-width: 768px) {
-
-
+    width: 336px;
+      }
+  }
   .header__pane-search-form{
       position: relative;
   }
@@ -251,25 +272,6 @@ color: #0de71f;
   display: block;
 }
 
-.header__search-form {
-  position: relative;
-}
-.input-search-btn {
-  position: absolute;
-  right: -15px;
-  bottom: 0;
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  @media screen and (min-width: 768px) {
-    right: 170px;
-  }
-  @media screen and (min-width: 1024px) {
-    right: 297px;
-  }
-}
-
 .header__select {
   width: 40px;
   height: 20px;
@@ -284,6 +286,5 @@ color: #0de71f;
 
 .header__container-select {
   display: flex;
-  padding-bottom: 60px;
-  padding-top: 44px;
+
 }
