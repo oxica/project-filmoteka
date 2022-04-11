@@ -22,7 +22,7 @@ export class API_service {
       });
       this.page++;
       Loading.remove();
-      // console.log(data.results);
+      console.log(data.results);
       return data.results;
     } catch (error) {
       console.log(error);
