@@ -48,28 +48,35 @@
 .header__title-panel{
 display: flex;
 }
-  .logo{
-    padding-top: 30px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 1.16;
-    color: #FFFFFF; 
-    display: none;
+
+  .header__logo{
+    display: flex;
+    align-items: flex-start;
+    padding-top: 32px;
     cursor: pointer;
-    @media screen and (min-width: 768px) {
+  }
+  .icon-animation { 
+    display: block;
+    padding: 0;
+    margin-top: 2px;
+    margin-right: 10px; 
+}
+  .logo-title{
+    font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.16;
+  color: #FFFFFF; 
+  display: none;
+  @media screen and (min-width: 768px) {
         display:flex;
       }
   }
-.icon-animation {
-    width: 20px;
-    height: 20px;
-    color: #ff6b08;
-    margin-right: 34px;
-    animation: blur 0.85s ease-out infinite;
-    text-shadow: 0px 0px 1px #545454, 0px 0px 4px #545454; 
-    margin-top: 42px;
+
+.header__nav{
+  display: flex;
+  margin-left: auto;
 }
 
 .header__controls{

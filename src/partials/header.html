@@ -2,13 +2,17 @@
   <div class="header-container container" id="tabs-1">
     <div class="header__tabs">
       <div class="header__title-panel">
-        <i class="fa-solid fa-film icon-animation"></i>
-        <a href="#home" class="logo">Filmoteka</a>
+        <a href="" class="header__logo"><svg class="icon-animation " width="30px" height="30px" alt="logo">
+            <use href="/images/svg/symbol-defs.svg#icon-film"></use>
+          </svg><span class="logo-title">Filmoteka</span></a>
+        <!-- <span class="fa-solid fa-film fa-xl icon-animation "></span> -->
       </div>
-      <ul class="header__controls" data-controls>
-        <li><a href="#home" class="header__controls-item btn1 ">HOME</a></li>
-        <li><a href="#mylibrary" class="header__controls-item btn2 ">MY LIBRARY</a></li>
-      </ul>
+      <nav class="header__nav">
+        <ul class="header__controls" data-controls>
+          <li><a href="#home" class="header__controls-item btn1 ">HOME</a></li>
+          <li><a href="#mylibrary" class="header__controls-item btn2 ">MY LIBRARY</a></li>
+        </ul>
+      </nav>
     </div>
     <div class="header__container-select">
       <select class="header__select">
@@ -41,13 +45,13 @@
     </div>
     <div class="theme__switch-wrapper">
       <span id="toggle-icon">
-          <!-- <span class="toggle-text">Light Mode</span> -->
-          <i class="fas fa-sun"></i>
+        <!-- <span class="toggle-text">Light Mode</span> -->
+        <i class="fas fa-sun"></i>
       </span>
       <label class="theme__switch">
-          <input type="checkbox" class="day-night-switch">
-          <div class="slider round"></div>
+        <input type="checkbox" class="day-night-switch">
+        <div class="slider round"></div>
       </label>
- </div>
+    </div>
   </div>
 </header>
