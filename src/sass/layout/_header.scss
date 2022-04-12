@@ -1,4 +1,4 @@
-.header{
+.home{
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
   url(../images/header/mob-background-home-1x.jpg);
   background-position: center;
@@ -35,6 +35,49 @@
       (min-resolution: 2dppx) {
           background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
           url(../images/header/desk-background-home-2x.jpg);
+      }
+  }
+}
+.library{
+  background-image: linear-gradient(to bottom,
+      #100001 50%,
+      #610315);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+  url(../images/header/mob-background-library-1x.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/mob-background-library-2x.jpg);
+  }
+
+  @media screen and (min-width: 768px) {
+      height: 220px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/tab-background-library-1x.jpg);
+  
+      @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+          url(../images/header/tab-background-library-2x.jpg);
+      }
+  }
+
+  @media screen and (min-width: 1024px) { 
+      height: 215px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/desk-background-library-1x.jpg);
+  
+      @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+          url(../images/header/desk-background-library-2x.jpg);
       }
   }
 }
@@ -88,6 +131,7 @@ display: flex;
 }
 .header__controls-item{
     font-family: 'Roboto';
+    text-transform: uppercase;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -179,8 +223,7 @@ display: flex;
         right: 297px;
       }
   }
- 
-/* Кнопки Хедера Бібліотеки */
+
   .header__library-buttons {
     display: flex;
     justify-content:center ;
@@ -227,51 +270,6 @@ display: flex;
     border: 1px solid #FF6B08;
 }
 
-
-//Контейнер для Хеддера
-.header-library{
-  background-image: linear-gradient(to bottom,
-      #100001 50%,
-      #610315);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-  url(../images/header/mob-background-library-1x.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  @media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header/mob-background-library-2x.jpg);
-  }
-
-  @media screen and (min-width: 768px) {
-      height: 220px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header/tab-background-library-1x.jpg);
-  
-      @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-          url(../images/header/tab-background-library-2x.jpg);
-      }
-  }
-
-  @media screen and (min-width: 1024px) { 
-      height: 215px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/header/desk-background-library-1x.jpg);
-  
-      @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-          url(../images/header/desk-background-library-2x.jpg);
-      }
-  }
-}
 .pane{
   display: none;
 }
