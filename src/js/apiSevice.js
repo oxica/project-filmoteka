@@ -21,9 +21,10 @@ export class API_service {
         params: {
           api_key: API_KEY,
           language: this.language,
+          page: this.page,
         },
       });
-      this.page++;
+
       Loading.remove();
       console.log(data.results);
       return data.results;
@@ -42,10 +43,9 @@ export class API_service {
           api_key: API_KEY,
           query: this.searchQuery,
           language: this.language,
-          page: this.page,
         },
       });
-      this.page++;
+
       Loading.remove();
       // console.log(data.results);
       return data.results; //returns an OBJECT. e.g.{page: 1, results: Array(20), total_pages: 8, total_results: 147}
