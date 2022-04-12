@@ -6,7 +6,7 @@ import './js/switchDayNight';
 import './js/apiSevice';
 import './js/backToTop';
 import './js/filmModal';
-// import './js/galleryFetch';
+import './js/galleryFetch';
 import './js/headerBtn';
 import './js/localeStorageService';
 import './js/pagination';
