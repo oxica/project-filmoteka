@@ -12,10 +12,6 @@ const titletext = title.childNodes[0];
 const genres = document.querySelector('.genres');
 const genrestext = genres.childNodes[1];
 const filmsbutton = document.querySelectorAll(".cardItem__button")
-// import { renderFilmsMarkup } from './apiSevice';
-// import { onFormSubmit} from './apiSevice';
-// import { API_service } from './apiSevice';
-// const filmsApi = new API_service();
 const langArr = {
     "headerTitle": {
         "en": "Filmoteka",
@@ -95,7 +91,7 @@ function changeLanguage() {
     let hash = window.location.hash;
     hash = hash.substr(1);
     if (!allLang.includes(hash)) {
-        language = localStorage.getItem('language');
+        language = localStorage.setItem('language', 'en');
         location.href = window.location.pathname + `#en`;
         location.reload();
     }
@@ -115,11 +111,13 @@ function changeLanguage() {
     input.removeAttribute('placeholder')
     if (hash === 'uk') {
         input.setAttribute("placeholder", "Пошук фільмів")
-        // filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
+        localStorage.removeItem('language', 'en');
+        localStorage.setItem('language', 'uk');
         
     }
     else {
         input.setAttribute("placeholder", "Movie search")
+        language = localStorage.setItem('language', 'en')
        
     }
     
