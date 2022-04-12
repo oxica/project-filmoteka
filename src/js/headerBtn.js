@@ -38,14 +38,12 @@ class Tabs {
 
     if (currentActiveControlItem) {
       currentActiveControlItem.classList.remove(this._activeControlClass);
-
       const paneId = this._getPaneId(currentActiveControlItem);
       this._removeActivePane(paneId);
     }
 
     const controlItem = event.target;
     controlItem.classList.add(this._activeControlClass);
-
     const paneId = this._getPaneId(controlItem);
     this._setActivePane(paneId);
   }
@@ -85,3 +83,29 @@ const tabs1 = new Tabs({
   activePaneClass: 'pane--active',
   activeTab: 1,
 });
+
+/* Функція Зміни зображення Бібліотеки  */
+const refs = {
+  homeLink: document.querySelector('.btn1'),
+  libraryLink: document.querySelector('.btn2'),
+  bacgraundIg: document.querySelector('.header'),
+};
+refs.homeLink.addEventListener('click', homeImg);
+refs.libraryLink.addEventListener('click', libraryImg);
+
+function libraryImg(event) {
+  event.preventDefault();
+  const library = event.target;
+  refs.bacgraundIg.classList.add('library');
+  if (library) {
+    refs.bacgraundIg.classList.remove('home');
+  }
+}
+function homeImg(event) {
+  event.preventDefault();
+  const home = event.target;
+  refs.bacgraundIg.classList.remove('library');
+  if (home) {
+    refs.bacgraundIg.classList.add('home');
+  }
+}
