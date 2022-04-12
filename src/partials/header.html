@@ -2,13 +2,17 @@
   <div class="header-container container" id="tabs-1">
     <div class="header__tabs">
       <div class="header__title-panel">
-        <i class="fa-solid fa-film icon-animation"></i>
-        <a href="#home" class="logo">Filmoteka</a>
+        <a href="" class="header__logo"><svg class="icon-animation " width="30px" height="30px" alt="logo">
+            <use href="/images/svg/symbol-defs.svg#icon-film"></use>
+          </svg><span class="logo-title">Filmoteka</span></a>
+        <!-- <span class="fa-solid fa-film fa-xl icon-animation "></span> -->
       </div>
-      <ul class="header__controls" data-controls>
-        <li><a href="#home" class="header__controls-item btn1">HOME</a></li>
-        <li><a href="#mylibrary" class="header__controls-item btn2">MY LIBRARY</a></li>
-      </ul>
+      <nav class="header__nav">
+        <ul class="header__controls" data-controls>
+          <li><a href="#home" class="header__controls-item btn1 ">HOME</a></li>
+          <li><a href="#mylibrary" class="header__controls-item btn2 ">MY LIBRARY</a></li>
+        </ul>
+      </nav>
     </div>
     <div class="header__container-select">
       <select class="header__select">
@@ -19,12 +23,7 @@
     <div class="header__panes" data-panes>
       <form class="pane header__pane-search-form" id="home">
         <label class="header__search-form-lab">
-          <input
-            type="text"
-            name="searchQuery"
-            placeholder="Movie search"
-            class="header__search-form-input"
-          />
+          <input type="text" name="searchQuery" placeholder="Movie search" class="header__search-form-input" />
           <button type="submit" class="header__input-search-buttons">
             <i class="fa-solid fa-magnifying-glass icon-animation-2"></i>
           </button>
@@ -34,10 +33,7 @@
       <div class="pane" id="mylibrary">
         <ul class="header__library-buttons">
           <li class="header__library-buttons-item">
-            <button
-              type="button"
-              class="header__library-buttons-button header__library-buttons-button--active"
-            >
+            <button type="button" class="header__library-buttons-button header__library-buttons-button--active">
               watched
             </button>
           </li>
