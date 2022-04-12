@@ -2,7 +2,7 @@ import { API_service } from './apiSevice';
 import genresData from './genres.json';
 
 const filmsListRef = document.querySelector('.films');
-const searchFormRef = document.querySelector('.header__search-form');
+const searchFormRef = document.querySelector('.header__pane-search-form');
 const filmsApi = new API_service();
 
 filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);

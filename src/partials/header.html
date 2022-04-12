@@ -1,34 +1,61 @@
-<header class="header">
-  <nav class="header-container container">
-
-    <div class="header__tabs" id="tabs-1">
+<header class="header" data-js="page-header">
+  <div class="header-container container" id="tabs-1">
+    <div class="header__tabs">
       <div class="header__title-panel">
-        <i class="fa-solid fa-film"></i>
-        <h1 class="header__title">Filmoteka
-        </h1>
+        <i class="fa-solid fa-film icon-animation"></i>
+        <a href="#home" class="logo">Filmoteka</a>
       </div>
       <ul class="header__controls" data-controls>
-        <li><a href="#home" class="header__controls-item current">HOME</a></li>
-        <li><a href="#myLibrary" class="header__controls-item">MY LIBRARY</a></li>
+        <li><a href="#home" class="header__controls-item btn1">HOME</a></li>
+        <li><a href="#mylibrary" class="header__controls-item btn2">MY LIBRARY</a></li>
       </ul>
-      <div class="header__container-select">
-        <select class="header__select">
-          <option value="en">EN</option>
-          <option value="ua">UA</option>
-        </select>
-      </div>
     </div>
-    <div class="header__panes" data-panes id="Home">
-      <form action="" class="header__search-form">
-        <label for="search-form-label">
-          <input type="text " name="searchQuery" autocomplete="off" placeholder="Movie search" class="search-form-input">
-          <button type="submit" class="input-search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
+    <div class="header__container-select">
+      <select class="header__select">
+        <option value="en">EN</option>
+        <option value="uk">UA</option>
+      </select>
+    </div>
+    <div class="header__panes" data-panes>
+      <form class="pane header__pane-search-form" id="home">
+        <label class="header__search-form-lab">
+          <input
+            type="text"
+            name="searchQuery"
+            placeholder="Movie search"
+            class="header__search-form-input"
+          />
+          <button type="submit" class="header__input-search-buttons">
+            <i class="fa-solid fa-magnifying-glass icon-animation-2"></i>
           </button>
-          <p class="search-form__error is-hidden">Sorry Brother, there is no such movie!</p>
+          <!-- <p class="search-form__error is-hidden">Sorry Brother, there is no such movie!</p> -->
         </label>
       </form>
+      <div class="pane" id="mylibrary">
+        <ul class="header__library-buttons">
+          <li class="header__library-buttons-item">
+            <button
+              type="button"
+              class="header__library-buttons-button header__library-buttons-button--active"
+            >
+              watched
+            </button>
+          </li>
+          <li class="header__library-buttons-item">
+            <button type="button" class="header__library-buttons-button">queue</button>
+          </li>
+        </ul>
+      </div>
     </div>
-  </nav>
+    <div class="theme__switch-wrapper">
+      <span id="toggle-icon">
+        <!-- <span class="toggle-text">Light Mode</span> -->
+        <i class="fas fa-sun"></i>
+      </span>
+      <label class="theme__switch">
+        <input type="checkbox" class="day-night-switch" />
+        <div class="slider round"></div>
+      </label>
+    </div>
   </div>
 </header>

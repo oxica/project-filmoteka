@@ -14,10 +14,13 @@ export class API_service {
 
   async fetchTrending() {
     try {
-      Loading.pulse();
+      Loading.pulse({
+        svgColor: 'orange',
+      });
       const { data } = await axios('trending/all/day', {
         params: {
           api_key: API_KEY,
+          language: this.language,
         },
       });
       this.page++;
@@ -31,7 +34,9 @@ export class API_service {
 
   async fetchMoviesByKeyword() {
     try {
-      Loading.pulse();
+      Loading.pulse({
+        svgColor: 'orange',
+      });
       const { data } = await axios('search/movie', {
         params: {
           api_key: API_KEY,
