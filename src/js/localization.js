@@ -96,7 +96,7 @@ function changeLanguage() {
     hash = hash.substr(1);
     if (!allLang.includes(hash)) {
         language = localStorage.getItem('language');
-        location.href = window.location.pathname + `${language}`;
+        location.href = window.location.pathname + `#en`;
         location.reload();
     }
     select.value = hash;
