@@ -10,6 +10,7 @@ export class API_service {
     this.searchQuery = '';
     this.page = 1;
     this.language;
+    this.id = null;
   }
 
   async fetchTrending() {
@@ -47,7 +48,7 @@ export class API_service {
       });
 
       Loading.remove();
-      // console.log(data.results);
+
       return data.results; //returns an OBJECT. e.g.{page: 1, results: Array(20), total_pages: 8, total_results: 147}
     } catch (error) {
       console.log(error);
@@ -57,14 +58,18 @@ export class API_service {
   async fetchMovieById() {
     //will throw an error if title "undefined";
     try {
-      const { data } = await axios(`movie/${this.searchQuery}`, {
+      Loading.pulse({
+        svgColor: 'orange',
+      });
+      const { data } = await axios(`movie/${this.id}`, {
         //for this to work make sure this.searchQuery type is number!!!
         params: {
           api_key: API_KEY,
           language: this.language,
         },
       });
-      console.log(data);
+      Loading.remove();
+
       return data;
     } catch (error) {
       console.log(error);

@@ -22,6 +22,7 @@
 }
 
 .films__item {
+  position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   overflow: hidden;
@@ -54,8 +55,6 @@
 }
 
 .films__img {
-  height: 450px;
-  width: 100%;
   margin-bottom: 10px;
   opacity: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -96,6 +95,24 @@
   margin-left: 5px;
   margin-right: 5px;
   background-color: var(--accent-color);
+}
+
+.films__rating {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 16px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  background-color: var(--accent-color);
+  color: var(--white-text-color);
+  border-radius: 5px;
 }
 
 body.dark__theme {
