@@ -1,6 +1,8 @@
 .team__modal {
     overflow-y: auto;
     padding: 10px;
+
+    background-color: #f7f7f7;
 }
 
 .fa-regular {
@@ -237,3 +239,27 @@
 //     filter: alpha opacity(0);
 //     transition: all 2s ease;
 //   }
+
+/* DARK THEME */
+body.dark__theme {
+    // .team__modal {
+    //     background-color: #1a1818;
+    // }
+
+    .fa-regular {
+        color: #ff6b08;
+
+        &:hover,
+        &:focus {
+            color: #8c8c8c;;
+        }
+    }
+
+    .team__developer {
+        color: #ff6b08;
+    }
+
+    .team__prof {
+        color: #000000;
+    }
+}
