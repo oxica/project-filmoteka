@@ -136,7 +136,8 @@
     line-height: 1.18;
     letter-spacing: 0.03em;
     text-align: center;
-
+    
+    // margin-top: 10px;
     margin-bottom: 10px;
 
     border: none;
@@ -188,6 +189,51 @@
     }
 }
 
-/* Dark theme */ 
+/* Animation */ 
+// .team__img-wrapper{
+//     position:relative;
+//     margin:0 auto;
+//     width: 170px; 
+//     height: 120px;       
+//     border-radius: 20px;
 
+//   }
+  
+// .team__img-wrapper .team__img,
+// .team__img-wrapper .team__photo {
+//     width: 100%;
+//     // height: auto;
+//     border-radius: 20px;
+//     position:absolute;
+//     left: 0;
+//     top: 0; 
+  
+//   }
+//   .team__img-wrapper.animate2 .team__img--first {
+//     opacity:0;
+//     filter:alpha opacity(0);
+//   }
+  
+//   .team__img-wrapper:hover .team__img--first{
+//     opacity:1;
+//     filter:alpha opacity(100);
+//   }
+  
+//   .team__img-wrapper:hover .team__img--second, 
+//   .team__img-wrapper .team__img--second:hover {
+//     opacity:0;
+//     filter:alpha opacity(0);
+//       transition: all 2s ease-in-out; 
+//   }
 
+//   .team__img-wrapper:not(:hover) .team__img--first:not(:hover){
+//     opacity:0;
+//     filter: alpha opacity(100);
+//      filter: alpha opacity(0);
+//     transition: all 2s ease;
+//   }
+//   .team__img:not(:hover), .team__img-wrapper .team__img--second:not(:hover) {
+//     opacity:1;
+//     filter: alpha opacity(0);
+//     transition: all 2s ease;
+//   }
