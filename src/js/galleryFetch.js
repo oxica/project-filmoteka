@@ -23,7 +23,7 @@ function renderFilmsMarkup(films) {
       }" class="films__img">
                 <p class="films__title">${title || name}</p>
                 <div class="films__meta">
-                  <p class="films__genres">${genres}</p>
+                  <p class="films__genres">${genres || 'Action'}</p>
                   <p class="films__data">${(release_date || first_air_date).slice(0, 4)}</p>
                 </div>
             </li>`;
