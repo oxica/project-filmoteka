@@ -2,7 +2,6 @@ const allLang = ['en', 'uk']
 const html = document.querySelector("html");
 const input = document.querySelector(".header__search-form-input");
 const headerItem = document.querySelectorAll('.header__controls-item');
-const footerItem = document.querySelectorAll('.footer__item');
 const title = document.querySelector('.cardItem-Title');
 const filmsbutton = document.querySelectorAll(".cardItem__button")
 const filmList = document.querySelectorAll('.film__details ') 
@@ -71,7 +70,19 @@ const langArr = {
      "footer": {
         "en": "Developed",
         "uk": "Розроблено"
-    }
+    },
+      "footercont": {
+        "en": "CONTACT US",
+        "uk": "ЗВ'ЯЗАТИСЯ З НАМИ"
+    },
+      "footerlink": {
+        "en": "FOLLOW US",
+        "uk": "Підписуйтесь на нас"
+    },
+      "footerapp": {
+        "en": "Download Our App",
+        "uk": "Завантажте наш додаток"
+    }    
      
 }
 const select = document.querySelector('select');
@@ -87,7 +98,7 @@ function changeLanguage() {
     hash = hash.substr(1);
     if (!allLang.includes(hash)) {
         language = localStorage.setItem('language', 'en');
-        location.href = window.location.pathname + `#en`;
+        location.href = window.location.pathname + '#en';
         location.reload();
     }
     select.value = hash;
@@ -95,8 +106,11 @@ function changeLanguage() {
     document.querySelector('.header__controls-item').textContent = langArr['headerLink'][hash]
     document.querySelector('.logo-title').textContent = langArr['headerTitle'][hash]
     headerItem[1].textContent = langArr['headerLibrary'][hash]
-    footerItem[0].textContent = langArr['footeritem'][hash]
+    document.querySelector('.footer__text').textContent = langArr['footeritem'][hash]
     filmListF.textContent = langArr['filmvote'][hash]
+    document.querySelector('.contact__text').textContent = langArr['footercont'][hash]
+    document.querySelector('.social__text').textContent = langArr['footerlink'][hash]
+    document.querySelector('.app__text').textContent = langArr['footerapp'][hash]
     // document.querySelector('.film__details').textContent = langArr['filmpop'][hash]
     // titletext.textContent = langArr['filmtitle'][hash]
     // genrestext.textContent = langArr['filmg'][hash]
@@ -112,7 +126,7 @@ function changeLanguage() {
     }
     else {
         input.setAttribute("placeholder", "Movie search")
-        language = localStorage.setItem('language', 'en')
+       language = localStorage.setItem('language', 'en')
        
     }
     
