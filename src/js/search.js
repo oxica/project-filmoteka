@@ -6,13 +6,18 @@ const filmsApi = new API_service();
 
 searchFormRef.addEventListener('submit', onFormSubmit);
 
-function onFormSubmit(evt) {
+async function onFormSubmit(evt) {
   evt.preventDefault();
 
-  filmsApi.searchQuery = evt.currentTarget.elements.searchQuery.value.trim();
-  if (filmsApi.searchQuery === '') return;
+  try {
+    filmsApi.searchQuery = evt.currentTarget.elements.searchQuery.value.trim();
+    if (filmsApi.searchQuery === '') return;
 
-  filmsApi.fetchMoviesByKeyword().then(renderFilmsMarkup).catch(console.log);
+    const films = await filmsApi.fetchMoviesByKeyword();
+    renderFilmsMarkup(films);
 
-  searchFormRef.reset();
+    searchFormRef.reset();
+  } catch (error) {
+    console.log(error);
+  }
 }

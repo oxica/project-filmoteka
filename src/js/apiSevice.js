@@ -11,6 +11,7 @@ export class API_service {
     this.page = 1;
     this.language;
     this.id = null;
+    this.genreId = null;
   }
 
   async fetchTrending() {
@@ -71,6 +72,26 @@ export class API_service {
       Loading.remove();
 
       return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async fetchMovieByGenre() {
+    try {
+      Loading.pulse({
+        svgColor: 'orange',
+      });
+      const { data } = await axios(`discover/movie`, {
+        params: {
+          api_key: API_KEY,
+          language: this.language,
+          with_genres: this.genreId,
+        },
+      });
+      Loading.remove();
+
+      return data.results;
     } catch (error) {
       console.log(error);
     }
