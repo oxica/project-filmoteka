@@ -29,14 +29,16 @@ export default function makeFilmsMarkup(films) {
                 <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${
           title || name
         }" class="films__img">
-                <p class="films__title">${title || name}</p>
-                <div class="films__meta">
-                  <p class="films__genres">${filmGenres || 'Action'}</p>
-                  <p class="films__data">${(release_date || first_air_date || '2023').slice(
-                    0,
-                    4,
-                  )}</p>
-                  <span class="films__rating">${vote_average || '-'}</span>
+                <div class="films__description">
+                  <p class="films__title">${title || name}</p>
+                  <div class="films__meta">
+                    <p class="films__genres">${filmGenres || 'Action'}</p>
+                    <p class="films__data">${(release_date || first_air_date || '2023').slice(
+                      0,
+                      4,
+                    )}</p>
+                    <span class="films__rating">${vote_average || '-'}</span>
+                  </div>
                 </div>
             </li>`;
       },
