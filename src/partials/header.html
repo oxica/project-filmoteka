@@ -1,8 +1,8 @@
-<header class="header home" data-img>
+<header class="header home">
   <div class="header-container container" id="tabs-1">
     <div class="header__tabs">
       <div class="header__title-panel">
-        <a href="" class="header__logo"><svg class="icon-animation " width="30px" height="30px" alt="logo">
+        <a href="" class="header__logo"><svg class="icon-animation " width="30px" height="30px">
             <use href="/images/svg/symbol-defs.svg#icon-film"></use>
           </svg><span class="logo-title">Filmoteka</span></a>
         <!-- <span class="fa-solid fa-film fa-xl icon-animation "></span> -->
@@ -12,7 +12,7 @@
           <li><a href="#home" class="header__controls-item btn1 ">Home</a></li>
           <li><a href="#mylibrary" class="header__controls-item btn2 ">My Library</a></li>
           <li><a href="#registration" class="header__registration-item">
-              <svg class="header__registration-icon" alt="logo">
+              <svg class="header__registration-icon">
                 <use href="/images/svg/symbol-defs.svg#icon-tux"></use>
               </svg>
             </a></li>
@@ -29,11 +29,12 @@
       <form class="pane header__pane-search-form" id="home">
         <label class="header__search-form-lab">
           <input type="text" name="searchQuery" placeholder="Movie search" class="header__search-form-input" />
-          <button type="submit" class="header__input-search-buttons">
-            <i class="fa-solid fa-magnifying-glass icon-animation-2"></i>
-          </button>
+
           <!-- <p class="search-form__error is-hidden">Sorry Brother, there is no such movie!</p> -->
         </label>
+        <button type="submit" class="header__input-search-buttons">
+          <i class="fa-solid fa-magnifying-glass icon-animation-2"></i>
+        </button>
       </form>
       <div class="pane" id="mylibrary">
         <ul class="header__library-buttons">
