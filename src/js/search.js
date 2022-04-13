@@ -1,5 +1,5 @@
 import { API_service } from './apiSevice';
-import renderFilmsMarkup from './templates/renderFilmsList';
+import renderFilmsMarkup from './templates/renderFilmsMarkup';
 
 const searchFormRef = document.querySelector('.header__pane-search-form');
 const filmsApi = new API_service();

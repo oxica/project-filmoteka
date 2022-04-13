@@ -1,4 +1,4 @@
-import makeFilmsMarkup from './filmsListMarkup';
+import makeFilmsMarkup from './filmsListMarkupTempl';
 
 const filmsListRef = document.querySelector('.films');
 
