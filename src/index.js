@@ -13,3 +13,4 @@ import './js/pagination';
 import './js/search';
 import './js/localization.js';
 import './js/searchByGenre.js';
+import './js/canvas.js';
