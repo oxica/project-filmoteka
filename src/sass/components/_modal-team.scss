@@ -263,3 +263,21 @@ body.dark__theme {
         color: #000000;
     }
 }
+
+//Тут була Оленка
+body.dark__theme .modal__team{
+    background-color: var(--second-dark-bg-color);
+    .fa-brands {
+        color: #8c8c8c;
+        &:hover,
+        &:focus {
+            color: #ff6b08;
+        }
+    }
+    .team__developer {
+        color: #ff6b08;
+    }
+    .team__prof {
+        color: white;
+    }
+}
