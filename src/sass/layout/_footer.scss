@@ -23,17 +23,30 @@
     }
 }
 
-.contact {
-    display: none;
+.text__p {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.36;
+    letter-spacing: 0.1em;
 
-    @media screen  and (min-width: 768px) {
-        display: block;
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+/* CONTACT */
+.contact {
+    // text-align: center;
+    padding-top: 10px;
+    
+    @media screen and (max-width: 768px) {
         text-align: center;
     }
 
-//     @media screen and (min-width: 768px) and (max-width: 1023px) {
-//         margin-bottom: 60px;
-//     }
+    @media screen  and (min-width: 767px) {
+        display: block;
+    }
 }
 
 .contact .contact__text {
@@ -57,22 +70,19 @@
   }
 }
 
+/* SOCIAL  */
 .social {
     text-align: center;
 
     @media screen and (max-width: 767px) {
+        margin-top: 20px;
         margin-bottom: 20px;
     }
-
-    // @media screen and (min-width: 768px) and (max-width: 1023px) {
-    //     text-align: center;
-    //     margin-bottom: 60px;
-    // }
 }
 
 .social .social__text {
     @media screen and (min-width: 768px) {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 }
 
@@ -87,8 +97,11 @@
     align-items: center;
 }
 
+/* APP */
+.app {
+    text-align: center;
+    padding-top: 10px;
 
-.app .app__text {
     @media screen and (min-width: 768px) {
         margin-bottom: 25px;
     }
@@ -96,10 +109,9 @@
 
 .app__text {
     text-align: center;
-    padding: 10px;
 
     @media screen and (max-width: 767px) {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 }
 
@@ -130,17 +142,7 @@
     }
 }
 
-.text__p {
-    margin-bottom: 20px;
-    margin-top: 10px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.33;
-    letter-spacing: 0.1em;
-}
-
+/* GOIT STUDENTS */
 .footer__copyright {
     text-align: center;
     display: flex;
@@ -247,4 +249,20 @@
  
 .main {
     min-height: calc(100vh - 320px);
+}
+
+/* DARK THEME */
+body.dark__theme {
+   .footer {
+       background-color: #1a1818;
+   }
+
+.fa-brands{
+    color: #ff6b08;
+
+    &:hover,
+    &:focus {
+        color: #000000;
+    }
+   }
 }
