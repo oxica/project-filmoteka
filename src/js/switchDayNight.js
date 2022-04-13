@@ -34,7 +34,11 @@ removeDarkTheme()
 function addDarkTheme(){
     document.body.classList.add('dark__theme');
     icon.classList.remove('fas', 'fa-sun')
-    icon.classList.add('fa-solid', 'fa-moon', 'icon__dark');    
+    icon.classList.add('fa-solid', 'fa-moon', 'icon__dark');
+  
+    if (icon.classList.contains('fa-moon')){
+        icon.style.animation="none"
+    }    
     movieNameArry.forEach(movie=>{
        movie.style.color = "var(--white-text-color)"
     })

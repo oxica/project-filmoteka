@@ -1,74 +1,174 @@
 .footer {
-   font-style: normal; 
-   font-weight: 400;
-   font-size: 14px;
-   line-height: 1.14;
-   text-align: center;
-
-   color: #545454;
-   background-color: #f7f7f7;
-
-//    height: 100px;
-   padding-top: 30px;
-   padding-bottom: 30px;
-
-   display: flex;
-   align-items: center;
-
-   @media screen and (min-width: 768px) {
-       font-size: 16px;
-       line-height: 1.18;
-
-    //    height: 79px;
-   }
-
-//    @media screen and (min-width: 1024px) {
-//        height: 77px;
-//    }
+    color: #545454;
+    background-color: #f7f7f7;
 }
 
-.footer__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.footer__section {
+    width: 100%;
+    margin-bottom: 20px;
 
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        display: block;
-        text-align: center;
+    border-bottom: 1px solid #ff6b08;
+
+    @media screen and (min-width: 320px) and (max-width: 767px) { 
+        justify-content: space-evenly;
+        align-items: baseline;
+    }
+    
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: baseline;
     }
 }
 
-.footer__list {
+.text__p {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.36;
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+/* CONTACT */
+.contact {
+    // text-align: center;
+    padding-top: 10px;
+    
+    @media screen and (max-width: 768px) {
+        text-align: center;
+    }
+
+    @media screen  and (min-width: 767px) {
+        display: block;
+    }
+}
+
+.contact .contact__text {
+    margin-bottom: 10px;
+}
+
+.contact__link {
+    font-style: 400;
+    font-size:  14px;
+    line-height: 1.71;
+    letter-spacing:  0.03em;
+
+    display: inline-block;
+    margin-bottom: 4px;
+
+  transition: color 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+
+  &:hover,
+  &:focus {
+    color: #ff6b08;
+  }
+}
+
+/* SOCIAL  */
+.social {
+    text-align: center;
+
+    @media screen and (max-width: 767px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.social .social__text {
+    @media screen and (min-width: 768px) {
+        margin-bottom: 20px;
+    }
+}
+
+.social__list {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* APP */
+.app {
+    text-align: center;
+    padding-top: 10px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 25px;
+    }
+}
+
+.app__text {
+    text-align: center;
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 20px;
+    }
+}
+
+.app__list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.app__item:not(:last-child) {
+    @media screen and (min-width: 1024px) {
+        margin-right: 20px;
+    }
+}
+
+.fa-brands {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+
+    color: #000000;
+
+    transition: color 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+
+    &:hover,
+    &:focus {
+        color: #ff6b08;
+    }
+}
+
+/* GOIT STUDENTS */
+.footer__copyright {
+    text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.footer__item {
-    display: flex;
-
-    @media screen and (min-width: 320px) {
-        &:not(:last-child) {
-            margin-bottom: 10px;
-        }
-    }
-
-    @media screen and (min-width: 768px) {
-        &:not(:last-child) {
-            margin-left: 0px;
-        }
-    }
-}
-
-// .fa-solid {
-//     width: 14px;
-//     height: 13px;
-
-//     margin-right: 10px;
-//     margin-left: 10px;
-
-//     color: #ff6b08;
-// }
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
+ }
+ 
+.footer__text {
+     display: flex;
+ 
+     @media screen and (min-width: 320px) {
+         &:not(:last-child) {
+             margin-bottom: 10px;
+         }
+     }
+ 
+     @media screen and (min-width: 768px) {
+         &:not(:last-child) {
+             margin-left: 0px;
+         }
+     }
+ }
 
 .fa-solid {
     width: 14px;
@@ -107,47 +207,62 @@
     text-decoration: underline;
     color: #545454;
 }
-
+ 
 .footer__link--name {
     font-weight: 500;
     text-transform: uppercase;
-
+ 
     animation: blur .85s ease-out infinite;
     text-shadow: 0px 0px 2px #ff6b08, 0px 0px 5px #ff6b08;
-}
-
+ }
+ 
 @keyframes blur {
-    from {
-        text-shadow: 0px 0px 10px #ff6b08,
-        0px 0px 10px #ff6b08,
-        0px 0px 25px #ff6b08,
-        0px 0px 25px #ff6b08,
-        0px 0px 25px #ff6b08,
-        0px 0px 50px #ff6b08,
-        0px 0px 50px #ff6b08,
-        0px 0px 150px #ff6b08,
-        0px 0px 100px #ff6b08,
-        0px 0px 100px #ff6b08,
-        0px 0px 100px #ff6b08,
-        0px -10px 100px #ff6b08,
-        0px -10px 100px #ff6b08;
-
-    }
+     from {
+         text-shadow: 0px 0px 10px #ff6b08,
+         0px 0px 10px #ff6b08,
+         0px 0px 25px #ff6b08,
+         0px 0px 25px #ff6b08,
+         0px 0px 25px #ff6b08,
+         0px 0px 50px #ff6b08,
+         0px 0px 50px #ff6b08,
+         0px 0px 150px #ff6b08,
+         0px 0px 100px #ff6b08,
+         0px 0px 100px #ff6b08,
+         0px 0px 100px #ff6b08,
+         0px -10px 100px #ff6b08,
+         0px -10px 100px #ff6b08;
+ 
+     }
+ }
+ 
+ .footer__text--begin {
+   font-weight: 700;
+ 
+   color: #000000;
 }
-
-.footer__text--begin {
-  font-weight: 700;
-
-  color: #000000;
-}
-
+ 
 .footer__text--end {
     font-weight: 700;
-
+ 
     color: #ff6b08;
 }
-
+ 
 .main {
     min-height: calc(100vh - 320px);
 }
 
+/* DARK THEME */
+body.dark__theme {
+   .footer {
+       background-color: #1a1818;
+   }
+
+.fa-brands{
+    color: #ff6b08;
+
+    &:hover,
+    &:focus {
+        color: #000000;
+    }
+   }
+}

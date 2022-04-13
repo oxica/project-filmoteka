@@ -51,7 +51,7 @@
   }
   
   input:checked + .slider::before {
-    transform: translateX(26px);
+    transform: translateX(16px);
   }
   
   .slider.round {
@@ -78,3 +78,26 @@ body.dark__theme{
 //   background-attachment: fixed;
 
 }
+
+body.dark__theme header,
+body.dark__theme footer
+{
+  box-shadow: 0px 1px 58px 12px rgba(255,85,0,0.7),
+            1px 2px 4px 0px rgba(255,85,0,0.7),
+            2px 4px 8px 0px rgba(255,85,0,0.7),
+            2px 4px 16px 0px rgba(255,85,0,0.7);
+}
+// body.dark-theme footer{
+//   box-shadow: 0px 1px 58px 12px rgba(255,85,0,0.7),
+//   1px 2px 4px 0px rgba(255,85,0,0.7),
+//   2px 4px 8px 0px rgba(255,85,0,0.7),
+//   2px 4px 16px 0px rgba(255,85,0,0.7);
+// }
+
+
+// body.dark-theme li:hover{
+//   box-shadow: 0px 1px 58px 12px rgba(255,85,0,0.7),
+//   1px 2px 4px 0px rgba(255,85,0,0.7),
+//   2px 4px 8px 0px rgba(255,85,0,0.7),
+//   2px 4px 16px 0px rgba(255,85,0,0.7);
+// }
