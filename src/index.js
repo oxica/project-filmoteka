@@ -15,4 +15,4 @@ import './js/localization.js';
 import './js/searchByGenre.js';
 import './js/canvas.js';
 import './js/library.js';
-
+import './js/userService/user-service';
