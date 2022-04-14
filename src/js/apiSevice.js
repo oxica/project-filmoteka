@@ -53,7 +53,7 @@ export class API_service {
 
       Loading.remove();
 
-      if (this.searchQuery == 'goit') {
+      if (this.searchQuery.toLowerCase() === 'goit') {
         can.classList.remove('is-hidden');
         new Fireworks().run();
         
