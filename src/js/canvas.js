@@ -13,7 +13,7 @@ class Battery
         this.salve = [];
         this.x     = Math.random();
         this.t     = 0;
-        this.tmod  = 20 + Math.random() * 20 | 0;
+        this.tmod  = 10 + Math.random() * 20 | 0;
         this.tmax  = 500 + Math.random() * 1000;
 
         this._shot = salve => {
