@@ -9,9 +9,9 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 export class API_service {
   language = localStorage.getItem('language');
-  constructor() {
+  constructor(page) {
     this.searchQuery = '';
-    this.page = 1;
+    this.page = page;
     this.language;
     this.id = null;
     this.genreId = null;
