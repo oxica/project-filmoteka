@@ -1,11 +1,13 @@
- (() => {
-    const refs = {
-    openTeamBtn: document.querySelector('[modal-team-open]'),
-    closeTeamBtn: document.querySelector('[modal-team-close]'),
-    modalTeam: document.querySelector('[modal-team]'),
-}
+//     const refs = {
+//     openTeamBtn: document.querySelector('js-modal-open'),
+//     closeTeamBtn: document.querySelector('js-modal-close'),
+//     modalTeam: document.querySelector('js-modal-team'),
+// }
+const openTeamBtn = document.querySelector('.js-modal-open');
+const closeTeamBtn = document.querySelector('.js-modal-close');
+const modalTeam = document.querySelector('.js-modal-team');
 
-refs.openTeamBtn.addEventListener('click', openModalTeam);
+openTeamBtn.addEventListener('click', openModalTeam);
 
 function openModalTeam(evt) {
     evt.preventDefault();
@@ -13,44 +15,45 @@ function openModalTeam(evt) {
 
     document.addEventListener('keydown', onEscKeyPress);
 
-    refs.closeTeamBtn.addEventListener('click', closeModalTeam);
-    refs.modalTeam.addEventListener('click', onBackdropClick);
+    closeTeamBtn.addEventListener('click', closeModalTeam);
+    modalTeam.addEventListener('click', onBackdropClick);
 }
 
- function toggleTeam() {
-     refs.modalTeam.classList.toggle('is-hidden');
-  }
+function toggleTeam() {
+    modalTeam.classList.toggle('is-hidden');
+}
 
-  function closeModalTeam() {
-      toggleTeam();
+function closeModalTeam() {
+    toggleTeam();
       
-      refs.closeTeamBtn.removeEventListener('click', closeModalTeam);
-  }
+    closeTeamBtn.removeEventListener('click', closeModalTeam);
+}
 
-  function onBackdropClick(evt) {
-      if (evt.currentTarget === evt.target) {
-          toggleTeam();
+function onBackdropClick(evt) {
+    if (evt.currentTarget === evt.target) {
+        toggleTeam();
 
-          document.removeEventListener('keydown', onEscKeyPress);
-          refs.modalTeam.removeEventListener('click', onBackdropClick);
-      }
-  }
+        document.removeEventListener('keydown', onEscKeyPress);
+        modalTeam.removeEventListener('click', onBackdropClick);
+    }
+}
 
-  function onEscKeyPress(evt) {
-      const ESK_KEY_CODE = 'Escape';
-      const isEskKey = evt.code == ESK_KEY_CODE;
+function onEscKeyPress(evt) {
+    const ESK_KEY_CODE = 'Escape';
+    const isEskKey = evt.code == ESK_KEY_CODE;
 
-      if (isEskKey) {
-          toggleTeam();
+    if (isEskKey) {
+        toggleTeam();
 
-          document.removeEventListener('keydown', onEscKeyPress);
+        document.removeEventListener('keydown', onEscKeyPress);
 
-          refs.closeTeamBtn.removeEventListener('click', closeModalTeam);
-          refs.modalTeam.removeEventListener('click', onBackdropClick);
-      }
-  }
+        closeTeamBtn.removeEventListener('click', closeModalTeam);
+        modalTeam.removeEventListener('click', onBackdropClick);
+    }
+}
 
-
+// (() => {
+    
 // refs.openTeamBtn.addEventListener('click', toggleModal);
 // refs.closeTeamBtn.addEventListener('click', toggleModal);
 
@@ -59,5 +62,5 @@ function openModalTeam(evt) {
 //     refs.modalTeam.classList.toggle('is-hidden');
 // }
 
-})();
+// })();
 
