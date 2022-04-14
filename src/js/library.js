@@ -12,6 +12,10 @@ homeBtnRef.addEventListener('click', onHomeBtnClick);
 // libraryBtnRef.addEventListener('click', onMyLibraryBtnClick);
 // watchedBtnRef.addEventListener('click', onWatchedBtnClick);
 // queueBtnRef.addEventListener('click', onQueueBtnClick);
+// const list = document.querySelector('.films');
+// list.addEventListener('click', e => {
+//   console.log(e.target.closest('li').dataset.id);
+// });
 
 async function onHomeBtnClick() {
   try {

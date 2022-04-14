@@ -28,7 +28,7 @@ export default function makeFilmsMarkup(films) {
         return `<li class="films__item" data-id=${id}>
                 <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${
           title || name
-        }" class="films__img">
+        }" class="films__img" loading="lazy">
                 <div class="films__description">
                   <p class="films__title">${title || name}</p>
                   <div class="films__meta">
