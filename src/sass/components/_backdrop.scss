@@ -47,11 +47,12 @@
     left: 0;
     opacity: 1;
 
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
 
     visibility: visible;
     pointer-events: auto;
-    overflow-y: scroll;
+    overflow: auto;
+    // overflow-y: scroll;
     // overflow-y: auto;
     // overflow-x: hidden;
 
@@ -66,7 +67,8 @@
 }
 
 .backdrop.is-hidden.modal {
-    position: absolute;
+    // position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     opacity: 0;
@@ -75,8 +77,9 @@
 }
 
 .modal {
-    position: absolute;
-    width: 400px;
+    // position: absolute;
+    position: relative;
+    width: 280px;
     padding: 50px 20px 30px 20px;
     top: 20px;
     left: 50%;
