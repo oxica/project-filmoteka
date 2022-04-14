@@ -6,7 +6,7 @@ const container = document.getElementById('pagination');
 const pageNum = 4;
 const filmsApi = new API_service(pageNum);
 
-filmsApi.fetchTrending().then().catch(console.log);
+//filmsApi.fetchTrending().then().catch(console.log);
 //console.log(filmsApi.fetchTrending())
 
 const options = { // below default value of options
