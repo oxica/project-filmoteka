@@ -1,5 +1,8 @@
 import axios from 'axios';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Fireworks } from './canvas';
+
+const can = document.querySelector('#blow');
 
 const API_KEY = '7a92417a5af1e8667d171d8c5ef3af4e';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
@@ -49,6 +52,18 @@ export class API_service {
       });
 
       Loading.remove();
+
+      if (this.searchQuery == 'goit') {
+        can.classList.remove('is-hidden');
+        new Fireworks().run();
+        
+        const closeClick = () => {
+          can.classList.toggle('is-hidden');
+          window.removeEventListener("click", closeClick);
+        };
+                        
+        window.addEventListener("click", closeClick)
+      }
 
       return data.results; //returns an OBJECT. e.g.{page: 1, results: Array(20), total_pages: 8, total_results: 147}
     } catch (error) {

@@ -1,4 +1,4 @@
-const can = document.querySelector('#blow')
+
 
 const rndColor = () => {
     const base  = Math.random() * 360 | 0;
@@ -128,7 +128,7 @@ class Battery
     }
 }
 
-class Fireworks
+export class Fireworks
 {
     constructor() {
         this.canvas = window.document.querySelector('canvas');
@@ -186,5 +186,6 @@ class Fireworks
     }
 }
 
-a = new Fireworks();
-a.run();
+
+// a = new Fireworks();
+// a.run();
