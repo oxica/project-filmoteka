@@ -56,13 +56,13 @@ export class API_service {
       if (this.searchQuery.toLowerCase() === 'goit') {
         can.classList.remove('is-hidden');
         new Fireworks().run();
-        
+
         const closeClick = () => {
-          can.classList.add('is-hidden');
-          window.removeEventListener("click", closeClick);
+          can.classList.toggle('is-hidden');
+          window.removeEventListener('click', closeClick);
         };
-            setTimeout(closeClick, 12000);            
-        window.addEventListener("click", closeClick)
+
+        window.addEventListener('click', closeClick);
       }
 
       return data.results; //returns an OBJECT. e.g.{page: 1, results: Array(20), total_pages: 8, total_results: 147}
