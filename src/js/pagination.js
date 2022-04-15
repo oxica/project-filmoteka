@@ -6,10 +6,11 @@ import 'tui-pagination/dist/tui-pagination.min.css'
 const container = document.getElementById('pagination');
 
 const filmsApi = new API_service();
-const options = {    
-     itemsPerPage: 10,
+const options = {   
+    totalItems: 200,
+     itemsPerPage: 5,
      visiblePages: 4,
-     centerAlign: true,
+     centerAlign: false,
 };
 
 const pagination = new Pagination(container, options);
