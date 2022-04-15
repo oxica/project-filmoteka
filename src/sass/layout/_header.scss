@@ -27,6 +27,9 @@
 
   @media screen and (min-width: 1024px) { 
       height: 215px;
+      // width: 1024px;
+      background-size: 1024px auto; 
+      background-color: var(--main-text-color);
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/desk-background-home-1x.jpg);
   
@@ -84,9 +87,11 @@
 .header-container {
   min-width: 320px;
   height: 230px; 
+  padding-top: 45px;
 }
 .header__tabs{
-    display:flex; 
+    display:flex;
+    justify-content: space-between
    }
 .header__title-panel{
 display: flex;
@@ -95,8 +100,8 @@ display: flex;
   .header__logo{
     display: flex;
     align-items: flex-start;
-    padding-top: 32px;
-    cursor: pointer;
+    // padding-top: 32px;
+    // cursor: pointer;
   }
   .icon-animation { 
     display: block;
@@ -111,24 +116,33 @@ display: flex;
   font-size: 30px;
   line-height: 1.16;
   color: #FFFFFF; 
-  display: none;
+  // display: none;
   @media screen and (min-width: 768px) {
-        display:flex;
+        display:block;
+      }
+      @media screen and (max-width: 768px) {
+        display: none;
       }
   }
 
 .header__nav{
   display: flex;
-  margin-left: auto;
+  // margin-left: auto;
 }
 
 .header__controls{
     display: flex;
-    padding-bottom: 60px;
-    padding-top: 44px;
-    margin-left: auto;
+    // padding-bottom: 60px;
+    // padding-top: 44px;
+    // margin-left: auto;
+    justify-content: space-between;
     cursor: pointer;
 }
+
+.header__panes {
+  margin-top: 44px;
+}
+
 .header__controls-item{
     font-family: 'Roboto';
     text-transform: uppercase;
