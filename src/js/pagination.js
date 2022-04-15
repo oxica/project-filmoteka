@@ -20,5 +20,5 @@ pagination.on('beforeMove', (event) => {
     filmsApi.page = currentPage;
     filmsApi.fetchTrending().then((images) => {
         renderFilmsMarkup(images);
-    }).catch(console.log);   
+    }).catch(console.log);
 });
