@@ -58,10 +58,10 @@ export class API_service {
         new Fireworks().run();
         
         const closeClick = () => {
-          can.classList.toggle('is-hidden');
+          can.classList.add('is-hidden');
           window.removeEventListener("click", closeClick);
         };
-                        
+            setTimeout(closeClick, 12000);            
         window.addEventListener("click", closeClick)
       }
 
