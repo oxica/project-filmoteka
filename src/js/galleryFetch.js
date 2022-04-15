@@ -9,7 +9,7 @@ filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
 
 searchFormRef.addEventListener('submit', onFormSubmit);
 
-function renderFilmsMarkup(films) {
+export function renderFilmsMarkup(films) {
   const markup = films
     .map(({ poster_path, title, name, release_date, first_air_date, genre_ids }) => {
       const genres = genresData
