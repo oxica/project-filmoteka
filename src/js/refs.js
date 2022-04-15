@@ -20,4 +20,6 @@ export const refs = {
   delAccTab: document.querySelector('#delete-accnt-tab'),
   confDelAcc: document.querySelector('#confDelAcc'),
   delAccBtn: document.querySelector('#delAccBtn'),
+  delAccBtnYes: document.querySelector('#delAccBtnYes'),
+  delAccBtnNo: document.querySelector('#delAccBtnNo'),
 };

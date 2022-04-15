@@ -18,8 +18,6 @@ const auth = getAuth(app);
 export default class User {
   constructor(userData) {
     this.userData = userData;
-    this._user = 'user name';
-    this._lib = '';
   }
 
   create() {

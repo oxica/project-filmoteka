@@ -37,7 +37,9 @@ function onOpenModalAuth() {
     refs.regForm.addEventListener('submit', onCreateUser);
 
     refs.logOutBtn.addEventListener('click', onLogOut);
-    refs.delAccBtn.addEventListener('click', onUserRemove);
+    refs.delAccBtnYes.addEventListener('click', onUserRemove);
+    refs.delAccBtnYes.addEventListener('click', onCloseModalAuth);
+    refs.delAccBtnNo.addEventListener('click', onCloseModalAuth);
   } else {
     refs.modalAuth.classList.toggle('visibility');
 
@@ -119,8 +121,8 @@ function onUserRemove(e) {
   refs.confDelAcc.classList.add('visibility');
   refs.delAccBtn.classList.add('visibility');
 
-  refs.body.removeAttribute('style');
   refs.modalAuth.classList.toggle('visibility');
+  refs.body.removeAttribute('style');
 }
 
 function onCreateUser(e) {
