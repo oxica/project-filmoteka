@@ -4,6 +4,4 @@ const choices = new Choices(selectStateInputEl, {
   searchEnabled:false,
 })
 let selectGenre = document.querySelector('.genre');
-const choicesgenre = new Choices(selectGenre, {
-  searchEnabled:false,
-})
+const choicesgenre = new Choices(selectGenre)
