@@ -274,8 +274,13 @@ body.dark__theme {
 }
 
 //Тут була Оленка
-body.dark__theme .modal__team{
+body.dark__theme .team__modal {
     background-color: var(--second-dark-bg-color);
+
+    .modal__close-btn {
+        background-color: #1a1818;
+    }
+    
     .fa-brands {
         color: #8c8c8c;
         &:hover,
@@ -283,9 +288,11 @@ body.dark__theme .modal__team{
             color: #ff6b08;
         }
     }
+
     .team__developer {
         color: #ff6b08;
     }
+
     .team__prof {
         color: white;
     }
