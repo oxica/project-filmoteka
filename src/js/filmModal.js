@@ -7,45 +7,50 @@ const closeBtnRef = document.querySelector('.closeModal');
 const modalWrap = document.querySelector('.modal__container');
 
 filmsListRef.addEventListener('click', onFilmCardClick);
-closeBtnRef.addEventListener('click', () => {
-  modalFilmRef.classList.add('is-hidden');
-});
+closeBtnRef.addEventListener('click', onCloseBtnClick);
 
 async function onFilmCardClick(e) {
-  if (e.target.nodeName === 'UL') return;
-  modalFilmRef.classList.remove('is-hidden');
+  try {
+    if (e.target.nodeName === 'UL') return;
+    modalFilmRef.classList.remove('is-hidden');
 
-  filmsApi.id = e.target.closest('li').dataset.id;
+    filmsApi.id = e.target.closest('li').dataset.id;
 
-  const film = await filmsApi.fetchMovieById();
-  makeFilmModalMarkup(film);
+    const film = await filmsApi.fetchMovieById();
+    modalWrap.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function makeFilmModalMarkup({
   poster_path,
   original_title,
+  title,
+  name,
   vote_average,
   vote_count,
-  id,
   genres,
   overview,
   popularity,
 }) {
   const filmGenres = genres.map(({ name }) => name).join(', ');
-  const markup = `<div class="film__image">
-      <img class="image" src=https://image.tmdb.org/t/p/original${poster_path} alt=${original_title} />
+  return `<div class="film__image">
+      <img class="image" src=https://image.tmdb.org/t/p/original${poster_path} alt=${
+    title || original_title || name
+  } />
     </div>
 
     <div class="film__information">
       <div>
-        <h2 class="film__title">${original_title}</h2>
+        <h2 class="film__title">${title || original_title || name}</h2>
         <ul>
           <li class="film__item">
             <p class="film__details">Vote / Votes</p>
             <p class="film__info--uper">
               <span class="film__rating--orange">${vote_average}</span>
               <span class="film__rating--divider"> / </span>
-              <span>${vote_count}</span>
+              <span class="vote-count">${vote_count}</span>
             </p>
           </li>
           <li class="film__item">
@@ -54,7 +59,7 @@ function makeFilmModalMarkup({
           </li>
           <li class="film__item">
             <p class="film__details">Original title</p>
-            <p>${original_title}</p>
+            <p>${title || original_title || name}</p>
           </li>
           <li class="film__item">
             <p class="film__details">Genre</p>
@@ -77,7 +82,18 @@ function makeFilmModalMarkup({
             <p class="film__trailer__text">watch trailer</p>
           </div>
         </a>
+      </div>
       </div>`;
+}
 
-  modalWrap.insertAdjacentHTML('afterbegin', markup);
+function onCloseBtnClick() {
+  modalFilmRef.classList.add('is-hidden');
+  resetModal();
+}
+
+function resetModal() {
+  const filmImg = document.querySelector('.film__image');
+  const filmInfo = document.querySelector('.film__information');
+  filmImg.remove();
+  filmInfo.remove();
 }
