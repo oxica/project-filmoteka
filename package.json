@@ -28,6 +28,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "basiclightbox": "^5.0.4",
+    "choices.js": "^10.1.0",
     "css-animator": "^2.4.0",
     "firebase": "^9.6.10",
     "lodash.debounce": "^4.0.8",
