@@ -1,0 +1,91 @@
+<div class="backdrop-auth visibility">
+  <div class="auth-container settings auth-container-msg-">
+    <ul id="log-in-page" class="auth-headers-list visibility">
+      <li id="log-in-tab" class="auth-headers-list-item auth-headers-list-item-inactive-top-left">
+        Log in
+      </li>
+      <li
+        id="reg-tab"
+        class="auth-headers-list-item auth-headers-list-item-inactive auth-headers-list-item-inactive-top-right"
+      >
+        Registration
+      </li>
+    </ul>
+
+    <ul id="user-settings-page" class="settings-headers-list visibility">
+      <li
+        id="settings-tab"
+        class="auth-headers-list-item settings-tab auth-headers-list-item-inactive-top-left auth-headers-list-item-inactive-top-righ"
+      >
+        User settings
+      </li>
+      <li
+        id="delete-accnt-tab"
+        class="auth-headers-list-item settings-tab auth-headers-list-item-inactive auth-headers-list-item-inactive-top-right"
+      >
+        Delete account
+      </li>
+    </ul>
+
+    <form id="log-in-form" class="log-in-form visibility">
+      <input id="logInEmail" class="input-auth" type="email" name="email" placeholder="E-mail" />
+      <input
+        id="logInPswd"
+        class="input-auth input-auth-icon"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+
+      <button class="auth-btn" id="log-in-btn" type="submit">Log in</button>
+    </form>
+
+    <form id="reg-form" class="auth-form registration-form visibility">
+      <input id="name" class="input-auth" type="text" name="name" placeholder="Username" />
+      <input id="email" class="input-auth" type="email" name="email" placeholder="E-mail" />
+      <input
+        id="pswd"
+        class="input-auth input-auth-icon"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+
+      <button class="auth-btn" id="register" type="submit">Register</button>
+    </form>
+
+    <form id="upd-form" class="upd-form visibility">
+      <input class="input-auth" type="text" name="name" placeholder="Username" />
+      <input class="input-auth" type="email" name="email" placeholder="E-mail" />
+      <input
+        class="input-auth input-auth-icon"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+
+      <button id="upd-btn" class="auth-btn" type="submit">Update</button>
+      <button id="log-out-btn" class="auth-btn" type="button">Log out</button>
+    </form>
+
+    <div id="confDelAcc" class="delete-confirm-message visibility">
+      <p>All data will be lost!</p>
+      <p>Are you sure you want to delete your account?</p>
+    </div>
+
+    <div id="delAccBtn" class="confirm-headers-list visibility">
+      <button
+        type="submit"
+        class="auth-headers-list-item auth-headers-list-item-inactive corner-bottom-left confirm-btn"
+      >
+        YES
+      </button>
+      <button
+        type="submit"
+        class="auth-headers-list-item auth-headers-list-item-inactive corner-bottom-right confirm-btn"
+      >
+        NO
+      </button>
+    </div>
+  </div>
+</div>
