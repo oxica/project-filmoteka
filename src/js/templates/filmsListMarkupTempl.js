@@ -13,7 +13,6 @@ export default function makeFilmsMarkup(films) {
         genres,
         vote_average,
         id,
-        media_type,
       }) => {
         let filmGenres;
         if (genres) {
@@ -26,7 +25,7 @@ export default function makeFilmsMarkup(films) {
             .join(', ');
         }
 
-        return `<li class="films__item" data-id=${id} data-media=${media_type}>
+        return `<li class="films__item" data-id=${id}>
                 <div class="films__img">
                 <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${
           title || name

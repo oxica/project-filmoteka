@@ -32,6 +32,7 @@ async function onHomeBtnClick() {
     filmsApi.page = 1;
     const films = await filmsApi.fetchTrending();
     renderFilmsMarkup(films);
+    watchedBtnRef.classList.remove('header__library-buttons-button--active');
   } catch (error) {
     console.log(error);
   }
