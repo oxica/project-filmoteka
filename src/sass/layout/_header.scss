@@ -48,7 +48,7 @@
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
   url(../images/header/mob-background-library-1x.jpg);
   background-position: center;
-  background-size: cover;
+  background-size: 1024px auto;
   background-repeat: no-repeat;
 
   @media (min-device-pixel-ratio: 2),
@@ -221,6 +221,7 @@ display: flex;
   }
 
   .header__input-search-buttons {
+      padding: 3px;
       position: absolute;
       right: -15px;
       bottom: 0;
