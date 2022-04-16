@@ -19,6 +19,7 @@ async function onFilmCardClick(e) {
   try {
     if (e.target.nodeName === 'UL') return;
     backdrop.classList.remove('is-hidden');
+    document.body.style.overflow = 'hidden';
 
     document.addEventListener('keydown', onEscBtnPress);
     document.addEventListener('click', onBackdropClick);
