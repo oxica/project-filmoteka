@@ -1,6 +1,8 @@
 import { API_service } from './apiSevice';
 import renderFilmsMarkup from './templates/renderFilmsMarkup';
+// import dataStorage from './userService/data-storage';
 
+// const firebase = new dataStorage();
 const filmsApi = new API_service();
 
 const homeBtnRef = document.querySelector('.btn1');
@@ -8,10 +10,13 @@ const libraryBtnRef = document.querySelector('.btn2');
 const watchedBtnRef = document.querySelector('.watched');
 const queueBtnRef = document.querySelector('.queue');
 
+const queueModalBtn = document.querySelector('.btn__queue');
+
 homeBtnRef.addEventListener('click', onHomeBtnClick);
-// libraryBtnRef.addEventListener('click', onMyLibraryBtnClick);
+// libraryBtnRef.addventListener('click', onMyLibraryBtnClick);
+queueBtnRef.addEventListener('click', onQueueBtnClick);
 // watchedBtnRef.addEventListener('click', onWatchedBtnClick);
-// queueBtnRef.addEventListener('click', onQueueBtnClick);
+
 // const list = document.querySelector('.films');
 // list.addEventListener('click', e => {
 //   console.log(e.target.closest('li').dataset.id);
@@ -38,12 +43,13 @@ function onWatchedBtnClick() {
 }
 
 function onQueueBtnClick() {
-  if (queueBtnRef.classList.contains('header__library-buttons-button--active')) return;
-  renderGalleryFromFirebase();
+  // if (queueBtnRef.classList.contains('header__library-buttons-button--active')) return;
+  // renderGalleryFromFirebase();
+  const film = {};
 }
 
 function renderGalleryFromFirebase() {
-  const obj = {};
+  const obj = firebase.watched;
   const ids = Object.keys(obj);
   renderMarkupByIds(ids);
 }

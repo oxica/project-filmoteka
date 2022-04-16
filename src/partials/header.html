@@ -2,21 +2,25 @@
   <div class="header-container container" id="tabs-1">
     <div class="header__tabs">
       <div class="header__title-panel">
-        <a href="" class="header__logo"><svg class="icon-animation " width="30px" height="30px">
-            <use href="/images/svg/symbol-defs.svg#icon-film"></use>
-          </svg><span class="logo-title">Filmoteka</span></a>
+        <a href="" class="header__logo"
+          ><svg class="icon-animation" width="30px" height="30px">
+            <use href="/images/svg/symbol-defs.svg#icon-film"></use></svg
+          ><span class="logo-title">Filmoteka</span></a
+        >
         <!-- <span class="fa-solid fa-film fa-xl icon-animation "></span> -->
       </div>
       <!-- <div class="header__nav" > -->
       <nav class="header__nav">
         <ul class="header__controls" data-controls>
-          <li><a href="#home" class="header__controls-item btn1 ">Home</a></li>
-          <li><a href="#mylibrary" class="header__controls-item btn2 ">My Library</a></li>
-          <li><a id="auth" href="#registration" class="header__registration-item">
+          <li><a href="#home" class="header__controls-item btn1">Home</a></li>
+          <li><a href="#mylibrary" class="header__controls-item btn2">My Library</a></li>
+          <li>
+            <a id="auth" href="#registration" class="header__registration-item">
               <svg class="header__registration-icon">
                 <use href="/images/svg/symbol-defs.svg#icon-tux"></use>
               </svg>
-            </a></li>
+            </a>
+          </li>
         </ul>
       </nav>
     <!-- </div> -->
@@ -30,7 +34,12 @@
     <div class="header__panes" data-panes>
       <form class="pane header__pane-search-form" id="home">
         <label class="header__search-form-lab">
-          <input type="text" name="searchQuery" placeholder="Movie search" class="header__search-form-input" />
+          <input
+            type="text"
+            name="searchQuery"
+            placeholder="Movie search"
+            class="header__search-form-input"
+          />
 
           <!-- <p class="search-form__error is-hidden">Sorry Brother, there is no such movie!</p> -->
         </label>
@@ -41,12 +50,15 @@
       <div class="pane" id="mylibrary">
         <ul class="header__library-buttons">
           <li class="header__library-buttons-item">
-            <button type="button" class="header__library-buttons-button header__library-buttons-button--active">
+            <button
+              type="button"
+              class="header__library-buttons-button header__library-buttons-button--active watched"
+            >
               watched
             </button>
           </li>
           <li class="header__library-buttons-item">
-            <button type="button" class="header__library-buttons-button">queue</button>
+            <button type="button" class="header__library-buttons-button queue">queue</button>
           </li>
         </ul>
       </div>

@@ -1,10 +1,12 @@
 import { API_service } from './apiSevice';
+// import dataStorage from './userService/data-storage';
 
+// const firebase = new dataStorage();
 const filmsApi = new API_service();
-const modalFilmRef = document.querySelector('.modal__backdrop');
+const backdrop = document.querySelector('.modal__backdrop');
 const filmsListRef = document.querySelector('.films');
 const closeBtnRef = document.querySelector('.closeModal');
-const modalWrap = document.querySelector('.modal__container');
+const modal = document.querySelector('.modal__container');
 
 filmsListRef.addEventListener('click', onFilmCardClick);
 closeBtnRef.addEventListener('click', onCloseBtnClick);
@@ -12,12 +14,18 @@ closeBtnRef.addEventListener('click', onCloseBtnClick);
 async function onFilmCardClick(e) {
   try {
     if (e.target.nodeName === 'UL') return;
-    modalFilmRef.classList.remove('is-hidden');
+    backdrop.classList.remove('is-hidden');
 
     filmsApi.id = e.target.closest('li').dataset.id;
 
     const film = await filmsApi.fetchMovieById();
-    modalWrap.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
+    modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
+
+    document.addEventListener('keydown', onEscBtnPress);
+    document.addEventListener('click', onBackdropClick);
+
+    const watchedModalBtn = document.querySelector('.btn__watch');
+    watchedModalBtn.addEventListener('click', onWatchedModalBtnClick);
   } catch (error) {
     console.log(error);
   }
@@ -33,6 +41,7 @@ function makeFilmModalMarkup({
   genres,
   overview,
   popularity,
+  id,
 }) {
   const filmGenres = genres.map(({ name }) => name).join(', ');
   return `<div class="film__image">
@@ -72,8 +81,8 @@ function makeFilmModalMarkup({
         <p class="film__about__text">${overview}</p>
       </div>
       <div class="film__button__wrapper">
-        <button type="button" class="film__button btn__watch" data-id="">Add to watched</button>
-        <button type="button" class="film__button btn__queue" data-id="">Add to queue</button>
+        <button type="button" class="film__button btn__watch" data-id=${id}>Add to watched</button>
+        <button type="button" class="film__button btn__queue" data-id=${id}>Add to queue</button>
       </div>
       <div class="film__trailer">
         <a class="btn btn-large btn-primary film__trailer__btn" href="#">
@@ -87,13 +96,31 @@ function makeFilmModalMarkup({
 }
 
 function onCloseBtnClick() {
-  modalFilmRef.classList.add('is-hidden');
-  resetModal();
-}
-
-function resetModal() {
   const filmImg = document.querySelector('.film__image');
   const filmInfo = document.querySelector('.film__information');
   filmImg.remove();
   filmInfo.remove();
+
+  backdrop.classList.add('is-hidden');
+  document.removeEventListener('keydown', onEscBtnPress);
+  document.removeEventListener('click', onBackdropClick);
+}
+
+function onEscBtnPress(e) {
+  if (e.code === 'Escape') {
+    onCloseBtnClick();
+  }
+}
+
+function onBackdropClick(e) {
+  if (e.target === backdrop) {
+    onCloseBtnClick();
+  }
+}
+
+function onWatchedModalBtnClick(e) {
+  const film = {
+    id: e.target.dataset.id,
+  };
+  firebase.watched = film;
 }
