@@ -55,14 +55,24 @@
     </form>
 
     <form id="upd-form" class="upd-form visibility">
-      <input class="input-auth" type="text" name="name" placeholder="Username" />
-      <input class="input-auth" type="email" name="email" placeholder="E-mail" />
-      <input
-        class="input-auth input-auth-icon"
-        type="password"
-        name="password"
-        placeholder="password"
-      />
+      <fieldset>
+        <legend id="upd-form-header">Hello</legend>
+        <input id="change-name" class="input-auth" type="text" name="name" placeholder="Username" />
+        <input
+          id="change-email"
+          class="input-auth"
+          type="email"
+          name="email"
+          placeholder="E-mail"
+        />
+        <input
+          id="change-pswd"
+          class="input-auth input-auth-icon"
+          type="password"
+          name="password"
+          placeholder="password"
+        />
+      </fieldset>
 
       <button id="upd-btn" class="auth-btn" type="submit">Update</button>
       <button id="log-out-btn" class="auth-btn" type="button">Log out</button>

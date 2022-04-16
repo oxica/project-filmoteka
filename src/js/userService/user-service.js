@@ -1,4 +1,3 @@
 import './user';
-import './update-user-data';
-import './logIn';
+import './auth-settings';
 import './data-storage';

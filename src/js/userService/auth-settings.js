@@ -1,11 +1,21 @@
 import { refs } from '../refs';
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { FIREBASECFG } from './firebase-cfg';
 import { initializeApp } from 'firebase/app';
 import User from './user';
 
 const app = initializeApp(FIREBASECFG);
 const auth = getAuth(app);
+
+onAuthStateChanged(auth, user => {
+  const updFormHeader = document.getElementById('upd-form-header');
+  if (user) {
+    updFormHeader.textContent = `Hello ${user.displayName}`;
+    return;
+  }
+
+  updFormHeader.textContent = `Hello`;
+});
 
 function onChangeTab() {
   refs.logInTab.classList.toggle('auth-headers-list-item-inactive');
@@ -73,6 +83,10 @@ function onCloseModalAuth(e) {
   refs.confDelAcc.classList.add('visibility');
   refs.delAccBtn.classList.add('visibility');
 
+  refs.chName.removeAttribute('disabled');
+  refs.chEmail.removeAttribute('disabled');
+  refs.chPswd.removeAttribute('disabled');
+
   refs.body.removeAttribute('style');
   refs.modalAuth.classList.toggle('visibility');
 }
@@ -85,7 +99,7 @@ function onLogInUser(e) {
 
   const userData = {
     email: signUpEmail,
-    password: signUpPswd,
+    pswd: signUpPswd,
   };
 
   const user = new User(userData);
@@ -114,13 +128,6 @@ function onUserRemove(e) {
 
   onCloseModalAuth(e);
 
-  refs.settingsTab.classList.remove('auth-headers-list-item-inactive');
-  refs.userSetPage.classList.add('visibility');
-  refs.updForm.classList.add('visibility');
-  refs.delAccTab.classList.add('auth-headers-list-item-inactive');
-  refs.confDelAcc.classList.add('visibility');
-  refs.delAccBtn.classList.add('visibility');
-
   refs.modalAuth.classList.toggle('visibility');
   refs.body.removeAttribute('style');
 }
@@ -128,16 +135,10 @@ function onUserRemove(e) {
 function onCreateUser(e) {
   e.preventDefault();
 
-  const signUpName = document.getElementById('name').value;
-  const signUpEmail = document.getElementById('email').value;
-  const signUpPswd = document.getElementById('pswd').value;
-
   const userData = {
-    auth: {
-      userName: signUpName,
-      email: signUpEmail,
-      password: signUpPswd,
-    },
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    password: document.getElementById('pswd').value,
   };
 
   const user = new User(userData);
@@ -149,6 +150,84 @@ function onCreateUser(e) {
   onCloseModalAuth(e);
 }
 
+function onUpdateUser(e) {
+  e.preventDefault();
+
+  const userData = {
+    name: document.getElementById('change-name').value,
+    email: document.getElementById('change-email').value,
+    pswd: document.getElementById('change-pswd').value,
+  };
+
+  const user = new User(userData);
+
+  user.updateUser();
+
+  e.currentTarget.reset();
+
+  onCloseModalAuth(e);
+}
+
+function onInput(e) {
+  e.preventDefault();
+
+  if (e.target.name === 'name' && e.target.value) {
+    refs.chEmail.setAttribute('disabled', '');
+    refs.chPswd.setAttribute('disabled', '');
+    return;
+  }
+
+  refs.chEmail.removeAttribute('disabled');
+  refs.chPswd.removeAttribute('disabled');
+
+  if (e.target.name === 'email' && e.target.value) {
+    refs.chName.setAttribute('disabled', '');
+    refs.chPswd.setAttribute('disabled', '');
+    return;
+  }
+
+  refs.chName.removeAttribute('disabled');
+  refs.chPswd.removeAttribute('disabled');
+
+  if (e.target.name === 'password' && e.target.value) {
+    refs.chName.setAttribute('disabled', '');
+    refs.chEmail.setAttribute('disabled', '');
+    return;
+  }
+
+  refs.chName.removeAttribute('disabled');
+  refs.chEmail.removeAttribute('disabled');
+
+  e.currentTarget.reset();
+}
+
+function onEscape(e) {
+  if (e.code === 'Escape') {
+    refs.logInPage.classList.add('visibility');
+    refs.logInTab.classList.remove('auth-headers-list-item-inactive');
+    refs.logInForm.classList.add('visibility');
+    refs.regTab.classList.add('auth-headers-list-item-inactive');
+    refs.regForm.classList.add('visibility');
+
+    refs.settingsTab.classList.remove('auth-headers-list-item-inactive');
+    refs.userSetPage.classList.add('visibility');
+    refs.updForm.classList.add('visibility');
+    refs.delAccTab.classList.add('auth-headers-list-item-inactive');
+    refs.confDelAcc.classList.add('visibility');
+    refs.delAccBtn.classList.add('visibility');
+
+    refs.chName.removeAttribute('disabled');
+    refs.chEmail.removeAttribute('disabled');
+    refs.chPswd.removeAttribute('disabled');
+
+    refs.body.removeAttribute('style');
+    refs.modalAuth.classList.toggle('visibility');
+  }
+}
+
 refs.userAuth.addEventListener('click', onOpenModalAuth);
 refs.regForm.addEventListener('submit', onCreateUser);
 refs.modalAuth.addEventListener('click', onCloseModalAuth);
+document.addEventListener('keydown', onEscape);
+refs.updForm.addEventListener('submit', onUpdateUser);
+refs.updForm.addEventListener('input', onInput);

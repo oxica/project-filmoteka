@@ -1,4 +1,4 @@
-import { getDatabase, ref, update, remove, get } from 'firebase/database';
+import { getDatabase, ref, get } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { FIREBASECFG } from './firebase-cfg';
@@ -14,22 +14,7 @@ export default class dataStorage {
   }
 
   get queue() {
-    return onAuthStateChanged(auth, user => {
-      if (user) {
-        const libDataBase = `users/${user.uid}/lib/queue/`;
-
-        get(ref(db, libDataBase))
-          .then(snapshot => {
-            if (snapshot.exists()) {
-              console.log(snapshot.val());
-            }
-            return;
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }
-    });
+    return this._queue;
   }
 
   set queue(newQueue) {
@@ -45,21 +30,7 @@ export default class dataStorage {
   }
 
   get watched() {
-    return onAuthStateChanged(auth, user => {
-      if (user) {
-        const libDataBase = `users/${user.uid}/lib/watched/`;
-
-        get(ref(db, libDataBase))
-          .then(snapshot => {
-            if (snapshot.exists()) {
-              console.log(snapshot.val());
-            }
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }
-    });
+    return this._watched;
   }
 
   set watched(newWatched) {
