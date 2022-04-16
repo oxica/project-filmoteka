@@ -1,12 +1,12 @@
 .footer {
-  padding: 30px 0;
+  padding: 40px 0;
 
   color: #545454;
   background-color: #f7f7f7;
 
   @media screen and (max-width: 767px) {
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 80px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -18,7 +18,7 @@
 .footer__section {
   width: 100%;
   margin-bottom: 30px;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
 
   border-bottom: 1px solid #ff6b08;
 
