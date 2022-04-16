@@ -115,6 +115,7 @@ function onCloseBtnClick() {
   filmInfo.remove();
 
   backdrop.classList.add('is-hidden');
+  document.body.style.overflow = 'scroll';
   document.removeEventListener('keydown', onEscBtnPress);
   document.removeEventListener('click', onBackdropClick);
 }
