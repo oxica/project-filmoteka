@@ -12,7 +12,7 @@ openTeamBtn.addEventListener('click', openModalTeam);
 function openModalTeam(evt) {
     evt.preventDefault();
     toggleTeam();
-
+      
     document.addEventListener('keydown', onEscKeyPress);
     
     closeTeamBtn.addEventListener('click', closeModalTeam);
