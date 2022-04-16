@@ -239,3 +239,40 @@
   line-height: 1.15;
   text-align: center;
 }
+
+//dark theme
+body.dark__theme .modal__container{
+  background-color: var(--second-dark-bg-color);
+  .film__title{
+    color: var(--accent-color);
+  }
+  .film__details{
+    color: var(--white-text-color);
+  }
+  .film__rating--orange{
+    color: var(--main-text-color);
+    font-weight: 900;
+  }
+  .film__info--uper,.film__about__title,.film__about__text,.film__trailer__text,.film__info{
+    color: var(--second-text-color);
+  }
+  .film__details~p{
+    color: var(--second-text-color);
+  }
+  .fa-youtube::before{
+    color:#a90606;
+  }
+  .film__trailer__btn:hover .fa-youtube::before{
+    color:var(--main-text-color);
+  }
+  .film__trailer__btn{
+    border-color: var(--second-text-color);
+    &:hover, &:hover .film__trailer__text{
+      border:transparent;
+      color:white;
+    }
+  }
+  .closeModal::before,.closeModal::after{
+    background-color: var(--white-text-color);
+  }
+}
