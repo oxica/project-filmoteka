@@ -6,12 +6,12 @@
 
   @media screen and (max-width: 767px) {
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 80px;
   }
 
   @media screen and (min-width768px) and (max-width: 1023px) {
     padding-top: 40px;
-    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
@@ -171,7 +171,7 @@
   justify-content: center;
 
   padding-top: 20px;
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
 }
 
 .footer__text {
@@ -223,18 +223,18 @@
   font-weight: 500;
   text-transform: uppercase;
 
-  animation: blur 0.85s ease-out infinite;
-  text-shadow: 0px 0px 2px #ff6b08, 0px 0px 5px #ff6b08;
+  // animation: blur 0.85s ease-out infinite;
+  // text-shadow: 0px 0px 2px #ff6b08, 0px 0px 5px #ff6b08;
 }
 
-@keyframes blur {
-  from {
-    text-shadow: 0px 0px 10px #ff6b08, 0px 0px 10px #ff6b08, 0px 0px 25px #ff6b08,
-      0px 0px 25px #ff6b08, 0px 0px 25px #ff6b08, 0px 0px 50px #ff6b08, 0px 0px 50px #ff6b08,
-      0px 0px 150px #ff6b08, 0px 0px 100px #ff6b08, 0px 0px 100px #ff6b08, 0px 0px 100px #ff6b08,
-      0px -10px 100px #ff6b08, 0px -10px 100px #ff6b08;
-  }
-}
+// @keyframes blur {
+//   from {
+//     text-shadow: 0px 0px 10px #ff6b08, 0px 0px 10px #ff6b08, 0px 0px 25px #ff6b08,
+//       0px 0px 25px #ff6b08, 0px 0px 25px #ff6b08, 0px 0px 50px #ff6b08, 0px 0px 50px #ff6b08,
+//       0px 0px 150px #ff6b08, 0px 0px 100px #ff6b08, 0px 0px 100px #ff6b08, 0px 0px 100px #ff6b08,
+//       0px -10px 100px #ff6b08, 0px -10px 100px #ff6b08;
+//   }
+// }
 
 .footer__text--begin {
   font-weight: 700;

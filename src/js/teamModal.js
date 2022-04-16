@@ -14,7 +14,7 @@ function openModalTeam(evt) {
     toggleTeam();
 
     document.addEventListener('keydown', onEscKeyPress);
-
+    
     closeTeamBtn.addEventListener('click', closeModalTeam);
     modalTeam.addEventListener('click', onBackdropClick);
 }
