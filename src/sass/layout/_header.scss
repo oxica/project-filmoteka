@@ -308,9 +308,11 @@ display: flex;
 }
 .header__container-select {
   display: flex;
-  justify-content: end;
-  align-items: flex-end;
-  margin-top: 10px;
+  align-items: center;
+  z-index: 100;
+  position: absolute;
+  right: 27px;
+  top: 160px
  
 }
 .header__registration-icon{
@@ -329,6 +331,7 @@ display: flex;
   margin-left: 20px;
   border-radius: 8px;
   background-color: #000000;
+  height: 40px;
 }
 
 .header .choices {
