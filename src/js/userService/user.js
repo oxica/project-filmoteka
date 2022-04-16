@@ -1,13 +1,15 @@
-import { getDatabase, ref, set, get, remove, onValue, child } from 'firebase/database';
+import { getDatabase, ref, set, remove } from 'firebase/database';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   deleteUser,
   signOut,
   updateProfile,
+  updateEmail,
+  updatePassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from 'firebase/auth';
+
 import { initializeApp } from 'firebase/app';
 import { FIREBASECFG } from './firebase-cfg';
 
@@ -21,27 +23,19 @@ export default class User {
   }
 
   create() {
-    createUserWithEmailAndPassword(auth, this.userData.auth.email, this.userData.auth.password)
+    createUserWithEmailAndPassword(auth, this.userData.email, this.userData.password)
       .then(userCredential => {
         const user = userCredential.user;
 
-        set(ref(db, 'users/' + user.uid), this.userData);
+        set(ref(db, 'users/' + user.uid + '/auth/'), this.userData);
 
         updateProfile(auth.currentUser, {
-          displayName: `${this.userData.auth.userName}`,
-        })
-          .then(() => {
-            alert(`User ${this.userData.auth.userName} created`);
-          })
-          .catch(error => {
-            console.log(error);
-          });
+          displayName: `${this.userData.name}`,
+        });
 
-        signOut(auth)
-          .then(() => {})
-          .catch(error => {
-            alert(error);
-          });
+        alert(`User ${this.userData.name} created`);
+
+        signOut(auth);
       })
       .catch(error => {
         alert(error.code);
@@ -51,17 +45,12 @@ export default class User {
   logIn() {
     const user = auth.currentUser;
 
-    if (user) {
-      alert('You are already signed in');
-      return;
-    }
-
-    if (!this.userData.email || !this.userData.password) {
+    if (!this.userData.email || !this.userData.pswd) {
       alert('Please enter your email and password');
       return;
     }
 
-    signInWithEmailAndPassword(auth, this.userData.email, this.userData.password)
+    signInWithEmailAndPassword(auth, this.userData.email, this.userData.pswd)
       .then(userCredential => {
         const user = userCredential.user;
 
@@ -70,59 +59,57 @@ export default class User {
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
-        console.log(errorMessage);
       });
   }
 
-  getUserName() {
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        console.log(user.displayName);
-        return (this._user = user.displayName);
-        const uid = user.uid;
-      } else {
-        document.getElementById('userDisplayedName').textContent = `Guest`;
-        document
-          .getElementById('userDisplayedName')
-          .setAttribute('href', './partial/register-page.html');
-      }
-    });
+  updateUser() {
+    const user = auth.currentUser;
+    const authDataBase = `users/${user.uid}/auth/`;
+
+    if (this.userData.name) {
+      updateProfile(auth.currentUser, {
+        displayName: `${this.userData.name}`,
+      });
+
+      set(ref(db, authDataBase + 'name'), this.userData.name);
+
+      alert(`User name updated`);
+    }
+
+    if (this.userData.email) {
+      updateEmail(auth.currentUser, `${this.userData.email}`);
+
+      set(ref(db, authDataBase + 'email'), this.userData.email);
+
+      alert(`Email updated`);
+    }
+
+    if (this.userData.pswd) {
+      const user = auth.currentUser;
+
+      updatePassword(user, `${this.userData.pswd}`);
+
+      set(ref(db, authDataBase + 'password'), this.userData.pswd);
+
+      alert(`Password updated`);
+    }
   }
 
   logOut() {
     const user = auth.currentUser;
 
-    if (!user) {
-      return;
-    }
+    signOut(auth);
 
-    signOut(auth)
-      .then(() => {
-        alert('You are logged out');
-      })
-      .then(() => {})
-      .catch(error => {});
+    alert('You are logged out');
   }
-
-  updateUser() {}
 
   removeUser() {
     const user = auth.currentUser;
 
-    if (!user) {
-      alert('Please sign in');
-      return;
-    }
+    deleteUser(user).then(() => {
+      remove(ref(db, 'users/' + user.uid));
+    });
 
-    deleteUser(user)
-      .then(() => {
-        remove(ref(db, 'users/' + user.uid));
-
-        alert(`User ${user.displayName} deleted`);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    alert(`User ${user.displayName} deleted`);
   }
 }
