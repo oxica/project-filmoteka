@@ -1,7 +1,13 @@
 import { API_service } from './apiSevice';
-// import dataStorage from './userService/data-storage';
+import dataStorage from './userService/data-storage';
 
-// const firebase = new dataStorage();
+const userData = {
+  queue: {},
+
+  watched: {},
+};
+
+const firebase = new dataStorage(userData);
 const filmsApi = new API_service();
 const backdrop = document.querySelector('.modal__backdrop');
 const filmsListRef = document.querySelector('.films');
@@ -18,7 +24,13 @@ async function onFilmCardClick(e) {
 
     filmsApi.id = e.target.closest('li').dataset.id;
 
-    const film = await filmsApi.fetchMovieById();
+    let film;
+    if (e.target.closest('li').dataset.media === 'movie') {
+      film = await filmsApi.fetchMovieById();
+    } else {
+      film = await filmsApi.fetchMovieByIdForTV();
+    }
+
     modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
 
     document.addEventListener('keydown', onEscBtnPress);
@@ -119,8 +131,10 @@ function onBackdropClick(e) {
 }
 
 function onWatchedModalBtnClick(e) {
+  const filmName = document.querySelector('.film__title');
   const film = {
-    id: e.target.dataset.id,
+    [filmName.textContent]: e.target.dataset.id,
   };
-  firebase.watched = film;
+  console.log(film);
+  userData.watched = film;
 }
