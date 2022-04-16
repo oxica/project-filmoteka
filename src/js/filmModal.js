@@ -25,14 +25,7 @@ async function onFilmCardClick(e) {
     document.addEventListener('click', onBackdropClick);
 
     filmsApi.id = e.target.closest('li').dataset.id;
-
-    let film;
-    if (e.target.closest('li').dataset.media === 'movie') {
-      film = await filmsApi.fetchMovieById();
-    } else {
-      film = await filmsApi.fetchMovieByIdForTV();
-    }
-
+    const film = await filmsApi.fetchMovieById();
     modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
 
     const watchedModalBtn = document.querySelector('.btn__watch');
@@ -134,6 +127,7 @@ function onBackdropClick(e) {
 
 function onWatchedModalBtnClick(e) {
   const filmName = document.querySelector('.film__title');
+
   firebase.watched = {
     [filmName.textContent]: e.target.dataset.id,
   };
@@ -141,6 +135,7 @@ function onWatchedModalBtnClick(e) {
 
 function onQueueModalBtnClick(e) {
   const filmName = document.querySelector('.film__title');
+
   firebase.queue = {
     [filmName.textContent]: e.target.dataset.id,
   };

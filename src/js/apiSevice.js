@@ -22,7 +22,7 @@ export class API_service {
       Loading.pulse({
         svgColor: 'orange',
       });
-      const { data } = await axios('trending/all/day', {
+      const { data } = await axios('trending/movie/day', {
         params: {
           api_key: API_KEY,
           language: this.language,
@@ -31,7 +31,7 @@ export class API_service {
       });
 
       Loading.remove();
-      console.log(data.results);
+
       return data.results;
     } catch (error) {
       console.log(error);
@@ -93,13 +93,11 @@ export class API_service {
   }
 
   async fetchMovieByIdForTV() {
-    //will throw an error if title "undefined";
     try {
       Loading.pulse({
         svgColor: 'orange',
       });
       const { data } = await axios(`tv/${this.id}`, {
-        //for this to work make sure this.searchQuery type is number!!!
         params: {
           api_key: API_KEY,
           language: this.language,
