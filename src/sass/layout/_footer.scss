@@ -1,23 +1,24 @@
 .footer {
-  padding: 40px 0;
+  padding: 30px 0;
 
   color: #545454;
   background-color: #f7f7f7;
 
   @media screen and (max-width: 767px) {
     padding-top: 40px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
   }
 
-  @media screen and (min-width768px) and (max-width: 1023px) {
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 40px;
   }
 }
 
 .footer__section {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
 
   border-bottom: 1px solid #ff6b08;
 
@@ -99,10 +100,6 @@
   text-align: center;
 }
 
-//.social__text {
-//     margin-bottom: 20px;
-// }
-
 .social__list {
   display: flex;
   justify-content: space-evenly;
@@ -170,8 +167,6 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  padding-top: 20px;
-  // padding-bottom: 20px;
 }
 
 .footer__text {

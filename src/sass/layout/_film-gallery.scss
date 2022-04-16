@@ -1,13 +1,3 @@
-.gallery {
-  padding-top: 20px;
-  padding-bottom: 40px;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-}
-
 .films {
   @media screen and (min-width: 768px) {
     display: flex;
