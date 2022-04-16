@@ -307,9 +307,9 @@ display: flex;
 }
 .header__container-select {
   display: flex;
-  position: absolute;
-  top: 180px;
-  right:20px;
+  justify-content: end;
+  align-items: flex-end;
+  margin-top: 10px;
  
 }
 .header__registration-icon{
@@ -321,4 +321,37 @@ display: flex;
   &:hover,&:focus{
     fill: #FF6B08;
   }
+}
+.header .choices {
+  width: 55px;
+  font-size: 14px;
+  margin-left: 20px;
+  border-radius: 8px;
+  background-color: #000000;
+}
+
+.header .choices {
+  color: #000000;
+}
+
+.header .choices__list.choices__list--single {
+  background-color: white;
+}
+
+.header .choices__inner {
+  background-color: white;
+
+}
+
+.header__container-select .choices__list--dropdown {
+  height: 70px;
+  width: 55px;
+}
+
+.choices[data-type*=select-one]>.choices__list>.choices__list>.choices__item--selectable {
+  padding-right: 0px;
+}
+
+.choices[data-type*=select-one]>.choices__list>.choices__list>.choices__item--selectable::after {
+  display: none;
 }
