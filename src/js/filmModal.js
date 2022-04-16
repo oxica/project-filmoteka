@@ -1,18 +1,16 @@
 import { API_service } from './apiSevice';
 import dataStorage from './userService/data-storage';
 
-const userData = {
-  queue: {},
-
-  watched: {},
-};
-
-const firebase = new dataStorage(userData);
 const filmsApi = new API_service();
 const backdrop = document.querySelector('.modal__backdrop');
 const filmsListRef = document.querySelector('.films');
 const closeBtnRef = document.querySelector('.closeModal');
 const modal = document.querySelector('.modal__container');
+const userData = {
+  queue: {},
+  watched: {},
+};
+const firebase = new dataStorage(userData);
 
 filmsListRef.addEventListener('click', onFilmCardClick);
 closeBtnRef.addEventListener('click', onCloseBtnClick);
@@ -21,6 +19,9 @@ async function onFilmCardClick(e) {
   try {
     if (e.target.nodeName === 'UL') return;
     backdrop.classList.remove('is-hidden');
+
+    document.addEventListener('keydown', onEscBtnPress);
+    document.addEventListener('click', onBackdropClick);
 
     filmsApi.id = e.target.closest('li').dataset.id;
 
@@ -33,11 +34,10 @@ async function onFilmCardClick(e) {
 
     modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
 
-    document.addEventListener('keydown', onEscBtnPress);
-    document.addEventListener('click', onBackdropClick);
-
     const watchedModalBtn = document.querySelector('.btn__watch');
+    const queueModalBtn = document.querySelector('.btn__queue');
     watchedModalBtn.addEventListener('click', onWatchedModalBtnClick);
+    queueModalBtn.addEventListener('click', onQueueModalBtnClick);
   } catch (error) {
     console.log(error);
   }
@@ -132,9 +132,14 @@ function onBackdropClick(e) {
 
 function onWatchedModalBtnClick(e) {
   const filmName = document.querySelector('.film__title');
-  const film = {
+  firebase.watched = {
     [filmName.textContent]: e.target.dataset.id,
   };
-  console.log(film);
-  userData.watched = film;
+}
+
+function onQueueModalBtnClick(e) {
+  const filmName = document.querySelector('.film__title');
+  firebase.queue = {
+    [filmName.textContent]: e.target.dataset.id,
+  };
 }

@@ -1,8 +1,12 @@
 import { API_service } from './apiSevice';
 import renderFilmsMarkup from './templates/renderFilmsMarkup';
-// import dataStorage from './userService/data-storage';
+import dataStorage from './userService/data-storage';
 
-// const firebase = new dataStorage();
+const userData = {
+  queue: {},
+  watched: {},
+};
+const firebase = new dataStorage(userData);
 const filmsApi = new API_service();
 
 const homeBtnRef = document.querySelector('.btn1');
@@ -10,17 +14,11 @@ const libraryBtnRef = document.querySelector('.btn2');
 const watchedBtnRef = document.querySelector('.watched');
 const queueBtnRef = document.querySelector('.queue');
 
-const queueModalBtn = document.querySelector('.btn__queue');
-
 homeBtnRef.addEventListener('click', onHomeBtnClick);
 // libraryBtnRef.addventListener('click', onMyLibraryBtnClick);
+libraryBtnRef.addEventListener('click', onWatchedBtnClick);
 queueBtnRef.addEventListener('click', onQueueBtnClick);
-// watchedBtnRef.addEventListener('click', onWatchedBtnClick);
-
-// const list = document.querySelector('.films');
-// list.addEventListener('click', e => {
-//   console.log(e.target.closest('li').dataset.id);
-// });
+watchedBtnRef.addEventListener('click', onWatchedBtnClick);
 
 async function onHomeBtnClick() {
   try {
@@ -33,25 +31,26 @@ async function onHomeBtnClick() {
 }
 
 function onMyLibraryBtnClick() {
-  if (libraryBtnRef.classList.contains('current')) return;
-  renderGalleryFromFirebase();
+  // if (libraryBtnRef.classList.contains('current')) return;
 }
 
 function onWatchedBtnClick() {
-  if (watchedBtnRef.classList.contains('header__library-buttons-button--active')) return;
-  renderGalleryFromFirebase();
+  // if (watchedBtnRef.classList.contains('header__library-buttons-button--active')) return;
+
+  const ids = Object.values(firebase.watched);
+
+  // renderMarkupByIds(ids);
 }
 
 function onQueueBtnClick() {
   // if (queueBtnRef.classList.contains('header__library-buttons-button--active')) return;
-  // renderGalleryFromFirebase();
-  const film = {};
-}
 
-function renderGalleryFromFirebase() {
-  const obj = firebase.watched;
-  const ids = Object.keys(obj);
-  renderMarkupByIds(ids);
+  const films = firebase.queue;
+
+  const ids = Object.values(films);
+  console.log(`dfsdhbfsj${films}`);
+
+  // renderMarkupByIds(ids);
 }
 
 async function renderMarkupByIds(ids) {
