@@ -92,6 +92,27 @@ export class API_service {
     }
   }
 
+  async fetchMovieByIdForTV() {
+    //will throw an error if title "undefined";
+    try {
+      Loading.pulse({
+        svgColor: 'orange',
+      });
+      const { data } = await axios(`tv/${this.id}`, {
+        //for this to work make sure this.searchQuery type is number!!!
+        params: {
+          api_key: API_KEY,
+          language: this.language,
+        },
+      });
+      Loading.remove();
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async fetchMovieByGenre() {
     try {
       Loading.pulse({
