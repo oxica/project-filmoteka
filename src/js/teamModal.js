@@ -10,50 +10,51 @@ const modalTeam = document.querySelector('.js-modal-team');
 openTeamBtn.addEventListener('click', openModalTeam);
 
 function openModalTeam(evt) {
-    evt.preventDefault();
-    toggleTeam();
-      
-    document.addEventListener('keydown', onEscKeyPress);
-    
-    closeTeamBtn.addEventListener('click', closeModalTeam);
-    modalTeam.addEventListener('click', onBackdropClick);
+  evt.preventDefault();
+  toggleTeam();
+
+  document.addEventListener('keydown', onEscKeyPress);
+  document.body.style.overflow = 'hidden';
+  closeTeamBtn.addEventListener('click', closeModalTeam);
+  modalTeam.addEventListener('click', onBackdropClick);
 }
 
 function toggleTeam() {
-    modalTeam.classList.toggle('is-hidden');
+  modalTeam.classList.toggle('is-hidden');
 }
 
 function closeModalTeam() {
-    toggleTeam();
-      
-    closeTeamBtn.removeEventListener('click', closeModalTeam);
+  toggleTeam();
+
+  closeTeamBtn.removeEventListener('click', closeModalTeam);
+  document.body.style.overflow = 'auto';
 }
 
 function onBackdropClick(evt) {
-    if (evt.currentTarget === evt.target) {
-        toggleTeam();
+  if (evt.currentTarget === evt.target) {
+    toggleTeam();
 
-        document.removeEventListener('keydown', onEscKeyPress);
-        modalTeam.removeEventListener('click', onBackdropClick);
-    }
+    document.removeEventListener('keydown', onEscKeyPress);
+    modalTeam.removeEventListener('click', onBackdropClick);
+  }
 }
 
 function onEscKeyPress(evt) {
-    const ESK_KEY_CODE = 'Escape';
-    const isEskKey = evt.code == ESK_KEY_CODE;
+  const ESK_KEY_CODE = 'Escape';
+  const isEskKey = evt.code == ESK_KEY_CODE;
 
-    if (isEskKey) {
-        toggleTeam();
+  if (isEskKey) {
+    toggleTeam();
 
-        document.removeEventListener('keydown', onEscKeyPress);
+    document.removeEventListener('keydown', onEscKeyPress);
 
-        closeTeamBtn.removeEventListener('click', closeModalTeam);
-        modalTeam.removeEventListener('click', onBackdropClick);
-    }
+    closeTeamBtn.removeEventListener('click', closeModalTeam);
+    modalTeam.removeEventListener('click', onBackdropClick);
+  }
 }
 
 // (() => {
-    
+
 // refs.openTeamBtn.addEventListener('click', toggleModal);
 // refs.closeTeamBtn.addEventListener('click', toggleModal);
 
@@ -63,4 +64,3 @@ function onEscKeyPress(evt) {
 // }
 
 // })();
-
