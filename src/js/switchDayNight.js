@@ -33,14 +33,20 @@ removeDarkTheme()
 
 function addDarkTheme(){
     document.body.classList.add('dark__theme');
-    icon.classList.add('icon__dark');  
+    
+    icon.classList.remove('fas', 'fa-sun')
+    icon.classList.add('fa-solid', 'fa-moon', 'icon__dark');
+
     movieNameArry.forEach(movie=>{
        movie.style.color = "var(--white-text-color)"
     })
 }
 function removeDarkTheme(){
     document.body.classList.remove('dark__theme');
-    icon.classList.remove('icon__dark' );
+
+    icon.classList.remove('fa-solid', 'fa-moon','icon__dark' );
+    icon.classList.add('fas', 'fa-sun');
+
     movieNameArry.forEach(movie=>{
         movie.style.color = "var(--main-text-color)"
      })
