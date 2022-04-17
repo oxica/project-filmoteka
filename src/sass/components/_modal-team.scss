@@ -125,11 +125,8 @@
 }
  
 .team__img-wrapper {
-    // margin-bottom: 10px;
     border-radius: 20px;
     overflow: hidden;    
-
-    // transition: border-radius 1s;
 }
 
 .team__img {
@@ -151,7 +148,6 @@
     letter-spacing: 0.03em;
     text-align: center;
     
-    // margin-top: 10px;
     margin-bottom: 10px;
 
     border: none;
@@ -190,7 +186,6 @@
 .fa-brands {
     width: 30px;
     height: 30px;
-    // margin-right: 10px;
 
     color: #000000;
 
@@ -215,7 +210,6 @@
 .team__img-wrapper .team__img,
 .team__img-wrapper .team__photo {
     width: 100%;
-    // height: auto;
     border-radius: 20px;
     position:absolute;
     left: 0;

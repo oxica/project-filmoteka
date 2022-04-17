@@ -18,7 +18,6 @@
 .footer__section {
   width: 100%;
   margin-bottom: 30px;
-  // padding-bottom: 10px;
 
   border-bottom: 1px solid #ff6b08;
 
@@ -42,8 +41,6 @@
 
   text-transform: uppercase;
   text-align: center;
-
-  // margin-bottom: 20px;
 }
 
 /* CONTACT */
@@ -52,10 +49,6 @@
     text-align: center;
   }
 }
-
-//.contact__text {
-//     margin-bottom: 20px;
-// }
 
 .contact__list {
   margin-top: 10px;
@@ -130,10 +123,6 @@
   text-align: center;
 }
 
-// .app__text {
-//     margin-bottom: 20px;
-// }
-
 .app__list {
   display: flex;
   align-items: center;
@@ -162,7 +151,6 @@
 
 /* GOIT STUDENTS */
 .footer__copyright {
-  // text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -181,7 +169,6 @@
   @media screen and (min-width: 768px) {
     &:not(:last-child) {
       margin-bottom: 0px;
-      // margin-left: 0px;
     }
   }
 }
@@ -268,9 +255,11 @@ body.dark__theme {
       fill: #ff6b08;
     }
   }
+
   .footer__link{
     text-decoration: none;
   }
+  
   .footer__text--begin{
     color:var(--white-text-color);
   }
