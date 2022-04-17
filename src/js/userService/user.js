@@ -1,3 +1,4 @@
+import { refs } from '../refs';
 import { getDatabase, ref, set, remove } from 'firebase/database';
 import {
   getAuth,
@@ -35,7 +36,9 @@ export default class User {
 
         alert(`User ${this.userData.name} created`);
 
-        signOut(auth);
+        signOut(auth).then(() => {
+          refs.userLibrary.classList.add('hidden-tab');
+        });
       })
       .catch(error => {
         alert(error.code);
@@ -53,6 +56,8 @@ export default class User {
     signInWithEmailAndPassword(auth, this.userData.email, this.userData.pswd)
       .then(userCredential => {
         const user = userCredential.user;
+
+        refs.userLibrary.classList.remove('hidden-tab');
 
         alert(`User ${user.displayName} signed in`);
       })
@@ -98,7 +103,11 @@ export default class User {
   logOut() {
     const user = auth.currentUser;
 
-    signOut(auth);
+    signOut(auth).then(() => {
+      refs.userLibrary.classList.add('hidden-tab');
+
+      location.reload();
+    });
 
     alert('You are logged out');
   }
@@ -107,7 +116,11 @@ export default class User {
     const user = auth.currentUser;
 
     deleteUser(user).then(() => {
-      remove(ref(db, 'users/' + user.uid));
+      refs.userLibrary.classList.add('hidden-tab');
+
+      remove(ref(db, 'users/' + user.uid)).then(() => {
+        location.reload();
+      });
     });
 
     alert(`User ${user.displayName} deleted`);

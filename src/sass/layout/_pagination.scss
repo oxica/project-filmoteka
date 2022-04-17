@@ -66,3 +66,19 @@
     }
   }
 }
+//darkmode
+body.dark__theme #pagination{
+  .tui-page-btn:hover, .tui-page-btn:focus{
+    background-color: #9d9c9c38;
+    color: var(--white-text-color);
+  }
+  .tui-next,.tui-prev{
+    background-color: rgb(198, 198, 198);
+  }
+  a{
+    color:var(--second-text-color);
+  }
+  .tui-is-selected{
+    font-weight: 900;
+  }
+}
