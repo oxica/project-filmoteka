@@ -5,6 +5,7 @@ const headerItem = document.querySelectorAll('.header__controls-item');
 const footerItem = document.querySelectorAll('.contact__item');
 const buttonLibrary = document.querySelectorAll('.header__library-buttons-button')
 const footerItemf = footerItem[0];
+const footerText = document.querySelector('.footer__text-by');
 const mistakeMessage = document.querySelector(".search-form__error");
 const logBtn = document.getElementById('log-in-btn')
 const list = document.querySelectorAll("option");
@@ -82,11 +83,11 @@ const langArr = {
     },
       "footerlink": {
         "en": "FOLLOW US",
-        "uk": "Підписуйтесь на нас"
+        "uk": "Підписуйтесь"
     },
       "footerapp": {
         "en": "Download Our App",
-        "uk": "Завантажте наш додаток"
+        "uk": "Завантажте додаток"
     },
       "footeradress": {
         "en": "Kyiv, street E. Konovalets 36-E",
@@ -241,12 +242,13 @@ function changeLanguage() {
         input.setAttribute("placeholder", "Пошук фільмів")
         localStorage.removeItem('language', 'en');
         localStorage.setItem('language', 'uk');
-        footerItemf.textContent = "Київ, вул. Є. Коновальця 36-Е"
-       
+        footerItemf.textContent = "Київ, вул. Є. Коновальця 36-Е";
+        footerText.style.display = "none" 
+          
     }
     else {
         input.setAttribute("placeholder", "Movie search")
-       language = localStorage.setItem('language', 'en')
+        language = localStorage.setItem('language', 'en')
        
     }
     

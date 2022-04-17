@@ -144,7 +144,7 @@ function makeFilmModalMarkupUk({
         <h2 class="film__title">${title || original_title || name}</h2>
         <ul>
           <li class="film__item">
-            <p class="film__details">Кількість голосів</p>
+            <p class="film__details">Кількість<br>голосів</p>
             <p class="film__info--uper">
               <span class="film__rating--orange">${vote_average}</span>
               <span class="film__rating--divider"> / </span>
@@ -156,7 +156,7 @@ function makeFilmModalMarkupUk({
             <p class="film__info--uper">${popularity}</p>
           </li>
           <li class="film__item">
-            <p class="film__details">Оригінальна Назва</p>
+            <p class="film__details">Оригінальна<br>Назва</p>
             <p>${title || original_title || name}</p>
           </li>
           <li class="film__item">
