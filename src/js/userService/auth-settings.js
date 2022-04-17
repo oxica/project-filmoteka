@@ -127,7 +127,7 @@ function onLogOut(e) {
   onCloseModalAuth(e);
 }
 
-async function onUserRemove(e) {
+function onUserRemove(e) {
   e.preventDefault();
 
   const user = new User();
@@ -140,7 +140,7 @@ async function onUserRemove(e) {
   refs.body.removeAttribute('style');
 }
 
-async function onCreateUser(e) {
+function onCreateUser(e) {
   e.preventDefault();
 
   const userData = {
