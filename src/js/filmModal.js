@@ -163,10 +163,14 @@ function onYoutubeBtnClick(){
 function iframeRender(key){
   const BASE_YOUTUBE_URL = "https://www.youtube.com/embed/";
   const instance =  basicLightbox.create(
-    `<iframe width="100%" height="100%"
+    `<button type="button" id="youtube-close-btn"><i class="fa-regular fa-circle-xmark"></i></button><iframe
       src="${BASE_YOUTUBE_URL}${key}"?autoplay=1&mute=1&controls=1>
       </iframe>
-    `)
+    `,{
+      onShow: (instance) => {
+      instance.element().querySelector('#youtube-close-btn').onclick = instance.close;
+  }
+    })
   instance.show();
 }
 
