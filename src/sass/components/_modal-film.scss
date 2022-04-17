@@ -277,3 +277,15 @@ body.dark__theme .modal__container{
     background-color: var(--white-text-color);
   }
 }
+
+//плеєр
+iframe{
+  position: relative;
+  min-width: 50vw;
+  height: 50vh;
+}
+#youtube-close-btn{
+position:absolute;
+top:-22px;
+right:0;
+}
