@@ -7,6 +7,7 @@ import renderFilmsMarkup from './templates/renderFilmsMarkup';
 import dataStorage from './userService/data-storage';
 import { resetErrorStyles } from './search';
 import { addErrorStyles } from './search';
+import {updatePagination} from './pagination'
 
 const app = initializeApp(FIREBASECFG);
 const db = getDatabase(app);
@@ -35,8 +36,9 @@ async function onHomeBtnClick() {
   try {
     resetErrorStyles();
     filmsApi.page = 1;
-    const films = await filmsApi.fetchTrending();
-    renderFilmsMarkup(films);
+    const data = await filmsApi.fetchTrending(true);
+    renderFilmsMarkup(data.results);
+    updatePagination(data.total_results)
     watchedBtnRef.classList.remove('header__library-buttons-button--active');
   } catch (error) {
     console.log(error);
@@ -62,6 +64,7 @@ function onWatchedBtnClick() {
             resetErrorStyles();
             const ids = Object.values(snapshot.val());
             renderMarkupByIds(ids);
+            updatePagination(ids.length)
           } else {
             filmsList.innerHTML = '';
             addErrorStyles();
@@ -118,3 +121,4 @@ async function renderMarkupByIds(ids) {
     console.log(error);
   }
 }
+

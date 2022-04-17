@@ -17,5 +17,12 @@ const pagination = new Pagination(container, options);
 
 pagination.on('beforeMove', event => {
   filmsApi.page = event.page;
-  filmsApi.fetchTrending().then(renderFilmsMarkup).catch(console.log);
+    filmsApi.fetchTrending()
+        .then(renderFilmsMarkup)
+        .catch(console.log);
 });
+
+export function updatePagination(totalItems) {
+    pagination.reset(totalItems);   
+}
+
