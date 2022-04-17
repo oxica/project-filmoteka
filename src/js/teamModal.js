@@ -53,14 +53,3 @@ function onEscKeyPress(evt) {
   }
 }
 
-// (() => {
-
-// refs.openTeamBtn.addEventListener('click', toggleModal);
-// refs.closeTeamBtn.addEventListener('click', toggleModal);
-
-// function toggleModal() {
-//     document.body.classList.toggle("modal-open");
-//     refs.modalTeam.classList.toggle('is-hidden');
-// }
-
-// })();
