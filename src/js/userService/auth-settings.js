@@ -7,6 +7,15 @@ import User from './user';
 const app = initializeApp(FIREBASECFG);
 const auth = getAuth(app);
 
+onAuthStateChanged(auth, user => {
+  if (user) {
+    refs.userLibrary.classList.remove('hidden-tab');
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
 function onChangeTab() {
   refs.logInTab.classList.toggle('top-left');
   refs.logInForm.classList.toggle('hidden-tab');
@@ -101,6 +110,8 @@ function onLogInUser(e) {
 
   user.logIn();
 
+  // refs.userLibrary.classList.remove('hidden-tab');
+
   e.currentTarget.reset();
 
   onCloseModalAuth(e);
@@ -111,10 +122,12 @@ function onLogOut(e) {
 
   user.logOut();
 
+  // refs.userLibrary.classList.add('hidden-tab');
+
   onCloseModalAuth(e);
 }
 
-function onUserRemove(e) {
+async function onUserRemove(e) {
   e.preventDefault();
 
   const user = new User();
@@ -127,7 +140,7 @@ function onUserRemove(e) {
   refs.body.removeAttribute('style');
 }
 
-function onCreateUser(e) {
+async function onCreateUser(e) {
   e.preventDefault();
 
   const userData = {
