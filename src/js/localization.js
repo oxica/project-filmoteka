@@ -5,7 +5,8 @@ const headerItem = document.querySelectorAll('.header__controls-item');
 const footerItem = document.querySelectorAll('.contact__item');
 const buttonLibrary = document.querySelectorAll('.header__library-buttons-button')
 const footerItemf = footerItem[0];
-const mistakeMessage = document.querySelector(".search-form__error")
+const mistakeMessage = document.querySelector(".search-form__error");
+const logBtn = document.getElementById('log-in-btn')
 const list = document.querySelectorAll("option");
 const firstValueList = [...list]
 const newList = [...list]
@@ -97,12 +98,21 @@ const langArr = {
     },
       "mistake": {
         "en": "Oops, films not found!",
-        "uk": "Вибач, фільмів таких немає!"
+        "uk": "Вибач, фільми не знайдено.!"
     },
      "team": {
         "en": "Developed",
         "uk": "Розроблено"
     },
+      "userln": {
+        "en": "Log in",
+        "uk": "Увійти"
+    },
+       "userrg": {
+        "en": "Registration",
+        "uk": "Регістрація"
+    },
+        
 }
 const genrelist = {
        "Action": {
@@ -182,6 +192,7 @@ const genrelist = {
          "uk": "Вестерн"
     },
     
+    
 }
 const select = document.querySelector('select');
 
@@ -210,6 +221,10 @@ function changeLanguage() {
     document.querySelector('.social__text').textContent = langArr['footerlink'][hash]
     document.querySelector('.app__text').textContent = langArr['footerapp'][hash]
     document.querySelector('.footer__developed').textContent = langArr['team'][hash]
+    document.getElementById('log-in-tab').textContent = langArr['userln'][hash]
+    document.getElementById('reg-tab').textContent = langArr['userrg'][hash]
+    document.getElementById('register').textContent = langArr['userrg'][hash]
+    logBtn.textContent = langArr['userln'][hash]
     mistakeMessage.textContent= langArr['mistake'][hash]
     buttonLibrary[0].textContent = langArr['headerLibraryBtn'][hash]
     buttonLibrary[1].textContent = langArr['headerLibraryBtnque'][hash]
@@ -227,6 +242,7 @@ function changeLanguage() {
         localStorage.removeItem('language', 'en');
         localStorage.setItem('language', 'uk');
         footerItemf.textContent = "Київ, вул. Є. Коновальця 36-Е"
+       
     }
     else {
         input.setAttribute("placeholder", "Movie search")
