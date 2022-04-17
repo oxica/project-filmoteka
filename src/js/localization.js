@@ -98,7 +98,7 @@ const langArr = {
     },
       "mistake": {
         "en": "Oops, films not found!",
-        "uk": "Вибач, фільми не знайдено.!"
+        "uk": "Вибач, фільми не знайдено."
     },
      "team": {
         "en": "Developed",
