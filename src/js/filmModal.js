@@ -1,6 +1,6 @@
 import { API_service } from './apiSevice';
 import dataStorage from './userService/data-storage';
-import  * as basicLightbox from 'basiclightbox';
+import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
 const filmsApi = new API_service();
@@ -13,6 +13,9 @@ const userData = {
   watched: {},
 };
 const firebase = new dataStorage(userData);
+
+let modalId;
+const ids = [];
 
 filmsListRef.addEventListener('click', onFilmCardClick);
 closeBtnRef.addEventListener('click', onCloseBtnClick);
@@ -32,11 +35,19 @@ async function onFilmCardClick(e) {
 
     const watchedModalBtn = document.querySelector('.btn__watch');
     const queueModalBtn = document.querySelector('.btn__queue');
-    const youtubeBtn = document.querySelector(".film__trailer__btn");
+    const youtubeBtn = document.querySelector('.film__trailer__btn');
 
     watchedModalBtn.addEventListener('click', onWatchedModalBtnClick);
     queueModalBtn.addEventListener('click', onQueueModalBtnClick);
-    youtubeBtn.addEventListener('click',onYoutubeBtnClick);
+    youtubeBtn.addEventListener('click', onYoutubeBtnClick);
+
+    // slider
+    modalId = e.target.closest('li').dataset.id;
+    const items = document.querySelectorAll('.films__item');
+    items.forEach(item => {
+      ids.push(item.dataset.id);
+    });
+    document.addEventListener('keydown', onArrowsClick);
   } catch (error) {
     console.log(error);
   }
@@ -116,6 +127,8 @@ function onCloseBtnClick() {
   document.body.style.overflow = 'scroll';
   document.removeEventListener('keydown', onEscBtnPress);
   document.removeEventListener('click', onBackdropClick);
+
+  modalId = null;
 }
 
 function onEscBtnPress(e) {
@@ -147,26 +160,58 @@ function onQueueModalBtnClick(e) {
 }
 
 //Плеєр
-function onYoutubeBtnClick(){
-  let idBtn = document.querySelector(".film__button");
- 
+function onYoutubeBtnClick() {
+  let idBtn = document.querySelector('.film__button');
+
   filmsApi.movieId = idBtn.dataset.id;
 
-  filmsApi.fetchYoutube().then(data=>{
-        let results = data.results[0];
-        let key = results.key;
-        return key;
-    }).then(key=>iframeRender(key))
+  filmsApi
+    .fetchYoutube()
+    .then(data => {
+      let results = data.results[0];
+      let key = results.key;
+      return key;
+    })
+    .then(key => iframeRender(key));
 }
 
-
-function iframeRender(key){
-  const BASE_YOUTUBE_URL = "https://www.youtube.com/embed/";
-  const instance =  basicLightbox.create(
+function iframeRender(key) {
+  const BASE_YOUTUBE_URL = 'https://www.youtube.com/embed/';
+  const instance = basicLightbox.create(
     `<iframe width="100%" height="100%"
       src="${BASE_YOUTUBE_URL}${key}"?autoplay=1&mute=1&controls=1>
       </iframe>
-    `)
+    `,
+  );
   instance.show();
 }
 
+async function onArrowsClick(e) {
+  if (e.code === 'ArrowRight') {
+    if (ids.indexOf(modalId) === ids.length - 1) return;
+
+    const filmImg = document.querySelector('.film__image');
+    const filmInfo = document.querySelector('.film__information');
+    filmImg.remove();
+    filmInfo.remove();
+
+    filmsApi.id = ids[ids.indexOf(modalId) + 1];
+    const film = await filmsApi.fetchMovieById();
+    modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
+    modalId = filmsApi.id;
+  }
+
+  if (e.code === 'ArrowLeft') {
+    if (ids.indexOf(modalId) === 0) return;
+
+    const filmImg = document.querySelector('.film__image');
+    const filmInfo = document.querySelector('.film__information');
+    filmImg.remove();
+    filmInfo.remove();
+
+    filmsApi.id = ids[ids.indexOf(modalId) - 1];
+    const film = await filmsApi.fetchMovieById();
+    modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
+    modalId = filmsApi.id;
+  }
+}
