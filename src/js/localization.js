@@ -211,7 +211,6 @@ function changeLanguage() {
     document.querySelector('.app__text').textContent = langArr['footerapp'][hash]
     document.querySelector('.footer__developed').textContent = langArr['team'][hash]
     mistakeMessage.textContent= langArr['mistake'][hash]
-    footerItemf.textContent = langArr['footeradress'][hash]
     buttonLibrary[0].textContent = langArr['headerLibraryBtn'][hash]
     buttonLibrary[1].textContent = langArr['headerLibraryBtnque'][hash]
     firstValueList[2].textContent = langArr['choose'][hash]
@@ -227,7 +226,7 @@ function changeLanguage() {
         input.setAttribute("placeholder", "Пошук фільмів")
         localStorage.removeItem('language', 'en');
         localStorage.setItem('language', 'uk');
-        
+        footerItemf.textContent = "Київ, вул. Є. Коновальця 36-Е"
     }
     else {
         input.setAttribute("placeholder", "Movie search")
