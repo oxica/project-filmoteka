@@ -55,6 +55,7 @@ async function onFilmCardClick(e) {
     console.log(error);
   }
 }
+
 function makeFilmModalMarkup({
   poster_path,
   original_title,
@@ -240,15 +241,6 @@ function onYoutubeBtnClick() {
     })
     .then(key => iframeRender(key));
 }
-
-// function iframeRender(key) {
-//   const BASE_YOUTUBE_URL = 'https://www.youtube.com/embed/';
-//   const instance = basicLightbox.create(
-//     `<iframe width="100%" height="100%"
-//       src="${BASE_YOUTUBE_URL}${key}"?autoplay=1&mute=1&controls=1>
-//       </iframe>
-//     `,
-//   );
 
 function iframeRender(key) {
   const BASE_YOUTUBE_URL = 'https://www.youtube.com/embed/';
