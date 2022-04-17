@@ -15,7 +15,12 @@
   background-image: url(/images/emotion-skype-3.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: auto auto;
+  background-size: cover;
   padding-top: 230px;
-  padding-bottom: 230px;
+  padding-bottom: 50px;
+
+  @media screen and (min-width: 768px) {
+    background-size: auto auto;
+    padding-bottom: 250px;
+  }
 }
