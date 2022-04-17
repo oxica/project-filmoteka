@@ -7,54 +7,45 @@ import User from './user';
 const app = initializeApp(FIREBASECFG);
 const auth = getAuth(app);
 
-onAuthStateChanged(auth, user => {
-  const updFormHeader = document.getElementById('upd-form-header');
-  if (user) {
-    updFormHeader.textContent = `Hello ${user.displayName}`;
-    return;
-  }
-
-  updFormHeader.textContent = `Hello`;
-});
-
 function onChangeTab() {
-  refs.logInTab.classList.toggle('auth-headers-list-item-inactive');
-  refs.logInForm.classList.toggle('visibility');
-  refs.regTab.classList.toggle('auth-headers-list-item-inactive');
-  refs.regForm.classList.toggle('visibility');
+  refs.logInTab.classList.toggle('top-left');
+  refs.logInForm.classList.toggle('hidden-tab');
+  refs.regTab.classList.toggle('top-right');
+  refs.regForm.classList.toggle('hidden-tab');
 }
 
 function onChangeUserSetTab() {
-  refs.settingsTab.classList.toggle('auth-headers-list-item-inactive');
-  refs.updForm.classList.toggle('visibility');
-  refs.delAccTab.classList.toggle('auth-headers-list-item-inactive');
-  refs.confDelAcc.classList.toggle('visibility');
-  refs.delAccBtn.classList.toggle('visibility');
+  refs.settingsTab.classList.toggle('top-left');
+  refs.updForm.classList.toggle('hidden-tab');
+  refs.delAccTab.classList.toggle('top-right');
+  refs.confDelAcc.classList.toggle('hidden-tab');
+  refs.delAccBtn.classList.toggle('hidden-tab');
 }
 
 function onOpenModalAuth() {
+  refs.modalAuth.classList.toggle('visibility');
+
   const user = auth.currentUser;
 
   if (user) {
-    refs.modalAuth.classList.toggle('visibility');
-
-    refs.userSetPage.classList.remove('visibility');
-    refs.updForm.classList.remove('visibility');
+    refs.userSetPage.classList.remove('hidden-tab');
+    refs.settingsTab.classList.remove('hidden-tab');
+    refs.updForm.classList.remove('hidden-tab');
+    refs.delAccTab.classList.remove('hidden-tab');
 
     refs.settingsTab.addEventListener('click', onChangeUserSetTab);
     refs.delAccTab.addEventListener('click', onChangeUserSetTab);
-
-    refs.regForm.addEventListener('submit', onCreateUser);
-
     refs.logOutBtn.addEventListener('click', onLogOut);
+
     refs.delAccBtnYes.addEventListener('click', onUserRemove);
     refs.delAccBtnYes.addEventListener('click', onCloseModalAuth);
     refs.delAccBtnNo.addEventListener('click', onCloseModalAuth);
   } else {
-    refs.modalAuth.classList.toggle('visibility');
+    refs.logInPage.classList.remove('hidden-tab');
+    refs.logInTab.classList.remove('hidden-tab');
+    refs.logInForm.classList.remove('hidden-tab');
+    refs.regTab.classList.remove('hidden-tab');
 
-    refs.logInPage.classList.remove('visibility');
-    refs.logInForm.classList.remove('visibility');
     refs.logInTab.addEventListener('click', onChangeTab);
     refs.regTab.addEventListener('click', onChangeTab);
 
@@ -70,18 +61,22 @@ function onCloseModalAuth(e) {
     return;
   }
 
-  refs.logInPage.classList.add('visibility');
-  refs.logInTab.classList.remove('auth-headers-list-item-inactive');
-  refs.logInForm.classList.add('visibility');
-  refs.regTab.classList.add('auth-headers-list-item-inactive');
-  refs.regForm.classList.add('visibility');
+  refs.logInPage.classList.add('hidden-tab');
+  refs.logInTab.classList.add('hidden-tab');
+  refs.logInTab.classList.remove('top-left');
+  refs.logInForm.classList.add('hidden-tab');
+  refs.regTab.classList.add('hidden-tab');
+  refs.regTab.classList.add('top-right');
+  refs.regForm.classList.add('hidden-tab');
 
-  refs.settingsTab.classList.remove('auth-headers-list-item-inactive');
-  refs.userSetPage.classList.add('visibility');
-  refs.updForm.classList.add('visibility');
-  refs.delAccTab.classList.add('auth-headers-list-item-inactive');
-  refs.confDelAcc.classList.add('visibility');
-  refs.delAccBtn.classList.add('visibility');
+  refs.userSetPage.classList.add('hidden-tab');
+  refs.settingsTab.classList.add('hidden-tab');
+  refs.settingsTab.classList.remove('top-left');
+  refs.updForm.classList.add('hidden-tab');
+  refs.delAccTab.classList.add('hidden-tab');
+  refs.delAccTab.classList.add('top-right');
+  refs.confDelAcc.classList.add('hidden-tab');
+  refs.delAccBtn.classList.add('hidden-tab');
 
   refs.chName.removeAttribute('disabled');
   refs.chEmail.removeAttribute('disabled');
@@ -203,25 +198,29 @@ function onInput(e) {
 
 function onEscape(e) {
   if (e.code === 'Escape') {
-    refs.logInPage.classList.add('visibility');
-    refs.logInTab.classList.remove('auth-headers-list-item-inactive');
-    refs.logInForm.classList.add('visibility');
-    refs.regTab.classList.add('auth-headers-list-item-inactive');
-    refs.regForm.classList.add('visibility');
+    refs.logInPage.classList.add('hidden-tab');
+    refs.logInTab.classList.add('hidden-tab');
+    refs.logInTab.classList.remove('top-left');
+    refs.logInForm.classList.add('hidden-tab');
+    refs.regTab.classList.add('hidden-tab');
+    refs.regTab.classList.add('top-right');
+    refs.regForm.classList.add('hidden-tab');
 
-    refs.settingsTab.classList.remove('auth-headers-list-item-inactive');
-    refs.userSetPage.classList.add('visibility');
-    refs.updForm.classList.add('visibility');
-    refs.delAccTab.classList.add('auth-headers-list-item-inactive');
-    refs.confDelAcc.classList.add('visibility');
-    refs.delAccBtn.classList.add('visibility');
+    refs.userSetPage.classList.add('hidden-tab');
+    refs.settingsTab.classList.add('hidden-tab');
+    refs.settingsTab.classList.remove('top-left');
+    refs.updForm.classList.add('hidden-tab');
+    refs.delAccTab.classList.add('hidden-tab');
+    refs.delAccTab.classList.add('top-right');
+    refs.confDelAcc.classList.add('hidden-tab');
+    refs.delAccBtn.classList.add('hidden-tab');
 
     refs.chName.removeAttribute('disabled');
     refs.chEmail.removeAttribute('disabled');
     refs.chPswd.removeAttribute('disabled');
 
     refs.body.removeAttribute('style');
-    refs.modalAuth.classList.toggle('visibility');
+    refs.modalAuth.classList.add('visibility');
   }
 }
 
