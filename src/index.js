@@ -16,4 +16,4 @@ import './js/searchByGenre.js';
 import './js/canvas.js';
 import './js/library.js';
 import './js/userService/user-service';
-import './js/choices'
+import './js/choices';

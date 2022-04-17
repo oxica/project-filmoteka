@@ -1,6 +1,7 @@
 import { API_service } from './apiSevice';
 import dataStorage from './userService/data-storage';
 
+
 const filmsApi = new API_service();
 const backdrop = document.querySelector('.modal__backdrop');
 const filmsListRef = document.querySelector('.films');
@@ -30,8 +31,11 @@ async function onFilmCardClick(e) {
 
     const watchedModalBtn = document.querySelector('.btn__watch');
     const queueModalBtn = document.querySelector('.btn__queue');
+    const youtubeBtn = document.querySelector(".film__trailer__btn");
+
     watchedModalBtn.addEventListener('click', onWatchedModalBtnClick);
     queueModalBtn.addEventListener('click', onQueueModalBtnClick);
+    youtubeBtn.addEventListener('click',onYoutubeBtnClick);
   } catch (error) {
     console.log(error);
   }
@@ -140,3 +144,28 @@ function onQueueModalBtnClick(e) {
     [filmName.textContent]: e.target.dataset.id,
   };
 }
+
+//робота над плеєром
+function onYoutubeBtnClick(e){
+  const BASE_YOUTUBE_URL = "https://www.youtube.com/embed/";
+  let smol = document.querySelector(".film__button");
+ 
+  filmsApi.movieId = smol.dataset.id;
+
+  filmsApi.fetchYoutube().then(data=>{
+    console.log(data)
+        let results = data.results;
+        let intermediate = results[0];
+        let key = intermediate.key;
+
+  
+      return  modal.innerHTML=`
+      <iframe width="100%" height="100%"
+      src=${BASE_YOUTUBE_URL}${key}?autoplay=1&mute=1&controls=1>
+      </iframe>
+        `
+    })
+}
+
+
+
