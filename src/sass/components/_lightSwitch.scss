@@ -1,7 +1,7 @@
 .theme__switch-wrapper {
     display: flex;
     align-items: center;
-    z-index: 100;
+    // z-index: 100;
     position: absolute;
     left: 27px;
     top: 170px;
@@ -74,7 +74,7 @@
   .fas{
       color:var(--white-text-color);
   }
-  .fa-sun {
+  .fa-sun, .fa-moon {
     font-size: 30px;
     margin-right: 5px;
     @media screen and (max-width:768px){
@@ -82,7 +82,12 @@
     }
   }
   .icon__dark{
-color: var(--accent-color);
+    color: var(--accent-color);
+  }
+  body.dark__theme .icon__dark{
+    margin-right:15px;
+    margin-left:0;
+    animation:none;
   }
 
 body.dark__theme{
