@@ -24,4 +24,6 @@ export const refs = {
   delAccBtn: document.querySelector('#delAccBtn'),
   delAccBtnYes: document.querySelector('#delAccBtnYes'),
   delAccBtnNo: document.querySelector('#delAccBtnNo'),
+
+  userLibrary: document.querySelector('.btn2'),
 };
