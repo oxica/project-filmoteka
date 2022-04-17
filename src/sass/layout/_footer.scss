@@ -268,4 +268,10 @@ body.dark__theme {
       fill: #ff6b08;
     }
   }
+  .footer__link{
+    text-decoration: none;
+  }
+  .footer__text--begin{
+    color:var(--white-text-color);
+  }
 }
