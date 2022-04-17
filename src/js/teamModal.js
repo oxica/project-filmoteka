@@ -27,10 +27,11 @@ function closeModalTeam() {
   toggleTeam();
 
   closeTeamBtn.removeEventListener('click', closeModalTeam);
-  document.body.style.overflow = 'auto';
+  document.body.removeAttribute('style');
 }
 
 function onBackdropClick(evt) {
+  document.body.removeAttribute('style');
   if (evt.currentTarget === evt.target) {
     toggleTeam();
 
