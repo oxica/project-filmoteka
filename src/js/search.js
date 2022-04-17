@@ -40,4 +40,5 @@ export function resetErrorStyles() {
 export function addErrorStyles() {
   galleryRef.classList.add('wrong');
   paginationRef.style.display = 'none';
+  errorMessage.style.display = 'block';
 }
