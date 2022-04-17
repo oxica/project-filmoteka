@@ -5,6 +5,7 @@ const headerItem = document.querySelectorAll('.header__controls-item');
 const footerItem = document.querySelectorAll('.contact__item');
 const buttonLibrary = document.querySelectorAll('.header__library-buttons-button')
 const footerItemf = footerItem[0];
+const mistakeMessage = document.querySelector(".search-form__error")
 const list = document.querySelectorAll("option");
 const firstValueList = [...list]
 const newList = [...list]
@@ -93,14 +94,17 @@ const langArr = {
       "choose": {
         "en": "Choose your genre",
         "uk": "Виберіть свій жанр"
-    }
-     
+    },
+      "mistake": {
+        "en": "Oops, films not found!",
+        "uk": "Вибач, фільмів таких немає!"
+    },
+     "team": {
+        "en": "Developed",
+        "uk": "Розроблено"
+    },
 }
 const genrelist = {
-    // "Action": {
-    //     "en": "Choose your genre",
-    //     "uk": "Виберіть свій жанр"
-    // },
        "Action": {
         "en": "Action",
         "uk": "Бойовик"
@@ -176,7 +180,8 @@ const genrelist = {
     "Western": {
          "en": "Western",
          "uk": "Вестерн"
-    }
+    },
+    
 }
 const select = document.querySelector('select');
 
@@ -204,6 +209,8 @@ function changeLanguage() {
     document.querySelector('.contact__text').textContent = langArr['footercont'][hash]
     document.querySelector('.social__text').textContent = langArr['footerlink'][hash]
     document.querySelector('.app__text').textContent = langArr['footerapp'][hash]
+    document.querySelector('.footer__developed').textContent = langArr['team'][hash]
+    mistakeMessage.textContent= langArr['mistake'][hash]
     footerItemf.textContent = langArr['footeradress'][hash]
     buttonLibrary[0].textContent = langArr['headerLibraryBtn'][hash]
     buttonLibrary[1].textContent = langArr['headerLibraryBtnque'][hash]
