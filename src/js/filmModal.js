@@ -1,6 +1,7 @@
 import { API_service } from './apiSevice';
 import dataStorage from './userService/data-storage';
-
+import  * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 const filmsApi = new API_service();
 const backdrop = document.querySelector('.modal__backdrop');
@@ -145,27 +146,27 @@ function onQueueModalBtnClick(e) {
   };
 }
 
-//робота над плеєром
-function onYoutubeBtnClick(e){
-  const BASE_YOUTUBE_URL = "https://www.youtube.com/embed/";
-  let smol = document.querySelector(".film__button");
+//Плеєр
+function onYoutubeBtnClick(){
+  let idBtn = document.querySelector(".film__button");
  
-  filmsApi.movieId = smol.dataset.id;
+  filmsApi.movieId = idBtn.dataset.id;
 
   filmsApi.fetchYoutube().then(data=>{
-    console.log(data)
-        let results = data.results;
-        let intermediate = results[0];
-        let key = intermediate.key;
-
-  
-      return  modal.innerHTML=`
-      <iframe width="100%" height="100%"
-      src=${BASE_YOUTUBE_URL}${key}?autoplay=1&mute=1&controls=1>
-      </iframe>
-        `
-    })
+        let results = data.results[0];
+        let key = results.key;
+        return key;
+    }).then(key=>iframeRender(key))
 }
 
 
+function iframeRender(key){
+  const BASE_YOUTUBE_URL = "https://www.youtube.com/embed/";
+  const instance =  basicLightbox.create(
+    `<iframe width="100%" height="100%"
+      src="${BASE_YOUTUBE_URL}${key}"?autoplay=1&mute=1&controls=1>
+      </iframe>
+    `)
+  instance.show();
+}
 
