@@ -17,7 +17,7 @@ export class API_service {
     this.genreId = null;
   }
 
-  async fetchTrending() {
+  async fetchTrending(allData = false) {
     try {
       Loading.pulse({
         svgColor: 'orange',
@@ -32,7 +32,7 @@ export class API_service {
 
       Loading.remove();
 
-      return data.results;
+      return allData ? data : data.results;
     } catch (error) {
       console.log(error);
     }
