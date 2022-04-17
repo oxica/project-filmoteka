@@ -129,25 +129,21 @@ body.dark__theme {
     }
   }
 }
-.gallery .choices {
+.choices {
   width: 200px;
   font-size: 14px;
   margin-left: 20px;
   border-radius: 8px;
   background-color: #000000;
-}
-
-.gallery .choices {
   color: #000000;
 }
 
-.gallery .choices__list.choices__list--single {
+.choices__list.choices__list--single {
   background-color: white;
 }
 
-.gallery .choices__inner {
+.choices__inner {
   background-color: white;
-
 }
 
 .choices__list--dropdown .choices__item--selectable.is-highlighted,
