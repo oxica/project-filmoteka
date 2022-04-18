@@ -153,47 +153,47 @@
   margin-right: 15px;
 }
 
-.closeModal {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  width: 24px;
-  height: 24px;
-  opacity: 0.2;
-  cursor: pointer;
-  transition: opacity ease 0.5s;
+// .closeModal {
+//   position: absolute;
+//   top: 15px;
+//   right: 20px;
+//   width: 24px;
+//   height: 24px;
+//   opacity: 0.2;
+//   cursor: pointer;
+//   transition: opacity ease 0.5s;
 
-  &:hover {
-    opacity: 1;
-  }
-}
+//   &:hover {
+//     opacity: 1;
+//   }
+// }
 
-.closeModal::before,
-.closeModal::after {
-  content: '';
-  position: absolute;
-  top: 10px;
-  display: block;
-  width: 24px;
-  height: 3px;
-  background: #000;
-}
+// .closeModal::before,
+// .closeModal::after {
+//   content: '';
+//   position: absolute;
+//   top: 10px;
+//   display: block;
+//   width: 24px;
+//   height: 3px;
+//   background: #000;
+// }
 
-.closeModal::before {
-  transform: rotate(45deg);
-}
+// .closeModal::before {
+//   transform: rotate(45deg);
+// }
 
-.closeModal::after {
-  transform: rotate(-45deg);
-}
+// .closeModal::after {
+//   transform: rotate(-45deg);
+// }
 
-.button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: none;
-  background-color: transparent;
-}
+// .button {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   outline: none;
+//   background-color: transparent;
+// }
 
 .film__trailer {
   display: flex;
@@ -273,9 +273,9 @@ body.dark__theme .modal__container{
       color:white;
     }
   }
-  .closeModal::before,.closeModal::after{
-    background-color: var(--white-text-color);
-  }
+  // .closeModal::before,.closeModal::after{
+  //   background-color: var(--white-text-color);
+  // }
 }
 
 //плеєр
