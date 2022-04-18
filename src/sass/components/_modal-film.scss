@@ -159,47 +159,47 @@
   margin-right: 15px;
 }
 
-.closeModal {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  width: 24px;
-  height: 24px;
-  opacity: 0.2;
-  cursor: pointer;
-  transition: opacity ease 0.5s;
+// .closeModal {
+//   position: absolute;
+//   top: 15px;
+//   right: 20px;
+//   width: 24px;
+//   height: 24px;
+//   opacity: 0.2;
+//   cursor: pointer;
+//   transition: opacity ease 0.5s;
 
-  &:hover {
-    opacity: 1;
-  }
-}
+//   &:hover {
+//     opacity: 1;
+//   }
+// }
 
-.closeModal::before,
-.closeModal::after {
-  content: '';
-  position: absolute;
-  top: 10px;
-  display: block;
-  width: 24px;
-  height: 3px;
-  background: #000;
-}
+// .closeModal::before,
+// .closeModal::after {
+//   content: '';
+//   position: absolute;
+//   top: 10px;
+//   display: block;
+//   width: 24px;
+//   height: 3px;
+//   background: #000;
+// }
 
-.closeModal::before {
-  transform: rotate(45deg);
-}
+// .closeModal::before {
+//   transform: rotate(45deg);
+// }
 
-.closeModal::after {
-  transform: rotate(-45deg);
-}
+// .closeModal::after {
+//   transform: rotate(-45deg);
+// }
 
-.button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: none;
-  background-color: transparent;
-}
+// .button {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   outline: none;
+//   background-color: transparent;
+// }
 
 .film__trailer {
   display: flex;
@@ -284,6 +284,7 @@ body.dark__theme .modal__container {
       color: white;
     }
   }
+
   .closeModal::before,
   .closeModal::after {
     background-color: var(--white-text-color);
@@ -294,10 +295,30 @@ body.dark__theme .modal__container {
 iframe {
   position: relative;
   min-width: 50vw;
-  height: 50vh;
+  height: 60vh;
 }
+
 #youtube-close-btn {
   position: absolute;
-  top: -22px;
-  right: 0;
+  width: 48px;
+  background-color: transparent;
+  border: transparent;
+  z-index: 2;
+  top: -47px;
+  right: -10px;
+  .fa-regular {
+    width: 35px;
+    height: 35px;
+    color: var(--second-text-color);
+    border-radius: 50%;
+    font-size: 30px;
+    &:hover,
+    &:focus {
+      color: var(--accent-color);
+      cursor: pointer;
+    }
+  }
+}
+.basicLightbox.basicLightbox--visible {
+  background-color: rgba(0, 0, 0, 0.9);
 }
