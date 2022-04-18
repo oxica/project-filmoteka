@@ -31,8 +31,8 @@ function closeModalTeam() {
 }
 
 function onBackdropClick(evt) {
-  document.body.removeAttribute('style');
   if (evt.currentTarget === evt.target) {
+    document.body.removeAttribute('style');
     toggleTeam();
 
     document.removeEventListener('keydown', onEscKeyPress);
