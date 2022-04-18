@@ -244,14 +244,16 @@ body.dark__theme {
   .footer {
     background-color: #1a1818;
   }
-
-  .contact__icon,
-  .social__icon,
-  .app__icon {
+  
+  .contact__link,
+  .social__link,
+  .app__link {
     fill: #545454;
+    color: #545454;
 
     &:hover,
     &:focus {
+      color: #ff6b08;
       fill: #ff6b08;
     }
   }
