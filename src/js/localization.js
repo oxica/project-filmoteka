@@ -4,7 +4,6 @@ const input = document.querySelector(".header__search-form-input");
 const headerItem = document.querySelectorAll('.header__controls-item');
 const footerItem = document.querySelectorAll('.contact__item');
 const buttonLibrary = document.querySelectorAll('.header__library-buttons-button')
-const footerItemf = footerItem[0];
 const footerText = document.querySelector('.footer__text-by');
 const mistakeMessage = document.querySelector(".search-form__error");
 const logBtn = document.getElementById('log-in-btn')
@@ -242,7 +241,7 @@ function changeLanguage() {
         input.setAttribute("placeholder", "Пошук фільмів")
         localStorage.removeItem('language', 'en');
         localStorage.setItem('language', 'uk');
-        footerItemf.textContent = "Київ, вул. Є. Коновальця 36-Е";
+        document.querySelector('.contact__list-adress').textContent = langArr['footeradress'][hash]
         footerText.style.display = "none" 
           
     }
