@@ -9,30 +9,38 @@
     margin-bottom: 30px;
 }
 
-.modal__close-btn {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 8px;
-    right: 8px;
+// .modal__close-btn {
+//     position: absolute;
+//     width: 30px;
+//     height: 30px;
+//     top: 8px;
+//     right: 8px;
 
-    display: inline-flex;
-    align-self: flex-start;
-    align-items: center;
+//     display: inline-flex;
+//     align-self: flex-start;
+//     justify-content: center;
+//     align-items: center;
 
-    border: none;
+//     // border: none;
 
-    cursor: pointer;
-    transition: color 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+//     border-radius: 50%;
+//     border-color: #8c8c8c;
+//     border: 1px solid rgba(0, 0, 0, 0.1);
+//     box-sizing: border-box;
+   
 
-    fill: #8c8c8c;
-    background-color: #f7f7f7;
+//     cursor: pointer;
+//     transition: color 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
 
-    &:hover,
-    &:focus {
-        fill: #ff6b08;
-    }
-}
+//     fill: #8c8c8c;
+//     background-color: #f7f7f7;
+   
+//     &:hover,
+//     &:focus {
+//         fill: #ff6b08;
+//         border-color: #ff6b08;
+//     }
+// }
 
 .team {
     width: 100%;
@@ -249,15 +257,6 @@
 
 /* DARK THEME */
 body.dark__theme {
-    .fa-regular {
-        color: #ff6b08;
-
-        &:hover,
-        &:focus {
-            color: #8c8c8c;;
-        }
-    }
-
     .team__developer {
         color: #ff6b08;
     }
@@ -271,12 +270,21 @@ body.dark__theme {
 body.dark__theme .team__modal {
     background-color: var(--second-dark-bg-color);
 
-    .modal__close-btn {
-        background-color: #1a1818;
-    }
+    // .modal__close-btn {
+    //     fill: #8c8c8c;
+    //     background-color: #1a1818;
+    //     border-color: #8c8c8c;
+
+    //     &:hover,
+    //     &:focus {
+    //         fill: #ff6b08;
+    //         border-color: #ff6b08;
+    //     }
+    // }
     
     .fa-brands {
         color: #8c8c8c;
+
         &:hover,
         &:focus {
             color: #ff6b08;
