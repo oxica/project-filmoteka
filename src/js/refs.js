@@ -3,6 +3,7 @@ export const refs = {
   userAuth: document.querySelector('#auth'),
 
   modalAuth: document.querySelector('.backdrop-auth'),
+  authContainer: document.querySelector('.auth-container'),
 
   logInPage: document.querySelector('#log-in-page'),
   logInTab: document.querySelector('#log-in-tab'),
@@ -24,6 +25,11 @@ export const refs = {
   delAccBtn: document.querySelector('#delAccBtn'),
   delAccBtnYes: document.querySelector('#delAccBtnYes'),
   delAccBtnNo: document.querySelector('#delAccBtnNo'),
+
+  showPswd: document.querySelectorAll('.show-pswd'),
+  hidePswd: document.querySelectorAll('.hide-pswd'),
+  logInPswd: document.querySelector('#logInPswd'),
+  regPswd: document.querySelector('#reg-pswd'),
 
   userLibrary: document.querySelector('.btn2'),
 };

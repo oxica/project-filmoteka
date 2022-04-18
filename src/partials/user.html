@@ -1,5 +1,5 @@
 <div class="backdrop-auth visibility">
-  <div class="auth-container">
+  <div class="auth-container hidden-tab">
     <ul id="log-in-page" class="tabs hidden-tab">
       <li id="log-in-tab" class="tabs-list hidden-tab">Log in</li>
       <li id="reg-tab" class="tabs-list hidden-tab top-right">Registration</li>
@@ -12,36 +12,60 @@
 
     <form id="log-in-form" class="form hidden-tab">
       <input id="logInEmail" type="email" name="email" placeholder="E-mail" />
+
       <input id="logInPswd" type="password" name="password" placeholder="password" />
+
+      <svg
+        class="login-eye-position show-pswd hidden-tab"
+        alt="show password"
+        width="28"
+        height="28"
+      >
+        <use href="/images/svg/symbol-defs.svg#eye"></use>
+      </svg>
+
+      <svg class="login-eye-position hide-pswd" alt="hide password" width="28" height="28">
+        <use href="/images/svg/symbol-defs.svg#eye-blocked"></use>
+      </svg>
 
       <button id="log-in-btn" class="confirm-btn" type="submit">Log in</button>
     </form>
 
     <form id="reg-form" class="form hidden-tab">
       <input id="name" type="text" name="name" placeholder="Username" />
+
       <input id="email" type="email" name="email" placeholder="E-mail" />
-      <input
-        id="pswd"
-        class="input-auth input-auth-icon"
-        type="password"
-        name="password"
-        placeholder="password"
-      />
+
+      <input id="reg-pswd" type="password" name="password" placeholder="password" />
+
+      <svg class="reg-eye-position show-pswd hidden-tab" alt="show password" width="28" height="28">
+        <use href="/images/svg/symbol-defs.svg#eye"></use>
+      </svg>
+
+      <svg class="reg-eye-position hide-pswd" alt="hide password" width="28" height="28">
+        <use href="/images/svg/symbol-defs.svg#eye-blocked"></use>
+      </svg>
 
       <button class="confirm-btn" id="register" type="submit">Register</button>
     </form>
 
     <form id="upd-form" class="form hidden-tab">
       <input id="change-name" type="text" name="name" placeholder="Username" />
+
       <input id="change-email" type="email" name="email" placeholder="E-mail" />
-      <input
-        id="change-pswd"
-        class="input-auth input-auth-icon"
-        type="password"
-        name="password"
-        placeholder="password"
-      />
+
+      <input id="change-pswd" type="password" name="password" placeholder="password" />
+
+      <svg class="upd-eye-position show-pswd hidden-tab" alt="show password" width="28" height="28">
+        <use href="/images/svg/symbol-defs.svg#eye"></use>
+      </svg>
+
+      <svg class="upd-eye-position hide-pswd" alt="hide password" width="28" height="28">
+        <use href="/images/svg/symbol-defs.svg#eye-blocked"></use>
+      </svg>
+
       <button id="upd-btn" class="confirm-btn" type="submit">Update</button>
+
       <button id="log-out-btn" class="confirm-btn" type="button">Log out</button>
     </form>
 

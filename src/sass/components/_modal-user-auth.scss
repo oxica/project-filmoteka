@@ -43,9 +43,16 @@
     
     border-radius: 8px;
 
+    transition: transform 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+
     @media screen and (min-width: 480px) {
         width: 390px;
     }
+}
+
+.auth-container .hidden-tab {
+    transform: translate(-50%, -50%) scale(0.2);
+
 }
 
 .tabs {
@@ -62,6 +69,7 @@
     opacity: 1;
     visibility: visible;
     pointer-events: none;
+
     transition: opacity 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71),
     visibility 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
 }
@@ -88,8 +96,8 @@
     opacity: 1;
     visibility: visible;
     pointer-events: all;
-    transition: opacity 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71),
-    visibility 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+    
+    transition: background-color 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
 }
 
 .top-right {
@@ -102,8 +110,7 @@
     opacity: 1;
     visibility: visible;
     pointer-events: all;
-    transition: opacity 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71),
-    visibility 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+    transition: background-color 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
 }
 
 .form {
@@ -115,6 +122,8 @@
     opacity: 1;
     visibility: visible;
     pointer-events: all;
+
+    transition: opacity 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71), visibility 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
 
     & input,
     & button {
@@ -161,6 +170,9 @@
 
     opacity: 1;
     visibility: visible;
+
+    transition: opacity 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71),
+    visibility 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
 }
 
 .hidden-tab {
@@ -178,4 +190,33 @@
     overflow: hidden;
     border: 0;
     clip: rect(0 0 0 0);
+}
+
+.login-eye-position.show-pswd,
+.upd-eye-position.show-pswd,
+.reg-eye-position.show-pswd {
+    fill: var(--main-dark-bg-color);
+    padding: 0;
+    margin: 0;
+}
+
+.login-eye-position.hide-pswd,
+.upd-eye-position.hide-pswd,
+.reg-eye-position.hide-pswd {
+    fill: #929292;
+    padding: 0;
+    margin: 0;
+}
+
+.login-eye-position {
+    position: absolute;
+    top: 172px;
+    right: 49px;
+}
+
+.reg-eye-position,
+.upd-eye-position {
+    position: absolute;
+    top: 251px;
+    right: 49px;
 }

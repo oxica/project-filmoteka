@@ -17,6 +17,8 @@ onAuthStateChanged(auth, user => {
 });
 
 function onChangeTab() {
+  onHidePswd();
+
   refs.logInTab.classList.toggle('top-left');
   refs.logInForm.classList.toggle('hidden-tab');
   refs.regTab.classList.toggle('top-right');
@@ -24,6 +26,8 @@ function onChangeTab() {
 }
 
 function onChangeUserSetTab() {
+  onHidePswd();
+
   refs.settingsTab.classList.toggle('top-left');
   refs.updForm.classList.toggle('hidden-tab');
   refs.delAccTab.classList.toggle('top-right');
@@ -33,6 +37,7 @@ function onChangeUserSetTab() {
 
 function onOpenModalAuth() {
   refs.modalAuth.classList.toggle('visibility');
+  refs.authContainer.classList.remove('hidden-tab');
 
   const user = auth.currentUser;
 
@@ -70,6 +75,8 @@ function onCloseModalAuth(e) {
     return;
   }
 
+  onHidePswd();
+
   refs.logInPage.classList.add('hidden-tab');
   refs.logInTab.classList.add('hidden-tab');
   refs.logInTab.classList.remove('top-left');
@@ -93,6 +100,7 @@ function onCloseModalAuth(e) {
 
   refs.body.removeAttribute('style');
   refs.modalAuth.classList.toggle('visibility');
+  refs.authContainer.classList.add('hidden-tab');
 }
 
 function onLogInUser(e) {
@@ -146,7 +154,7 @@ function onCreateUser(e) {
   const userData = {
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
-    password: document.getElementById('pswd').value,
+    password: document.getElementById('reg-pswd').value,
   };
 
   const user = new User(userData);
@@ -211,6 +219,8 @@ function onInput(e) {
 
 function onEscape(e) {
   if (e.code === 'Escape') {
+    onHidePswd();
+
     refs.logInPage.classList.add('hidden-tab');
     refs.logInTab.classList.add('hidden-tab');
     refs.logInTab.classList.remove('top-left');
@@ -234,7 +244,34 @@ function onEscape(e) {
 
     refs.body.removeAttribute('style');
     refs.modalAuth.classList.add('visibility');
+    refs.authContainer.classList.add('hidden-tab');
   }
+}
+
+function onShowPswd() {
+  refs.showPswd[0].classList.remove('hidden-tab');
+  refs.hidePswd[0].classList.add('hidden-tab');
+  refs.showPswd[1].classList.remove('hidden-tab');
+  refs.hidePswd[1].classList.add('hidden-tab');
+  refs.showPswd[2].classList.remove('hidden-tab');
+  refs.hidePswd[2].classList.add('hidden-tab');
+
+  refs.logInPswd.setAttribute('type', 'text');
+  refs.regPswd.setAttribute('type', 'text');
+  refs.chPswd.setAttribute('type', 'text');
+}
+
+function onHidePswd() {
+  refs.showPswd[0].classList.add('hidden-tab');
+  refs.hidePswd[0].classList.remove('hidden-tab');
+  refs.showPswd[1].classList.add('hidden-tab');
+  refs.hidePswd[1].classList.remove('hidden-tab');
+  refs.showPswd[2].classList.add('hidden-tab');
+  refs.hidePswd[2].classList.remove('hidden-tab');
+
+  refs.logInPswd.setAttribute('type', 'password');
+  refs.regPswd.setAttribute('type', 'password');
+  refs.chPswd.setAttribute('type', 'password');
 }
 
 refs.userAuth.addEventListener('click', onOpenModalAuth);
@@ -243,3 +280,10 @@ refs.modalAuth.addEventListener('click', onCloseModalAuth);
 document.addEventListener('keydown', onEscape);
 refs.updForm.addEventListener('submit', onUpdateUser);
 refs.updForm.addEventListener('input', onInput);
+
+refs.showPswd[0].addEventListener('click', onHidePswd);
+refs.hidePswd[0].addEventListener('click', onShowPswd);
+refs.showPswd[1].addEventListener('click', onHidePswd);
+refs.hidePswd[1].addEventListener('click', onShowPswd);
+refs.showPswd[2].addEventListener('click', onHidePswd);
+refs.hidePswd[2].addEventListener('click', onShowPswd);
