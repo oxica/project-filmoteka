@@ -282,10 +282,28 @@ body.dark__theme .modal__container{
 iframe{
   position: relative;
   min-width: 50vw;
-  height: 50vh;
+  height: 60vh;
 }
 #youtube-close-btn{
-position:absolute;
-top:-22px;
-right:0;
+  position:absolute;
+  width: 48px;
+  background-color: transparent;
+  border: transparent;
+  z-index:2;
+  top:-47px;
+  right:-10px;
+    .fa-regular{
+      width: 35px;
+      height: 35px;
+      color: var(--second-text-color);
+      border-radius: 50%;
+      font-size: 30px;
+      &:hover, &:focus{
+        color:var(--accent-color);
+        cursor: pointer;
+      }
+    }
+}
+.basicLightbox.basicLightbox--visible{
+  background-color:rgba(0, 0, 0, 0.9) ;
 }
