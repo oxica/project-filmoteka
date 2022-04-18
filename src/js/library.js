@@ -9,7 +9,6 @@ import { resetErrorStyles } from './search';
 import { addErrorStyles } from './search';
 import { createLibraryPagination, createHomePagination } from './pagination';
 
-
 const app = initializeApp(FIREBASECFG);
 const db = getDatabase(app);
 const auth = getAuth(app);
@@ -32,11 +31,10 @@ libraryBtnRef.addEventListener('click', onMyLibraryBtnClick);
 queueBtnRef.addEventListener('click', onQueueBtnClick);
 watchedBtnRef.addEventListener('click', onWatchedBtnClick);
 
-
 async function onHomeBtnClick() {
   try {
     resetErrorStyles();
-    createHomePagination(renderFilmsMarkup);   
+    createHomePagination(renderFilmsMarkup);
     watchedBtnRef.classList.remove('header__library-buttons-button--active');
   } catch (error) {
     console.log(error);
@@ -60,9 +58,9 @@ function onWatchedBtnClick() {
         .then(snapshot => {
           if (snapshot.exists()) {
             resetErrorStyles();
-            const ids = Object.values(snapshot.val());
-         
-            createLibraryPagination(ids, renderMarkupByIds)
+            const ids = Object.keys(snapshot.val());
+
+            createLibraryPagination(ids, renderMarkupByIds);
           } else {
             filmsList.innerHTML = '';
             addErrorStyles();
@@ -92,7 +90,7 @@ function onQueueBtnClick() {
         .then(snapshot => {
           if (snapshot.exists()) {
             resetErrorStyles();
-            const ids = Object.values(snapshot.val());     
+            const ids = Object.keys(snapshot.val());
             createLibraryPagination(ids, renderMarkupByIds);
           } else {
             filmsList.innerHTML = '';
@@ -104,10 +102,10 @@ function onQueueBtnClick() {
           console.error(error);
         });
     }
-  }); 
+  });
 }
 
-async function renderMarkupByIds(ids) {
+export default async function renderMarkupByIds(ids) {
   try {
     const arrProm = ids.map(async id => {
       filmsApi.id = id;
@@ -119,4 +117,3 @@ async function renderMarkupByIds(ids) {
     console.log(error);
   }
 }
-

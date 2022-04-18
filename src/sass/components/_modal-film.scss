@@ -149,6 +149,12 @@
   }
 }
 
+.film__button.active {
+  background-color: #ff6b08;
+  color: #ffffff;
+  border: 1px solid #ff6b08;
+}
+
 .film__button:first-child {
   margin-right: 15px;
 }
@@ -242,50 +248,56 @@
 }
 
 //dark theme
-body.dark__theme .modal__container{
+body.dark__theme .modal__container {
   background-color: var(--second-dark-bg-color);
-  .film__title{
+  .film__title {
     color: var(--accent-color);
   }
-  .film__details{
+  .film__details {
     color: var(--white-text-color);
   }
-  .film__rating--orange{
+  .film__rating--orange {
     color: var(--main-text-color);
     font-weight: 900;
   }
-  .film__info--uper,.film__about__title,.film__about__text,.film__trailer__text,.film__info{
+  .film__info--uper,
+  .film__about__title,
+  .film__about__text,
+  .film__trailer__text,
+  .film__info {
     color: var(--second-text-color);
   }
-  .film__details~p{
+  .film__details ~ p {
     color: var(--second-text-color);
   }
-  .fa-youtube::before{
-    color:#a90606;
+  .fa-youtube::before {
+    color: #a90606;
   }
-  .film__trailer__btn:hover .fa-youtube::before{
-    color:var(--main-text-color);
+  .film__trailer__btn:hover .fa-youtube::before {
+    color: var(--main-text-color);
   }
-  .film__trailer__btn{
+  .film__trailer__btn {
     border-color: var(--second-text-color);
-    &:hover, &:hover .film__trailer__text{
-      border:transparent;
-      color:white;
+    &:hover,
+    &:hover .film__trailer__text {
+      border: transparent;
+      color: white;
     }
   }
-  .closeModal::before,.closeModal::after{
+  .closeModal::before,
+  .closeModal::after {
     background-color: var(--white-text-color);
   }
 }
 
 //плеєр
-iframe{
+iframe {
   position: relative;
   min-width: 50vw;
   height: 50vh;
 }
-#youtube-close-btn{
-position:absolute;
-top:-22px;
-right:0;
+#youtube-close-btn {
+  position: absolute;
+  top: -22px;
+  right: 0;
 }

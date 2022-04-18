@@ -1,4 +1,4 @@
-import { getDatabase, ref, update } from 'firebase/database';
+import { getDatabase, ref, update, remove } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { FIREBASECFG } from './firebase-cfg';
