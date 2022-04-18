@@ -2,17 +2,27 @@ import { API_service } from './apiSevice';
 import dataStorage from './userService/data-storage';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { getDatabase, ref, get } from 'firebase/database';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { FIREBASECFG } from './userService/firebase-cfg';
+import renderMarkupByIds from './library';
+
+const app = initializeApp(FIREBASECFG);
+const db = getDatabase(app);
+const auth = getAuth(app);
 const lng = localStorage.getItem('language');
 const filmsApi = new API_service();
 const backdrop = document.querySelector('.modal__backdrop');
 const filmsListRef = document.querySelector('.films');
 const closeBtnRef = document.querySelector('.closeModal');
 const modal = document.querySelector('.modal__container');
+const libraryBtnRef = document.querySelector('.btn2');
 const userData = {
   queue: {},
   watched: {},
 };
-const firebase = new dataStorage(userData);
+new dataStorage(userData);
 
 let modalId;
 const ids = [];
@@ -47,10 +57,42 @@ async function onFilmCardClick(e) {
     // slider
     modalId = e.target.closest('li').dataset.id;
     const items = document.querySelectorAll('.films__item');
-    items.forEach(item => {
-      ids.push(item.dataset.id);
+    items.forEach(({ dataset }) => {
+      ids.push(dataset.id);
     });
-    document.addEventListener('keydown', onArrowsClick);
+    document.addEventListener('keydown', slider);
+
+    // remove from library
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        const libDataBaseWatched = `users/${user.uid}/lib/watched/`;
+        const libDataBaseQueue = `users/${user.uid}/lib/queue/`;
+
+        get(ref(db, libDataBaseWatched))
+          .then(snapshot => {
+            if (snapshot.exists()) {
+              const ids = Object.keys(snapshot.val());
+              if (ids.includes(filmsApi.id)) {
+                watchedModalBtn.classList.add('active');
+                watchedModalBtn.textContent = 'Remove';
+              }
+            }
+          })
+          .catch(console.error);
+
+        get(ref(db, libDataBaseQueue))
+          .then(snapshot => {
+            if (snapshot.exists()) {
+              const ids = Object.keys(snapshot.val());
+              if (ids.includes(filmsApi.id)) {
+                queueModalBtn.classList.add('active');
+                queueModalBtn.textContent = 'Remove';
+              }
+            }
+          })
+          .catch(console.error);
+      }
+    });
   } catch (error) {
     console.log(error);
   }
@@ -212,18 +254,115 @@ function onBackdropClick(e) {
 
 function onWatchedModalBtnClick(e) {
   const filmName = document.querySelector('.film__title');
-
-  firebase.watched = {
-    [filmName.textContent]: e.target.dataset.id,
+  const watchedModalBtn = document.querySelector('.btn__watch');
+  const userData = {
+    queue: {},
+    watched: {},
   };
+  const firebase = new dataStorage(userData);
+
+  if (watchedModalBtn.classList.contains('active')) {
+    userData.watched[e.target.dataset.id] = filmName.textContent;
+    firebase.delWatched();
+    watchedModalBtn.textContent = 'Add to watched';
+
+    if (libraryBtnRef.classList.contains('current')) {
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          const libDataBaseWatched = `users/${user.uid}/lib/watched/`;
+
+          get(ref(db, libDataBaseWatched))
+            .then(snapshot => {
+              if (snapshot.exists()) {
+                const ids = Object.keys(snapshot.val());
+                renderMarkupByIds(ids);
+              }
+            })
+            .catch(console.error);
+        }
+      });
+    }
+  } else {
+    firebase.watched = {
+      [e.target.dataset.id]: filmName.textContent,
+    };
+
+    if (libraryBtnRef.classList.contains('current')) {
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          const libDataBaseWatched = `users/${user.uid}/lib/watched/`;
+
+          get(ref(db, libDataBaseWatched))
+            .then(snapshot => {
+              if (snapshot.exists()) {
+                const ids = Object.keys(snapshot.val());
+                renderMarkupByIds(ids);
+              }
+            })
+            .catch(console.error);
+        }
+      });
+    }
+
+    watchedModalBtn.textContent = 'Remove';
+  }
+
+  watchedModalBtn.classList.toggle('active');
 }
 
 function onQueueModalBtnClick(e) {
   const filmName = document.querySelector('.film__title');
-
-  firebase.queue = {
-    [filmName.textContent]: e.target.dataset.id,
+  const queueModalBtn = document.querySelector('.btn__queue');
+  const userData = {
+    queue: {},
+    watched: {},
   };
+  const firebase = new dataStorage(userData);
+
+  if (queueModalBtn.classList.contains('active')) {
+    userData.queue[e.target.dataset.id] = filmName.textContent;
+    firebase.delQueue();
+    if (libraryBtnRef.classList.contains('current')) {
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          const libDataBaseWatched = `users/${user.uid}/lib/queue/`;
+
+          get(ref(db, libDataBaseWatched))
+            .then(snapshot => {
+              if (snapshot.exists()) {
+                const ids = Object.keys(snapshot.val());
+                renderMarkupByIds(ids);
+              }
+            })
+            .catch(console.error);
+        }
+      });
+    }
+    queueModalBtn.textContent = 'Add to queue';
+  } else {
+    firebase.queue = {
+      [e.target.dataset.id]: filmName.textContent,
+    };
+
+    if (libraryBtnRef.classList.contains('current')) {
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          const libDataBaseWatched = `users/${user.uid}/lib/queue/`;
+
+          get(ref(db, libDataBaseWatched))
+            .then(snapshot => {
+              if (snapshot.exists()) {
+                const ids = Object.keys(snapshot.val());
+                renderMarkupByIds(ids);
+              }
+            })
+            .catch(console.error);
+        }
+      });
+    }
+    queueModalBtn.textContent = 'Remove';
+  }
+  queueModalBtn.classList.toggle('active');
 }
 
 //Плеєр
@@ -259,32 +398,36 @@ function iframeRender(key) {
   instance.show();
 }
 
-async function onArrowsClick(e) {
+// slider functions
+function slider(e) {
   if (e.code === 'ArrowRight') {
     if (ids.indexOf(modalId) === ids.length - 1) return;
-
-    const filmImg = document.querySelector('.film__image');
-    const filmInfo = document.querySelector('.film__information');
-    filmImg.remove();
-    filmInfo.remove();
-
     filmsApi.id = ids[ids.indexOf(modalId) + 1];
-    const film = await filmsApi.fetchMovieById();
-    modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
-    modalId = filmsApi.id;
+    onArrowsKeydown();
   }
 
   if (e.code === 'ArrowLeft') {
     if (ids.indexOf(modalId) === 0) return;
-
-    const filmImg = document.querySelector('.film__image');
-    const filmInfo = document.querySelector('.film__information');
-    filmImg.remove();
-    filmInfo.remove();
-
     filmsApi.id = ids[ids.indexOf(modalId) - 1];
-    const film = await filmsApi.fetchMovieById();
-    modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
-    modalId = filmsApi.id;
+    onArrowsKeydown();
   }
+}
+
+async function onArrowsKeydown() {
+  const filmImg = document.querySelector('.film__image');
+  const filmInfo = document.querySelector('.film__information');
+  filmImg.remove();
+  filmInfo.remove();
+
+  const film = await filmsApi.fetchMovieById();
+  modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
+  modalId = filmsApi.id;
+
+  const watchedModalBtn = document.querySelector('.btn__watch');
+  const queueModalBtn = document.querySelector('.btn__queue');
+  const youtubeBtn = document.querySelector('.film__trailer__btn');
+
+  watchedModalBtn.addEventListener('click', onWatchedModalBtnClick);
+  queueModalBtn.addEventListener('click', onQueueModalBtnClick);
+  youtubeBtn.addEventListener('click', onYoutubeBtnClick);
 }

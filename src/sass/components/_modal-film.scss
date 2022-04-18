@@ -149,6 +149,12 @@
   }
 }
 
+.film__button.active {
+  background-color: #ff6b08;
+  color: #ffffff;
+  border: 1px solid #ff6b08;
+}
+
 .film__button:first-child {
   margin-right: 15px;
 }
@@ -242,68 +248,77 @@
 }
 
 //dark theme
-body.dark__theme .modal__container{
+body.dark__theme .modal__container {
   background-color: var(--second-dark-bg-color);
-  .film__title{
+  .film__title {
     color: var(--accent-color);
   }
-  .film__details{
+  .film__details {
     color: var(--white-text-color);
   }
-  .film__rating--orange{
+  .film__rating--orange {
     color: var(--main-text-color);
     font-weight: 900;
   }
-  .film__info--uper,.film__about__title,.film__about__text,.film__trailer__text,.film__info{
+  .film__info--uper,
+  .film__about__title,
+  .film__about__text,
+  .film__trailer__text,
+  .film__info {
     color: var(--second-text-color);
   }
-  .film__details~p{
+  .film__details ~ p {
     color: var(--second-text-color);
   }
-  .fa-youtube::before{
-    color:#a90606;
+  .fa-youtube::before {
+    color: #a90606;
   }
-  .film__trailer__btn:hover .fa-youtube::before{
-    color:var(--main-text-color);
+  .film__trailer__btn:hover .fa-youtube::before {
+    color: var(--main-text-color);
   }
-  .film__trailer__btn{
+  .film__trailer__btn {
     border-color: var(--second-text-color);
-    &:hover, &:hover .film__trailer__text{
-      border:transparent;
-      color:white;
+    &:hover,
+    &:hover .film__trailer__text {
+      border: transparent;
+      color: white;
     }
   }
-  // .closeModal::before,.closeModal::after{
-  //   background-color: var(--white-text-color);
-  // }
+
+  .closeModal::before,
+  .closeModal::after {
+    background-color: var(--white-text-color);
+  }
 }
 
 //плеєр
-iframe{
+iframe {
   position: relative;
   min-width: 50vw;
   height: 60vh;
 }
-#youtube-close-btn{
-  position:absolute;
+
+#youtube-close-btn {
+  position: absolute;
   width: 48px;
   background-color: transparent;
   border: transparent;
-  z-index:2;
-  top:-47px;
-  right:-10px;
-    .fa-regular{
-      width: 35px;
-      height: 35px;
-      color: var(--second-text-color);
-      border-radius: 50%;
-      font-size: 30px;
-      &:hover, &:focus{
-        color:var(--accent-color);
-        cursor: pointer;
-      }
+  z-index: 2;
+  top: -47px;
+  right: -10px;
+  .fa-regular {
+    width: 35px;
+    height: 35px;
+    color: var(--second-text-color);
+    border-radius: 50%;
+    font-size: 30px;
+    &:hover,
+    &:focus {
+      color: var(--accent-color);
+      cursor: pointer;
     }
+  }
 }
-.basicLightbox.basicLightbox--visible{
-  background-color:rgba(0, 0, 0, 0.9) ;
+.basicLightbox.basicLightbox--visible {
+  background-color: rgba(0, 0, 0, 0.9);
 }
