@@ -1,12 +1,6 @@
-import { API_service } from './apiSevice';
-import renderFilmsMarkup from '../js/templates/renderFilmsMarkup';
-import {updatePagination} from './pagination'
 
-const filmsApi = new API_service();
+import { createHomePagination } from './pagination';
+import renderFilmsMarkup from './templates/renderFilmsMarkup';
 
-filmsApi.fetchTrending(true)
-        .then((data) => {
-          renderFilmsMarkup(data.results);
-          updatePagination(data.total_results)
-        })
-        .catch(console.log);
+createHomePagination(renderFilmsMarkup);
+

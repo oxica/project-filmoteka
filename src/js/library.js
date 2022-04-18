@@ -7,7 +7,8 @@ import renderFilmsMarkup from './templates/renderFilmsMarkup';
 import dataStorage from './userService/data-storage';
 import { resetErrorStyles } from './search';
 import { addErrorStyles } from './search';
-import {updatePagination} from './pagination'
+import { createLibraryPagination, createHomePagination } from './pagination';
+
 
 const app = initializeApp(FIREBASECFG);
 const db = getDatabase(app);
@@ -24,7 +25,6 @@ const homeBtnRef = document.querySelector('.btn1');
 const libraryBtnRef = document.querySelector('.btn2');
 const watchedBtnRef = document.querySelector('.watched');
 const queueBtnRef = document.querySelector('.queue');
-const galleryRef = document.querySelector('.gallery');
 const filmsList = document.querySelector('.films');
 
 homeBtnRef.addEventListener('click', onHomeBtnClick);
@@ -32,13 +32,11 @@ libraryBtnRef.addEventListener('click', onMyLibraryBtnClick);
 queueBtnRef.addEventListener('click', onQueueBtnClick);
 watchedBtnRef.addEventListener('click', onWatchedBtnClick);
 
+
 async function onHomeBtnClick() {
   try {
     resetErrorStyles();
-    filmsApi.page = 1;
-    const data = await filmsApi.fetchTrending(true);
-    renderFilmsMarkup(data.results);
-    updatePagination(data.total_results)
+    createHomePagination(renderFilmsMarkup);   
     watchedBtnRef.classList.remove('header__library-buttons-button--active');
   } catch (error) {
     console.log(error);
@@ -63,8 +61,8 @@ function onWatchedBtnClick() {
           if (snapshot.exists()) {
             resetErrorStyles();
             const ids = Object.values(snapshot.val());
-            renderMarkupByIds(ids);
-            updatePagination(ids.length)
+         
+            createLibraryPagination(ids, renderMarkupByIds)
           } else {
             filmsList.innerHTML = '';
             addErrorStyles();
@@ -94,8 +92,8 @@ function onQueueBtnClick() {
         .then(snapshot => {
           if (snapshot.exists()) {
             resetErrorStyles();
-            const ids = Object.values(snapshot.val());
-            renderMarkupByIds(ids);
+            const ids = Object.values(snapshot.val());     
+            createLibraryPagination(ids, renderMarkupByIds);
           } else {
             filmsList.innerHTML = '';
             addErrorStyles();
@@ -106,7 +104,7 @@ function onQueueBtnClick() {
           console.error(error);
         });
     }
-  });
+  }); 
 }
 
 async function renderMarkupByIds(ids) {
