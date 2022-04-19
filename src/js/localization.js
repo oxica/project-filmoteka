@@ -94,7 +94,7 @@ const langArr = {
     },
       "choose": {
         "en": "Choose genre",
-        "uk": "Виберіть жанр"
+        "uk": "Оберіть жанр"
     },
       "mistake": {
         "en": "Oops, films not found!",
