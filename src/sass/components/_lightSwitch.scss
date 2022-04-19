@@ -5,6 +5,9 @@
     position: absolute;
     right: 85px;
     top: 175px;
+    @media screen and (max-width:768px){
+      right: 55px;
+    }
   }
   
   .theme__switch-wrapper span {
@@ -55,7 +58,7 @@
   }
   
   input:checked + .slider::before {
-    @media screen and (min-width:768px){
+    @media screen and (min-width:769px){
       transform: translateX(16px);
     }
 
