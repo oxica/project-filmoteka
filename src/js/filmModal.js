@@ -7,6 +7,8 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { FIREBASECFG } from './userService/firebase-cfg';
 import renderMarkupByIds from './library';
+import { addErrorStyles } from './search';
+import { resetErrorStyles } from './search';
 
 const app = initializeApp(FIREBASECFG);
 const db = getDatabase(app);
@@ -276,6 +278,9 @@ function onWatchedModalBtnClick(e) {
               if (snapshot.exists()) {
                 const ids = Object.keys(snapshot.val());
                 renderMarkupByIds(ids);
+              } else {
+                filmsListRef.innerHTML = '';
+                addErrorStyles();
               }
             })
             .catch(console.error);
@@ -296,6 +301,7 @@ function onWatchedModalBtnClick(e) {
             .then(snapshot => {
               if (snapshot.exists()) {
                 const ids = Object.keys(snapshot.val());
+                resetErrorStyles();
                 renderMarkupByIds(ids);
               }
             })
@@ -332,6 +338,9 @@ function onQueueModalBtnClick(e) {
               if (snapshot.exists()) {
                 const ids = Object.keys(snapshot.val());
                 renderMarkupByIds(ids);
+              } else {
+                filmsListRef.innerHTML = '';
+                addErrorStyles();
               }
             })
             .catch(console.error);
@@ -353,6 +362,7 @@ function onQueueModalBtnClick(e) {
             .then(snapshot => {
               if (snapshot.exists()) {
                 const ids = Object.keys(snapshot.val());
+                resetErrorStyles();
                 renderMarkupByIds(ids);
               }
             })
@@ -435,4 +445,35 @@ async function onArrowsKeydown() {
   watchedModalBtn.addEventListener('click', onWatchedModalBtnClick);
   queueModalBtn.addEventListener('click', onQueueModalBtnClick);
   youtubeBtn.addEventListener('click', onYoutubeBtnClick);
+
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      const libDataBaseWatched = `users/${user.uid}/lib/watched/`;
+      const libDataBaseQueue = `users/${user.uid}/lib/queue/`;
+
+      get(ref(db, libDataBaseWatched))
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            const ids = Object.keys(snapshot.val());
+            if (ids.includes(filmsApi.id)) {
+              watchedModalBtn.classList.add('active');
+              watchedModalBtn.textContent = 'Remove';
+            }
+          }
+        })
+        .catch(console.error);
+
+      get(ref(db, libDataBaseQueue))
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            const ids = Object.keys(snapshot.val());
+            if (ids.includes(filmsApi.id)) {
+              queueModalBtn.classList.add('active');
+              queueModalBtn.textContent = 'Remove';
+            }
+          }
+        })
+        .catch(console.error);
+    }
+  });
 }
