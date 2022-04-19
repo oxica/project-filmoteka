@@ -52,8 +52,20 @@
 
   & > img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
+
+/*ЗАБРАТИ НИЖНЫЙ МАРДЖИН ОСТАННЬОГО ЕЛЕМЕНТА СПИСКА*/
+
+.film__information div:first-child{
+  margin-bottom:20px;
+    .film__item:last-child{
+      margin-bottom:0;
+    }
+}
+
 
 .films__description {
   padding: 10px 5px 2px;
