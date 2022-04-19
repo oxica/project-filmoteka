@@ -57,6 +57,7 @@ async function onFilmCardClick(e) {
     youtubeBtn.addEventListener('click', onYoutubeBtnClick);
 
     // slider
+    ids.length = 0;
     modalId = e.target.closest('li').dataset.id;
     const items = document.querySelectorAll('.films__item');
     items.forEach(({ dataset }) => {
@@ -368,8 +369,7 @@ function onQueueModalBtnClick(e) {
     }
     if (lng === 'en') {
       queueModalBtn.textContent = 'Remove';
-    }
-    else {
+    } else {
       queueModalBtn.textContent = 'Видалити';
     }
   }
