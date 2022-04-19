@@ -93,8 +93,8 @@ const langArr = {
         "uk": "Київ, вул. Є. Коновальця 36-Е"
     },
       "choose": {
-        "en": "Choose your genre",
-        "uk": "Виберіть свій жанр"
+        "en": "Choose genre",
+        "uk": "Виберіть жанр"
     },
       "mistake": {
         "en": "Oops, films not found!",
