@@ -360,7 +360,7 @@ function onQueueModalBtnClick(e) {
       queueModalBtn.textContent = 'Remove';
     }
     else {
-      queueModalBtn.textContent = 'Видаляти';
+      queueModalBtn.textContent = 'Видалити';
     }
   }
   queueModalBtn.classList.toggle('active');
