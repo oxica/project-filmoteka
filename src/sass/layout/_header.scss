@@ -386,13 +386,14 @@
   display: none;
 }
 .header__genre .choices {
-  width: 95px;
+  width: 117px;
   font-size: 12px;
   margin-left: 20px;
   border-radius: 8px;
   background-color: #000000;
   color: #000000;
   height: 35px;
+  
 }
 
 .choices__list.choices__list--single {
@@ -446,7 +447,7 @@
   padding: 10px 10px 10px 8px;
 }
 .header__genre .choices__inner {
-  padding: 0 5px 0 5px;
+  padding: 5px 5px 0 5px;
   text-align: center;
 }
 .header__genre .choices[data-type*=select-one]::after {
