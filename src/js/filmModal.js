@@ -360,7 +360,12 @@ function onQueueModalBtnClick(e) {
         }
       });
     }
-    queueModalBtn.textContent = 'Remove';
+    if (lng === 'en') {
+      queueModalBtn.textContent = 'Remove';
+    }
+    else {
+      queueModalBtn.textContent = 'Видаляти';
+    }
   }
   queueModalBtn.classList.toggle('active');
 }
