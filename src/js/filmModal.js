@@ -154,9 +154,7 @@ function makeFilmModalMarkup({
       <div class="film__trailer">
         <a class="btn btn-large btn-primary film__trailer__btn" href="#">
           <i class="fa-brands fa-youtube fa-3x"></i>
-          <div class="film__trailer__text__wrapper">
-            <p class="film__trailer__text">watch trailer</p>
-          </div>
+          <p class="film__trailer__text">watch trailer</p>
         </a>
       </div>
       </div>`;
@@ -218,9 +216,7 @@ function makeFilmModalMarkupUk({
       <div class="film__trailer">
         <a class="btn btn-large btn-primary film__trailer__btn" href="#">
           <i class="fa-brands fa-youtube fa-3x"></i>
-          <div class="film__trailer__text__wrapper">
-            <p class="film__trailer__text">дивитись трейлер</p>
-          </div>
+          <p class="film__trailer__text">дивитись трейлер</p>
         </a>
       </div>
       </div>`;

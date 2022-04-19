@@ -208,14 +208,10 @@
 
 .film__trailer__btn {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  padding: 6px 12px;
   align-items: center;
   border: 1px solid #000000;
   border-radius: 5px;
-  width: auto;
-  height: 44px;
-  padding-bottom: 5px;
   cursor: pointer;
   text-transform: uppercase;
   transition: all 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
@@ -226,22 +222,12 @@
     border: 1px solid #ff6b08;
   }
 }
-.film__trailer__text__wrapper {
-  display: flex;
-  padding-top: 5px;
-  margin-left: 10px;
-}
-
 .film__trailer__text {
   // padding-top: 9px;
-  padding-left: 5px;
-  padding-right: 5px;
-  display: flex;
-  align-items: center;
+  margin-left: 10px;
   font-family: Roboto, sans-serif;
   font-weight: 500;
   font-style: normal;
-  cursor: pointer;
   text-transform: uppercase;
   line-height: 1.15;
   text-align: center;
