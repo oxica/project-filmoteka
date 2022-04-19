@@ -141,33 +141,4 @@ body.dark__theme {
     }
   }
 }
-.choices {
-  width: 200px;
-  font-size: 14px;
-  margin-left: 20px;
-  border-radius: 8px;
-  background-color: #000000;
-  color: #000000;
-}
 
-.choices__list.choices__list--single {
-  background-color: white;
-}
-
-.choices__inner {
-  background-color: white;
-}
-
-.choices__list--dropdown .choices__item--selectable.is-highlighted,
-.choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
-  background-color: #ff6b08;
-  color: white;
-}
-
-.choices__list--dropdown {
-  height: 300px;
-}
-
-main .choices {
-  display: none;
-}
