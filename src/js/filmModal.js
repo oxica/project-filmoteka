@@ -264,6 +264,9 @@ function onWatchedModalBtnClick(e) {
     userData.watched[e.target.dataset.id] = filmName.textContent;
     firebase.delWatched();
     watchedModalBtn.textContent = 'Add to watched';
+    if (lng === "uk") {
+      watchedModalBtn.textContent = 'Додати до переглянутого'
+    }
 
     if (libraryBtnRef.classList.contains('current')) {
       onAuthStateChanged(auth, user => {
@@ -308,6 +311,9 @@ function onWatchedModalBtnClick(e) {
     }
 
     watchedModalBtn.textContent = 'Remove';
+    if (lng === "uk") {
+        watchedModalBtn.textContent = 'Видалити'
+     }
   }
 
   watchedModalBtn.classList.toggle('active');
@@ -345,6 +351,9 @@ function onQueueModalBtnClick(e) {
       });
     }
     queueModalBtn.textContent = 'Add to queue';
+    if (lng === "uk") {
+      queueModalBtn.textContent = 'Додати до черги'
+    }
   } else {
     firebase.queue = {
       [e.target.dataset.id]: filmName.textContent,
@@ -466,6 +475,9 @@ async function onArrowsKeydown() {
             if (ids.includes(filmsApi.id)) {
               queueModalBtn.classList.add('active');
               queueModalBtn.textContent = 'Remove';
+              if (lng === 'uk') {
+                queueModalBtn.textContent = 'Видалити'
+              }
             }
           }
         })
