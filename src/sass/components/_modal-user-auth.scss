@@ -84,6 +84,11 @@
 
     opacity: 1;
     visibility: visible;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
 }
 
 .top-left {
@@ -219,4 +224,28 @@
     position: absolute;
     top: 251px;
     right: 49px;
+}
+
+.auth-modal-cross {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    // top: 88px;
+    // right: 337px;
+
+    fill: #fff;
+
+    background-color: rgba(255, 255, 255, 0.1);
+
+    border: 1px solid #fff;
+    transition: fill 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71),
+        box-shadow 300ms cubic-bezier(0.38, 0.53, 0.8, 0.71);
+
+    &:focus,
+    &:hover {
+        fill: var(--accent-color);
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 1px 1px 55px 13px rgba(255, 107, 8, 0.95);
+    }
+
 }

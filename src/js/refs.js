@@ -5,6 +5,10 @@ export const refs = {
   modalAuth: document.querySelector('.backdrop-auth'),
   authContainer: document.querySelector('.auth-container'),
 
+  closeModalBtn: document.querySelector('#close-modal-btn'),
+  closeModalCross: document.querySelector('#close-modal-cross'),
+  closeModalSvg: document.querySelector('.auth-modal__close-icon'),
+
   logInPage: document.querySelector('#log-in-page'),
   logInTab: document.querySelector('#log-in-tab'),
   logInForm: document.querySelector('#log-in-form'),

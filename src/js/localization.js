@@ -204,13 +204,13 @@ function changeURLLanguage() {
     location.reload()
 }
 function changeLanguage() {
-    let hash = window.location.hash;
-    hash = hash.substr(1);
-    if (!allLang.includes(hash)) {
-        language = localStorage.setItem('language', 'en');
-        location.href = window.location.pathname + '#en';
-        location.reload();
-    }
+    let hash = localStorage.getItem('language')
+    // hash = hash.substr(1);
+    // if (!allLang.includes(hash)) {
+    //     language = localStorage.setItem('language', 'en');
+    //     location.href = window.location.pathname + '#en';
+    //     location.reload();
+    // }
     select.value = hash;
     html.setAttribute("lang", `${hash}`)
     document.querySelector('.header__controls-item').textContent = langArr['headerLink'][hash]
@@ -239,15 +239,12 @@ function changeLanguage() {
     }
     if (hash === 'uk') {
         input.setAttribute("placeholder", "Пошук фільмів")
-        localStorage.removeItem('language', 'en');
-        localStorage.setItem('language', 'uk');
         document.querySelector('.contact__list-adress').textContent = langArr['footeradress'][hash]
         footerText.style.display = "none" 
           
     }
     else {
         input.setAttribute("placeholder", "Movie search")
-        language = localStorage.setItem('language', 'en')
        
     }
     
