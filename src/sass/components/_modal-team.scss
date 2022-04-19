@@ -126,7 +126,7 @@
         flex-basis: calc(100% / 3 - 30px);
         margin-left: 30px;
        
-        &:nth-child(-n + 6) {
+        &:nth-child(-n + 11) {
           margin-bottom: 30px;
         }
       }
@@ -187,7 +187,7 @@
 }
 
 .team__link:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 
