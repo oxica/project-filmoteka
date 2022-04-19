@@ -277,6 +277,9 @@ function onHidePswd() {
 refs.userAuth.addEventListener('click', onOpenModalAuth);
 refs.regForm.addEventListener('submit', onCreateUser);
 refs.modalAuth.addEventListener('click', onCloseModalAuth);
+refs.closeModalBtn.addEventListener('click', onCloseModalAuth);
+refs.closeModalCross.addEventListener('click', onCloseModalAuth);
+refs.closeModalSvg.addEventListener('click', onCloseModalAuth);
 document.addEventListener('keydown', onEscape);
 refs.updForm.addEventListener('submit', onUpdateUser);
 refs.updForm.addEventListener('input', onInput);
