@@ -33,7 +33,8 @@
 - організувати бібліотеку користувача, де будуть зберігатися улюблені та переглянуті фільми;
 - організувати для користувача можливість видалення фільмів з бібліотеки;
 - розробити карточку фільму з детальним описом;
-- розробити слайдер карточки фільму для перегляду попередніх/наступних карточок клавішами вліво/вправо;
+- розробити слайдер карточки фільму для перегляду попередніх/наступних карточок клавішами
+  вліво/вправо;
 - реалізувати перегляд трейлерів фільму за бажанням користувача;
 - розробити авторизацію користувача на сайті;
 - розробити зміну теми день/ніч;
@@ -92,7 +93,9 @@ GoIT academy prepared technical tasks :book:
 - develop a website for searching of popular film;
 - give to users an opportunity to search films by genre;
 - orgonize user's library for collecting favourite and watched films;
+- orgonize for user's library an opportunity to delete movie from library;
 - develop a movie card with detailed description;
+- develop a movie card's slider for next/previous card view by pushing arrow buttons (left/right);
 - implement viewing of movie trailers at the user's request;
 - develop user authorization on website;
 - develop website themes: day/night;
