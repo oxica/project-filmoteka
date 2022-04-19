@@ -2,38 +2,29 @@
   <div class="header-container container" id="tabs-1">
     <div class="header__tabs">
       <div class="header__title-panel">
-        <a href="" class="header__logo"
-          ><svg class="icon-animation" width="30px" height="30px">
-            <use href="/images/svg/symbol-defs.svg#icon-film"></use></svg
-          ><span class="logo-title">Filmoteka</span></a
-        >
+        <a href="" class="header__logo"><svg class="icon-animation" width="30px" height="30px">
+            <use href="/images/svg/symbol-defs.svg#icon-film"></use>
+          </svg><span class="logo-title">Filmoteka</span></a>
         <!-- <span class="fa-solid fa-film fa-xl icon-animation "></span> -->
       </div>
-      <!-- <div class="header__nav" > -->
       <nav class="header__nav">
         <ul class="header__controls" data-controls>
           <li><a href="#home" class="header__controls-item btn1">Home</a></li>
           <li><a href="#mylibrary" class="header__controls-item btn2 hidden-tab">My Library</a></li>
-          <li>
-            <a id="auth" href="#registration" class="header__registration-item">
-              <svg class="header__registration-icon">
-                <use href="/images/svg/symbol-defs.svg#icon-tux"></use>
-              </svg>
-            </a>
-          </li>
         </ul>
+        <div>
+          <a id="auth" href="#registration" class="header__registration-item">
+            <svg class="header__registration-icon">
+              <use href="/images/svg/symbol-defs.svg#icon-tux"></use>
+            </svg>
+          </a>
+        </div>
       </nav>
-      <!-- </div> -->
     </div>
     <div class="header__panes" data-panes>
       <form class="pane header__pane-search-form" id="home">
         <label class="header__search-form-lab">
-          <input
-            type="text"
-            name="searchQuery"
-            placeholder="Movie search"
-            class="header__search-form-input"
-          />
+          <input type="text" name="searchQuery" placeholder="Movie search" class="header__search-form-input" />
         </label>
         <button type="submit" class="header__input-search-buttons">
           <i class="fa-solid fa-magnifying-glass icon-animation-2"></i>
@@ -68,5 +59,6 @@
         <option value="uk">UA</option>
       </select>
     </div>
+
   </div>
 </header>
