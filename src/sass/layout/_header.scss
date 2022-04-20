@@ -384,7 +384,6 @@
 .header__genre .choices {
   width: 117px;
   font-size: 12px;
-  margin-left: 20px;
   border-radius: 8px;
   background-color: #000000;
   color: #000000;
@@ -444,18 +443,9 @@
   padding: 5px 5px 0 5px;
   text-align: center;
 }
-.header__genre .choices[data-type*='select-one']::after {
+.choices[data-type*='select-one']::after {
   content: '';
-  height: 0;
-  width: 0;
-  border-style: solid;
-  border-color: #333 transparent transparent;
-  border-width: 5px;
-  position: absolute;
-  right: 8.5px;
-  top: 30%;
-  margin-top: -2.5px;
-  pointer-events: none;
+  display: none;
 }
 
 .banner {
