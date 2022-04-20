@@ -194,6 +194,12 @@ const genrelist = {
     
     
 }
+let valueLn = localStorage.getItem('language');
+if (valueLn === null) {
+       valueLn = localStorage.setItem('language', 'en');
+        location.href = window.location.pathname + '#en';
+        location.reload();
+    }
 const select = document.querySelector('select');
 
 select.addEventListener('change', changeURLLanguage);
